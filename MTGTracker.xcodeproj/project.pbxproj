@@ -12,8 +12,10 @@
 		7F0A6ED92875CF0900E3B57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F0A6ED82875CF0900E3B57A /* Assets.xcassets */; };
 		7F0A6EDC2875CF0900E3B57A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F0A6EDB2875CF0900E3B57A /* Preview Assets.xcassets */; };
 		7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */; };
-		7F7688012878241200B9AC24 /* TwoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7688002878241200B9AC24 /* TwoPlayerView.swift */; };
 		7F7688032878314300B9AC24 /* hpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7688022878314300B9AC24 /* hpView.swift */; };
+		7F9A254F288E97680026E3EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A254E288E97680026E3EB /* .gitignore */; };
+		7F9A2551288EA2AF0026E3EB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2550288EA2AF0026E3EB /* MenuView.swift */; };
+		7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +25,10 @@
 		7F0A6ED82875CF0900E3B57A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F0A6EDB2875CF0900E3B57A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenButton.swift; sourceTree = "<group>"; };
-		7F7688002878241200B9AC24 /* TwoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPlayerView.swift; sourceTree = "<group>"; };
 		7F7688022878314300B9AC24 /* hpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hpView.swift; sourceTree = "<group>"; };
+		7F9A254E288E97680026E3EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7F9A2550288EA2AF0026E3EB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSetUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 		7F0A6EC82875CF0700E3B57A = {
 			isa = PBXGroup;
 			children = (
+				7F9A254E288E97680026E3EB /* .gitignore */,
 				7F0A6ED32875CF0700E3B57A /* MTGTracker */,
 				7F0A6ED22875CF0700E3B57A /* Products */,
 			);
@@ -78,8 +83,9 @@
 			children = (
 				7F0A6ED62875CF0700E3B57A /* ContentView.swift */,
 				7F7688022878314300B9AC24 /* hpView.swift */,
+				7F9A2550288EA2AF0026E3EB /* MenuView.swift */,
 				7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */,
-				7F7688002878241200B9AC24 /* TwoPlayerView.swift */,
+				7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F0A6EDC2875CF0900E3B57A /* Preview Assets.xcassets in Resources */,
+				7F9A254F288E97680026E3EB /* .gitignore in Resources */,
 				7F0A6ED92875CF0900E3B57A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F7688012878241200B9AC24 /* TwoPlayerView.swift in Sources */,
+				7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */,
+				7F9A2551288EA2AF0026E3EB /* MenuView.swift in Sources */,
 				7F0A6ED72875CF0700E3B57A /* ContentView.swift in Sources */,
 				7F7688032878314300B9AC24 /* hpView.swift in Sources */,
 				7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */,
