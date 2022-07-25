@@ -20,7 +20,7 @@ extension UIScreen{
 
 
 struct hpView: View {
-    var totalPlayers = 5
+    var totalPlayers = 4
 
     var body: some View {
         if totalPlayers == 2{
