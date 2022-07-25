@@ -13,51 +13,60 @@ extension UIScreen{
     static let screenSize = UIScreen.main.bounds.size
 }
 
-
-
-
-
-
-
 struct hpView: View {
     var totalPlayers = 4
-
+    var topColor1 = UIColor.yellow
+    var bottomColor1 = UIColor.black
+    var topColor2 = UIColor.yellow
+    var bottomColor2 = UIColor.black
+    var topColor3 = UIColor.yellow
+    var bottomColor3 = UIColor.black
+    var topColor4 = UIColor.yellow
+    var bottomColor4 = UIColor.black
+    
+    
     var body: some View {
-        if totalPlayers == 2{
-            VStack(spacing: 0){
-                ScreenButton(rotation: 180, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
-                ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
-            }
-        }
-        else if totalPlayers == 3{
-            VStack(spacing: 0){
+        ZStack{
+            if totalPlayers == 2{
                 VStack(spacing: 0){
-                    ScreenButton(rotation: 180, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
-                    ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
+                    ScreenButton(rotation: 180, topColor: topColor1, bottomColor: bottomColor1, idealHeight: nil)
+                    ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
+            
                 }
-                .rotationEffect(.degrees(90))
-                .scaleEffect(x: 1.1)
-                ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
+            }
+            else if totalPlayers == 3{
+                VStack(spacing: 0){
+                    VStack(spacing: 0){
+                        ScreenButton(rotation: 180, topColor: topColor1, bottomColor: bottomColor1, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
+                    }
+                    .rotationEffect(.degrees(90))
+                    .scaleEffect(x: 1.1)
+                    ScreenButton(rotation: 0, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
                 
-            }
-        }
-        else if totalPlayers == 4{
-            VStack(spacing: 0){
-                VStack(spacing: 0){
-                    ScreenButton(rotation: 180, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
-                    ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
                 }
-                .rotationEffect(.degrees(90))
+            }
+            else if totalPlayers == 4{
+                VStack(spacing: 0){
+                    VStack(spacing: 0){
+                        ScreenButton(rotation: 180, topColor: topColor1, bottomColor: bottomColor1, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
+                    }
+                    .rotationEffect(.degrees(90))
 
-                VStack(spacing: 0){
-                    ScreenButton(rotation: 180, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
-                    ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
+                    VStack(spacing: 0){
+                        ScreenButton(rotation: 180, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor: topColor4, bottomColor: bottomColor4, idealHeight: nil)
+                    }
+                    .rotationEffect(.degrees(90))
                 }
-                .rotationEffect(.degrees(90))
+                .scaleEffect(x: 1.1)
             }
-            .scaleEffect(x: 1.1)
+            Circle()
+                .fill(Color.red)
+                .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenHeight/10, alignment: .center)
         }
-        else if totalPlayers == 5{
+        if totalPlayers == 5{
             VStack(spacing: 0){
                 VStack{
                     HStack{

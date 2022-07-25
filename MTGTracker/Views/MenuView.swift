@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State var inMenus = true
+    
     var body: some View {
-        Button("Track a Game"){
-            
+        if inMenus{
+            Button("Track a Game"){
+                inMenus = false
+            }
+        }
+        else{
+            TrackerSetUp()
         }
     }
 }
