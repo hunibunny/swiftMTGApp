@@ -19,6 +19,10 @@
 		7F9A2557288EB2220026E3EB /* DropDownListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2556288EB2220026E3EB /* DropDownListView.swift */; };
 		7F9A2559288EFA730026E3EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2558288EFA730026E3EB /* Profile.swift */; };
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
+		7FAB42092892A41500B80CE9 /* NavigationStack in Frameworks */ = {isa = PBXBuildFile; productRef = 7FAB42082892A41500B80CE9 /* NavigationStack */; };
+		7FAB420B2892C57D00B80CE9 /* NavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAB420A2892C57D00B80CE9 /* NavigationStack.swift */; };
+		7FB77370289027BB00885DAA /* hpMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7736F289027BB00885DAA /* hpMenu.swift */; };
+		7FB7737428902EAD00885DAA /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7737328902EAD00885DAA /* customButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,9 @@
 		7F9A2556288EB2220026E3EB /* DropDownListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListView.swift; sourceTree = "<group>"; };
 		7F9A2558288EFA730026E3EB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		7FAB420A2892C57D00B80CE9 /* NavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
+		7FB7736F289027BB00885DAA /* hpMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hpMenu.swift; sourceTree = "<group>"; };
+		7FB7737328902EAD00885DAA /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FAB42092892A41500B80CE9 /* NavigationStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,9 +97,12 @@
 			isa = PBXGroup;
 			children = (
 				7F0A6ED62875CF0700E3B57A /* ContentView.swift */,
+				7FB7737328902EAD00885DAA /* customButton.swift */,
 				7F9A2556288EB2220026E3EB /* DropDownListView.swift */,
+				7FB7736F289027BB00885DAA /* hpMenu.swift */,
 				7F7688022878314300B9AC24 /* hpView.swift */,
 				7F9A2550288EA2AF0026E3EB /* MenuView.swift */,
+				7FAB420A2892C57D00B80CE9 /* NavigationStack.swift */,
 				7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */,
 				7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */,
 			);
@@ -123,6 +134,9 @@
 			dependencies = (
 			);
 			name = MTGTracker;
+			packageProductDependencies = (
+				7FAB42082892A41500B80CE9 /* NavigationStack */,
+			);
 			productName = MTGTracker;
 			productReference = 7F0A6ED12875CF0700E3B57A /* MTGTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +165,9 @@
 				Base,
 			);
 			mainGroup = 7F0A6EC82875CF0700E3B57A;
+			packageReferences = (
+				7FAB42072892A41500B80CE9 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */,
+			);
 			productRefGroup = 7F0A6ED22875CF0700E3B57A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -178,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB77370289027BB00885DAA /* hpMenu.swift in Sources */,
 				7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */,
 				7F9A2559288EFA730026E3EB /* Profile.swift in Sources */,
 				7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */,
@@ -185,7 +203,9 @@
 				7F0A6ED72875CF0700E3B57A /* ContentView.swift in Sources */,
 				7F7688032878314300B9AC24 /* hpView.swift in Sources */,
 				7F9A2557288EB2220026E3EB /* DropDownListView.swift in Sources */,
+				7FB7737428902EAD00885DAA /* customButton.swift in Sources */,
 				7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */,
+				7FAB420B2892C57D00B80CE9 /* NavigationStack.swift in Sources */,
 				7F0A6ED52875CF0700E3B57A /* MTGTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +407,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7FAB42072892A41500B80CE9 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matteopuc/swiftui-navigation-stack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7FAB42082892A41500B80CE9 /* NavigationStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FAB42072892A41500B80CE9 /* XCRemoteSwiftPackageReference "swiftui-navigation-stack" */;
+			productName = NavigationStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F0A6EC92875CF0700E3B57A /* Project object */;
 }

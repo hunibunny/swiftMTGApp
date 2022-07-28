@@ -14,6 +14,7 @@ extension UIScreen{
 }
 
 struct hpView: View {
+   // @Environment(\.presentationMode) var presentationMode
     var totalPlayers = 4
     var topColor1 = UIColor.yellow
     var bottomColor1 = UIColor.black
@@ -23,6 +24,7 @@ struct hpView: View {
     var bottomColor3 = UIColor.black
     var topColor4 = UIColor.yellow
     var bottomColor4 = UIColor.black
+    @State private var showHpMenu = false
     
     
     var body: some View {
@@ -62,9 +64,30 @@ struct hpView: View {
                 }
                 .scaleEffect(x: 1.1)
             }
+            if showHpMenu{
+                Rectangle()
+                    .foregroundColor(Color.black.opacity(0.5))
+                    .ignoresSafeArea()
+                VStack{
+                    HStack(){
+                        Button("Go back to menu?"){
+                            //presentationMode.wrappedValue.dismiss()
+                            print("jeje")
+                        }
+                        CustomButton(screenWidth: UIScreen.screenWidth)
+                    }
+                    HStack{
+                        CustomButton(screenWidth: UIScreen.screenWidth)
+                        CustomButton(screenWidth: UIScreen.screenWidth)
+                    }
+                }
+            }
             Circle()
                 .fill(Color.red)
                 .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenHeight/10, alignment: .center)
+                .onTapGesture{
+                    showHpMenu = !showHpMenu
+                }
         }
         if totalPlayers == 5{
             VStack(spacing: 0){

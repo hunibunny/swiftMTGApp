@@ -7,14 +7,25 @@
 
 import SwiftUI
 
-struct customButton: View {
+struct CustomButton: View {
+    var screenWidth: CGFloat
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Rectangle()
+                .foregroundColor(Color.black.opacity(0))
+                .border(Color.blue)
+            Rectangle()
+                .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenWidth/10, alignment: .topLeading)
+        }
+        .onTapGesture {
+            print("Ehe")
+        }
     }
 }
 
-struct customButton_Previews: PreviewProvider {
+struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        customButton()
+        CustomButton(screenWidth: 100)
     }
 }
