@@ -8,7 +8,7 @@
 import SwiftUI
 
 class NavigationStack: ObservableObject {
-    let didChange = PassthroughSubject<Void, Error> where Failure : Error
+    let didChange = PassthroughSubject<Void, Failure> where Failure : Error
 
     var list: [AuthState] = []
 
