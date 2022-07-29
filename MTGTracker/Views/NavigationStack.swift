@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class NavigationStack: ObservableObject {
-    let didChange = PassthroughSubject<Void, Failure> where Failure : Error
+    let didChange = PassthroughSubject<Void, Never>()
 
     var list: [AuthState] = []
 
@@ -23,19 +24,18 @@ class NavigationStack: ObservableObject {
 }
 
 enum AuthState {
-    case mainScreenState
-    case userNameScreen
-    case logginScreen
-    case emailScreen
-    case passwordScreen
+    case MenuView
+    case HpView
+    case TrackerSetUp
 }
+
 struct NavigationRoot : View {
     @EnvironmentObject var state: NavigationStack
     @State private var aligment = Alignment.leading
 
     fileprivate func CurrentView() -> some View {
         switch state.list.last {
-        case .mainScreenState:
+        case .MenuView:
             return AnyView(MenuView())
         case .none:
             return AnyView(TrackerSetUp().environmentObject(state))
@@ -57,7 +57,7 @@ struct NavigationRoot : View {
                         switch self.state.list.last {
                         case .none:
                                 self.aligment = Alignment.leading
-                        case .passwordScreen:
+                        case .HpView:
                                 self.aligment = Alignment.trailing
                         default:
                                 self.aligment = Alignment.center
@@ -74,7 +74,7 @@ struct ExampleOfAddingNewView: View {
 @EnvironmentObject var state: NavigationStack
 var body: some View {
         VStack {
-            Button(action:{ self.state.push(state: .emailScreen) }){
+            Button(action:{ self.state.push(state: .HpView) }){
             Text("Tap me")
         }
 
@@ -93,3 +93,4 @@ struct ExampleOfRemovingView: View {
         }
     }
 }
+

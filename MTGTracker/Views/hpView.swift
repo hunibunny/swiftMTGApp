@@ -15,6 +15,7 @@ extension UIScreen{
 
 struct hpView: View {
    // @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var state: NavigationStack
     var totalPlayers = 4
     var topColor1 = UIColor.yellow
     var bottomColor1 = UIColor.black
