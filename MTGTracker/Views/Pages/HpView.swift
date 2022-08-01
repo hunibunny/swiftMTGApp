@@ -13,7 +13,7 @@ extension UIScreen{
     static let screenSize = UIScreen.main.bounds.size
 }
 
-struct hpView: View {
+struct HpView: View {
    // @Environment(\.presentationMode) var presentationMode
 //    @EnvironmentObject var state: NavigationStack
     var totalPlayers = 4
@@ -117,8 +117,8 @@ struct hpView: View {
     }
 }
 
-struct hpView_Previews: PreviewProvider {
+struct HpView_Previews: PreviewProvider {
     static var previews: some View {
-        hpView()
+        HpView()
     }
 }

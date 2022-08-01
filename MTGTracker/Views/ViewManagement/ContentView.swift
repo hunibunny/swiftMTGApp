@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 
 struct AddANewView: View {
 //    @EnvironmentObject var state: NavigationStack
@@ -22,18 +23,28 @@ struct AddANewView: View {
       //      Button(action: {print(self.state.list)}){
             Text("Button")
             }
-        }
+    //    }
 
-    }
+  //  }
 }
-
+*/
 
 
 struct ContentView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     //@EnvironmentObject var state: NavigationStack
     //@StateObject var state = NavigationStack()
     var body: some View {
-        Text("ContentView")
+        switch viewRouter.currentPage{
+        case .menuView:
+            MenuView()
+        case .trackerSetUp:
+            TrackerSetUp()
+        case .hpView:
+            HpView()
+        case .none:
+            MenuView()
+        }
     //    AddANewView()
      //       .environmentObject(NavigationStack())
       //  NavigationRoot()
@@ -47,7 +58,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ViewRouter())
         
     }
 }
