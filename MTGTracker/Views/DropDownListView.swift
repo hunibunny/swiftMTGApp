@@ -9,7 +9,11 @@
 /*
 import SwiftUI
 
-
+ .contextMenu {
+     Button("Cut", action: cut)
+     Button("Copy", action: copy)
+     Button("Paste", action: paste)
+ }
 
 struct Dropdown: View {
     var options: [DropdownOption]

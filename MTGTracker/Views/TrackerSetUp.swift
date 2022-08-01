@@ -10,6 +10,12 @@ import SwiftUI
 struct TrackerSetUp: View {
     var body: some View {
         Text("OwO")
+            .onAppear(){
+                print("displaying tracker setup")
+            }
+       // Button(action: {NavigationRoot()}){
+         //   Text("test button")
+        //}
     }
 }
 

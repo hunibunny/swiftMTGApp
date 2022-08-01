@@ -7,25 +7,26 @@
 
 import SwiftUI
 import Combine
-
+/*
 class NavigationStack: ObservableObject {
-    let didChange = PassthroughSubject<Void, Never>()
+    @Published var didChange = PassthroughSubject<Void, Never>()
+    //let didChange = PassthroughSubject<Void, Never>()
 
     var list: [AuthState] = []
 
     public func push(state: AuthState) {
         list.append(state)
-        didChange.send()
+       // didChange.send()
     }
     public func pop() {
         list.removeLast()
-        didChange.send()
+      //  didChange.send()
     }
 }
 
 enum AuthState {
     case MenuView
-    case HpView
+    case hpView
     case TrackerSetUp
 }
 
@@ -37,6 +38,8 @@ struct NavigationRoot : View {
         switch state.list.last {
         case .MenuView:
             return AnyView(MenuView())
+        case .hpView:
+            return AnyView(hpView())
         case .none:
             return AnyView(TrackerSetUp().environmentObject(state))
         default:
@@ -45,7 +48,7 @@ struct NavigationRoot : View {
     }
     var body: some View {
     GeometryReader { geometry in
-        self.CurrentView()
+        self.CurrentView()/*
             .background(Image("background")
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
@@ -53,6 +56,7 @@ struct NavigationRoot : View {
                        alignment: self.aligment))
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
+                    print("displaying navigationroot")
                     withAnimation() {
                         switch self.state.list.last {
                         case .none:
@@ -66,6 +70,8 @@ struct NavigationRoot : View {
                 }
             }
         .background(Color.black)
+        */
+    }
     }
 
 }
@@ -74,7 +80,7 @@ struct ExampleOfAddingNewView: View {
 @EnvironmentObject var state: NavigationStack
 var body: some View {
         VStack {
-            Button(action:{ self.state.push(state: .HpView) }){
+            Button(action:{ self.state.push(state: .hpView) }){
             Text("Tap me")
         }
 
@@ -94,3 +100,4 @@ struct ExampleOfRemovingView: View {
     }
 }
 
+*/

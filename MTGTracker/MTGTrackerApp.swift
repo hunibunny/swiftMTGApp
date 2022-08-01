@@ -12,6 +12,7 @@ struct MTGTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            //NavigationRoot()
         }
     }
 }

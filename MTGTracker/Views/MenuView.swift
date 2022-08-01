@@ -112,7 +112,7 @@ extension UINavigationController {
 }*/
 
 struct MenuView: View {
-    @EnvironmentObject var state: NavigationStack
+ //   @EnvironmentObject var state: NavigationStack
     @State var inMenus = true
    // MenuView().environmentObject(NavigationStack)
   /*
@@ -122,9 +122,10 @@ struct MenuView: View {
     */
     var body: some View {
         VStack{
-            Button(action:{ self.state.push(state: .HpView) }){
-                Text("Tap me")
-            }
+       //     NavigationRoot()
+        }
+        .onAppear(){
+            print("displaying MenuView")
         }
     }
 }
