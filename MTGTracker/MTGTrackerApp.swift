@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct MTGTrackerApp: App {
+    @StateObject var viewRouter = ViewRouter()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            //NavigationRoot()
+            ContentView().environmentObject(viewRouter)
         }
     }
 }

@@ -14,8 +14,7 @@ extension UIScreen{
 }
 
 struct HpView: View {
-   // @Environment(\.presentationMode) var presentationMode
-//    @EnvironmentObject var state: NavigationStack
+    @EnvironmentObject var viewRouter: ViewRouter
     var totalPlayers = 4
     var topColor1 = UIColor.yellow
     var bottomColor1 = UIColor.black
@@ -71,10 +70,7 @@ struct HpView: View {
                     .ignoresSafeArea()
                 VStack{
                     HStack(){
-                        Button("Go back to menu?"){
-                            //presentationMode.wrappedValue.dismiss()
-                            print("jeje")
-                        }
+                        Button("Go back to menu", action: {viewRouter.currentPage = .menuView})
                         CustomButton(screenWidth: UIScreen.screenWidth)
                     }
                     HStack{

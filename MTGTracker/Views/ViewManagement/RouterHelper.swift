@@ -7,8 +7,13 @@
 
 import Foundation
 
-enum Page{
+enum Page: CaseIterable{
     case menuView
     case trackerSetUp
     case hpView
+    case profileView
+    case friendList
 }
+
+let numberOfPages = Page.allCases.count
+let allPages = Page.allCases
