@@ -12,17 +12,16 @@ struct ProfileSpot: View{
     @State var profileName = "Choose a player"
     var body: some View {
         Menu(profileName){
-            ForEach(1...$viewRouter.avaibleFriends.count, id: \.self){playerNumberInList in
+            ForEach(1...$viewRouter.avaibleFriends.count, id: \.self){index in
                 Button(action: {
-                    viewRouter.avaibleFriends.remove(at: playerNumberInList-1)
-                    if profileName != "Choose a player"{
-                        viewRouter.avaibleFriends.append(profileName)
-                    }
-                    //profileName =
-                    print(viewRouter._avaibleFriends.wrappedValue)//[playerNumberInList-1])
+                    viewRouter.avaibleFriends.remove(at: index-1)
+                    print(viewRouter.avaibleFriends[index-1])
+                    print($viewRouter.avaibleFriends.count)
+                    viewRouter.avaibleFriends.append(profileName)
+                    profileName = viewRouter.avaibleFriends[index-1]
 
                 }, label: {
-                    Text(String(viewRouter.avaibleFriends[playerNumberInList-1]))
+                    Text(String(viewRouter.avaibleFriends[index-1]))
                 })
             }
         }
