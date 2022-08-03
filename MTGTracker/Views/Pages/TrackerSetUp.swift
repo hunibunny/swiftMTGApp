@@ -24,9 +24,7 @@ struct TrackerSetUp: View {
             HStack{
                 if ammountOfPlayers > 0{
                     ForEach(1...ammountOfPlayers, id: \.self){player in
-                        Text("Profile")
-                            .foregroundColor(Color.white)
-                            .background(Rectangle().fill(Color.black))
+                        ProfileSpot()
                     }
                 }
             }

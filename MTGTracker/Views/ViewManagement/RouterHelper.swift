@@ -15,5 +15,4 @@ enum Page: CaseIterable{
     case friendList
 }
 
-let numberOfPages = Page.allCases.count
-let allPages = Page.allCases
+
