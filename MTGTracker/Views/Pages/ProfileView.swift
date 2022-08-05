@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-        Text("This is where the profile is")
+        Text(viewRouter.profile.username)
+        HStack{
+            Image("capybara")
+                .resizable()
+                .frame(maxHeight: 200)
+            ScreenButton(rotation: 0, topColor: UIColor.magenta, bottomColor: UIColor.cyan, idealHeight: nil)
+        }
     }
 }
 

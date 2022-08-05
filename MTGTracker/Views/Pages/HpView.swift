@@ -16,14 +16,14 @@ extension UIScreen{
 struct HpView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     var totalPlayers = 4
-    var topColor1 = UIColor.yellow
-    var bottomColor1 = UIColor.black
-    var topColor2 = UIColor.yellow
-    var bottomColor2 = UIColor.black
-    var topColor3 = UIColor.yellow
-    var bottomColor3 = UIColor.black
-    var topColor4 = UIColor.yellow
-    var bottomColor4 = UIColor.black
+    var topColor1 = UIColor.cyan
+    var bottomColor1 = UIColor.magenta
+    var topColor2 = UIColor.cyan
+    var bottomColor2 = UIColor.magenta
+    var topColor3 = UIColor.cyan
+    var bottomColor3 = UIColor.magenta
+    var topColor4 = UIColor.cyan
+    var bottomColor4 = UIColor.magenta
     @State private var showHpMenu = false
     
     
@@ -55,6 +55,7 @@ struct HpView: View {
                         ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
+                    //.scaleEffect(x: 1.1)
 
                     VStack(spacing: 0){
                         ScreenButton(rotation: 180, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
@@ -84,6 +85,9 @@ struct HpView: View {
                 .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenHeight/10, alignment: .center)
                 .onTapGesture{
                     showHpMenu = !showHpMenu
+                }
+                .onAppear{
+                    print()
                 }
         }
         .onAppear(){
