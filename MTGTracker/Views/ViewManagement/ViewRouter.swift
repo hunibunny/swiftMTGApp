@@ -14,7 +14,7 @@ class ViewRouter: ObservableObject{
     @Published var profile = Profile(username: "Beb")
     @Published var avaibleFriends: Array<String> = ["Anna", "Ben", "Cassandra", "Daniel"]
     @Published var chosenFriends: Array<String> = []
-    
+    @Published var chosenFriend = "No one"
 }
 
 

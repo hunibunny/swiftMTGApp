@@ -25,8 +25,8 @@ struct HpView: View {
     var topColor4 = UIColor.cyan
     var bottomColor4 = UIColor.magenta
     @State private var showHpMenu = false
-    
-    
+    @State var chosenRandomStarter = "Choose a random starter"
+    @State var displayDices = false
     var body: some View {
         ZStack{
             if totalPlayers == 2{
@@ -72,10 +72,15 @@ struct HpView: View {
                 VStack{
                     HStack(){
                         Button("Go back to menu", action: {viewRouter.currentPage = .menuView})
-                        CustomButton(screenWidth: UIScreen.screenWidth)
+                        Button(chosenRandomStarter, action:{chosenRandomStarter = viewRouter.chosenFriends.randomElement() ?? "No players to choose from"})
                     }
                     HStack{
-                        CustomButton(screenWidth: UIScreen.screenWidth)
+                        VStack{
+                            Button("Throw a dice", action:{displayDices = true})
+                            if(displayDices){
+                                DiceView()
+                            }
+                        }
                         CustomButton(screenWidth: UIScreen.screenWidth)
                     }
                 }

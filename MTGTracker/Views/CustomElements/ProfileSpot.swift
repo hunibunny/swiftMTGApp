@@ -9,25 +9,39 @@ import SwiftUI
 
 struct ProfileSpot: View{
     @EnvironmentObject var viewRouter: ViewRouter
-    @State var profileName = "Choose a player"
- //   @State private var avaibleFriends: Array<String> = []
-   // @State private var chosenFriends: Array<String> = []
+    @State var chosenFriend = "Choose a player"
     
-    var body: some View {
-        Menu(profileName){
-            ForEach(1..<$viewRouter.avaibleFriends.count, id: \.self){index in
+    @State var avaibleFriendsForMe: Array<String> = []
+    
+    init(){
+        self.avaibleFriendsForMe = avaibleFriendsForMe
+    }
+    
+    var body: some View{
+        Menu(chosenFriend){
+            ForEach(0..<self.avaibleFriendsForMe.count, id: \.self){index in
                 Button(action: {
-                    if(self.viewRouter.chosenFriends == []){
-                        self.viewRouter.avaibleFriends.append(profileName)
+                    print(self.avaibleFriendsForMe[index])
+                    chosenFriend = self.avaibleFriendsForMe[index]
+                    if(self.chosenFriend.count == 0){
+                        self.avaibleFriendsForMe.append("Choose a player")
                     }
-                    profileName = self.viewRouter.avaibleFriends[index-1]
-                    let indexOfRemovedName = self.viewRouter.avaibleFriends.firstIndex(of: profileName)
-                    self.viewRouter.avaibleFriends.remove(at: indexOfRemovedName ?? 0)
-                    self.viewRouter.chosenFriends.append(profileName)
+                    if(!viewRouter.chosenFriends.contains(chosenFriend)){
+                        viewRouter.chosenFriends.append(chosenFriend)
+                        print(viewRouter.chosenFriends)
+                        viewRouter.chosenFriend = chosenFriend
+                    }
+                    if(self.avaibleFriendsForMe.contains(chosenFriend)){
+                        let indexOfRemovedName = self.avaibleFriendsForMe.firstIndex(of: chosenFriend)
+                        self.avaibleFriendsForMe.remove(at: indexOfRemovedName ?? 0)
+                    }
                 }, label: {
-                    Text(String(self.viewRouter.avaibleFriends[index-1]))
+                    Text(String(self.avaibleFriendsForMe[index]))
                 })
             }
+        }
+        .onAppear{
+            self.avaibleFriendsForMe = viewRouter.avaibleFriends
         }
     }
 }
@@ -44,5 +58,29 @@ struct ProfileSpot_Previews: PreviewProvider {
      print("Index of '\(e)' is \(index).")
  } else {
      print("Element is not present in the array.")
+ }
+ */
+
+/*
+ Menu(chosenFriend){
+     ForEach(0..<$viewRouter.avaibleFriends.count, id: \.self){index in
+         Button(action: {
+             print(viewRouter.avaibleFriends)
+             chosenFriend = self.viewRouter.avaibleFriends[index]
+             if(viewRouter.chosenFriends.count == 0){
+                 viewRouter.avaibleFriends.append("Choose a player")
+             }
+             if(!viewRouter.chosenFriends.contains(chosenFriend)){
+                 viewRouter.chosenFriends.append(chosenFriend)
+                 print(viewRouter.chosenFriends)
+             }
+             if(viewRouter.avaibleFriends.contains(chosenFriend)){
+                 let indexOfRemovedName = viewRouter.avaibleFriends.firstIndex(of: chosenFriend)
+                 viewRouter.avaibleFriends.remove(at: indexOfRemovedName ?? 0)
+             }
+         }, label: {
+             Text(String(viewRouter.avaibleFriends[index]))
+         })
+     }
  }
  */

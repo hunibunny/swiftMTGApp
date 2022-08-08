@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-
 struct TrackerSetUp: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var ammountOfPlayers = 0
     @State private var format = "Choose format"
     @State var presentPopup = false
+    @State var friendDictionary: Dictionary<String, Int> = [:]
     var body: some View {
         VStack{
             Text("Game settings")
@@ -23,8 +23,10 @@ struct TrackerSetUp: View {
             }
             HStack{
                 if ammountOfPlayers > 0{
-                    ForEach(1...ammountOfPlayers, id: \.self){player in
+                    ForEach(1...ammountOfPlayers, id: \.self){index in
                         ProfileSpot()
+                        //friendDictionary[viewRouter.chosenFriend] = index-1
+
                     }
                 }
             }
@@ -40,6 +42,9 @@ struct TrackerSetUp: View {
                 Button("Pauper", action: {format = "Pauper"})
             }
             Button("Start the game", action: {viewRouter.currentPage = .hpView})
+        }
+        .onChange(of: ammountOfPlayers){newValue in 
+            
         }
     }
 }
