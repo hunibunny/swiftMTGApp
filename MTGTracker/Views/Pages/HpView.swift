@@ -15,6 +15,7 @@ extension UIScreen{
 
 struct HpView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var profileData: ProfileData
     var totalPlayers = 4
     var topColor1 = UIColor.cyan
     var bottomColor1 = UIColor.magenta
@@ -35,6 +36,7 @@ struct HpView: View {
                     ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
             
                 }
+                .ignoresSafeArea()
             }
             else if totalPlayers == 3{
                 VStack(spacing: 0){
@@ -43,7 +45,7 @@ struct HpView: View {
                         ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
-                    .scaleEffect(x: 1.1)
+                    .scaleEffect(x: 1.2)
                     ScreenButton(rotation: 0, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
                 
                 }
@@ -55,16 +57,20 @@ struct HpView: View {
                         ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
-                    //.scaleEffect(x: 1.1)
+                    .scaleEffect(x: 1.1)
 
                     VStack(spacing: 0){
                         ScreenButton(rotation: 180, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
                         ScreenButton(rotation: 0, topColor: topColor4, bottomColor: bottomColor4, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
+                    .scaleEffect(x: 1.1)
                 }
                 .scaleEffect(x: 1.1)
+                .frame(alignment: .center)
+                
             }
+            
             if showHpMenu{
                 Rectangle()
                     .foregroundColor(Color.black.opacity(0.5))
@@ -72,7 +78,7 @@ struct HpView: View {
                 VStack{
                     HStack(){
                         Button("Go back to menu", action: {viewRouter.currentPage = .menuView})
-                        Button(chosenRandomStarter, action:{chosenRandomStarter = viewRouter.chosenFriends.randomElement() ?? "No players to choose from"})
+                        Button(chosenRandomStarter, action:{chosenRandomStarter =  profileData.profile.chosenFriends.randomElement() ?? "No players to choose from"})
                     }
                     HStack{
                         VStack{
@@ -90,9 +96,6 @@ struct HpView: View {
                 .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenHeight/10, alignment: .center)
                 .onTapGesture{
                     showHpMenu = !showHpMenu
-                }
-                .onAppear{
-                    print()
                 }
         }
         .onAppear(){

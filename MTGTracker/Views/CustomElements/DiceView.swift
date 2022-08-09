@@ -59,21 +59,54 @@ public struct Pentagon: Shape {
 }
 
 struct DiceView: View {
+    @State var fourFaceDice = 4
+    @State var sixFaceDice = 6
+    @State var eightFaceDice = 8
+    @State var tenFaceDice = 10
+    @State var twelveFaceDice = 12
+    @State var twentyFaceDice = 20
+    @State var round = 0
+    @State var diceShapes = [Triangle(), Rectangle(), Triangle(), Kite(), Pentagon(), Triangle()]
+    @State var diceNumbers = [4, 6, 8, 10, 12, 20]
+
+
     var body: some View {
         VStack{
             HStack{
-                Triangle()
-                Rectangle()
+                ZStack{
+                    Triangle()
+                    Text(String(fourFaceDice))
+                        .foregroundColor(Color.white)
+                }
+                ZStack{
+                    Rectangle()
+                    Text(String(sixFaceDice))
+                        .foregroundColor(Color.white)
+                }
             }
             HStack{
-                Triangle()
-                //here goes the kite
-                Kite()
-                //.border(Color.red)
+                ZStack{
+                    Triangle()
+                    Text(String(eightFaceDice))
+                        .foregroundColor(Color.white)
+                }
+                ZStack{
+                    Kite()
+                    Text(String(tenFaceDice))
+                        .foregroundColor(Color.white)
+                }
             }
             HStack{
-                Pentagon()
-                Triangle()
+                ZStack{
+                    Pentagon()
+                    Text(String(twelveFaceDice))
+                        .foregroundColor(Color.white)
+                }
+                ZStack{
+                    Triangle()
+                    Text(String(twelveFaceDice))
+                        .foregroundColor(Color.white)
+                }
             }
         }
     }
@@ -97,4 +130,38 @@ struct DiceView_Previews: PreviewProvider {
          .frame(alignment: .leading)
          .border(Color.red)
  }
+ 
+
+ 
+ ForEach(1...3, id: \.self){firstIndex in
+     HStack{
+         ForEach(1...2, id: \.self){secondIndex in
+             ZStack{
+                 if (round == 1 || round == 3 || round == 6){
+                     Triangle()
+                 }
+                 else if (round == 2){
+                     Rectangle()
+                 }
+                 else if(round == 4){
+                     Kite()
+                 }
+                 else if(round == 5){
+                     Pentagon()
+                 }
+                 if(diceNumbers.count >= round){
+                     let valueOfDice = diceNumbers[round]
+                     Text(String(valueOfDice))
+                         .foregroundColor(Color.white)
+                 }
+                 
+             }
+             .onAppear(){
+//                         round = round + 1
+                 print(round)
+             }
+         }
+     }
+ }
+
  */

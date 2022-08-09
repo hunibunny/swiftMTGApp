@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var profileData: ProfileData
     var body: some View {
-        Text(viewRouter.profile.username)
+        //Text(profileData.username)
         HStack{
             Image("capybara")
                 .resizable()
