@@ -16,6 +16,9 @@ struct Profile {
     var avaibleFriends: Array<String> = ["Anna", "Ben", "Cassandra", "Daniel"]
     var chosenFriends: Array<String> = []
     var chosenFriend = "No one"
+    var profilePicture = "capybara"
+    var topColor = UIColor.cyan
+    var bottomColor = UIColor.green
     
     static let `default` = Profile(username: "g_kumar")
 

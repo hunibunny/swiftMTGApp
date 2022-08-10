@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct MenuView: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter //viewrouter only needed
 
     
     var body: some View {

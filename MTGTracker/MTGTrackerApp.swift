@@ -10,10 +10,10 @@ import SwiftUI
 @main
 struct MTGTrackerApp: App {
     @StateObject var viewRouter = ViewRouter()
-    @StateObject var observableInfo = ObservableInfo()
+   // @StateObject var observableInfo = ObservableInfo()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(observableInfo)
+            ContentView().environmentObject(viewRouter)
         }
     }
 }

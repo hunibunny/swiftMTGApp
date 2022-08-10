@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProfileSpot: View{
     @EnvironmentObject var viewRouter: ViewRouter
-    @EnvironmentObject var profileData: ProfileData
     @State var chosenFriend = "Choose a player"
     
     @State var avaibleFriendsForMe: Array<String> = []
@@ -27,10 +26,10 @@ struct ProfileSpot: View{
                     if(self.chosenFriend.count == 0){
                         self.avaibleFriendsForMe.append("Choose a player")
                     }
-                    if(!profileData.profile.chosenFriends.contains(chosenFriend)){
-                        profileData.profile.chosenFriends.append(chosenFriend)
-                        print(profileData.profile.chosenFriends)
-                        profileData.profile.chosenFriend = chosenFriend
+                    if(!viewRouter.profile.chosenFriends.contains(chosenFriend)){
+                        viewRouter.profile.chosenFriends.append(chosenFriend)
+                        print(viewRouter.profile.chosenFriends)
+                        viewRouter.profile.chosenFriend = chosenFriend
                     }
                     if(self.avaibleFriendsForMe.contains(chosenFriend)){
                         let indexOfRemovedName = self.avaibleFriendsForMe.firstIndex(of: chosenFriend)
@@ -42,7 +41,7 @@ struct ProfileSpot: View{
             }
         }
         .onAppear{
-            self.avaibleFriendsForMe = profileData.profile.avaibleFriends
+            self.avaibleFriendsForMe = viewRouter.profile.avaibleFriends
         }
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var observableInfo: ObservableInfo
+    @EnvironmentObject var viewRouter: ViewRouter
     //@EnvironmentObject var state: NavigationStack
     //@StateObject var state = NavigationStack()
     var body: some View {
-        switch observableInfo.viewRouter.currentPage{
+        switch viewRouter.currentPage{
         case .menuView:
             MenuView()
         case .trackerSetUp:

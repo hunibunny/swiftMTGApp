@@ -15,7 +15,6 @@ extension UIScreen{
 
 struct HpView: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @EnvironmentObject var profileData: ProfileData
     var totalPlayers = 4
     var topColor1 = UIColor.cyan
     var bottomColor1 = UIColor.magenta
@@ -78,7 +77,7 @@ struct HpView: View {
                 VStack{
                     HStack(){
                         Button("Go back to menu", action: {viewRouter.currentPage = .menuView})
-                        Button(chosenRandomStarter, action:{chosenRandomStarter =  profileData.profile.chosenFriends.randomElement() ?? "No players to choose from"})
+                        Button(chosenRandomStarter, action:{chosenRandomStarter =  viewRouter.profile.chosenFriends.randomElement() ?? "No players to choose from"})
                     }
                     HStack{
                         VStack{
