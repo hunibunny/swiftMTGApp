@@ -28,6 +28,7 @@
 		7F9A2559288EFA730026E3EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2558288EFA730026E3EB /* Profile.swift */; };
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
 		7FB7737428902EAD00885DAA /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7737328902EAD00885DAA /* customButton.swift */; };
+		7FDC1EFE28A691AE000914FD /* AddAFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC1EFD28A691AE000914FD /* AddAFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		7F9A2558288EFA730026E3EB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		7FB7737328902EAD00885DAA /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
+		7FDC1EFD28A691AE000914FD /* AddAFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				7F9A2556288EB2220026E3EB /* DropDownListView.swift */,
 				7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */,
 				7F90699F289A8B2D006F65E2 /* ProfileSpot.swift */,
+				7FDC1EFD28A691AE000914FD /* AddAFriend.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				7F0F850928982071002FEC34 /* RouterHelper.swift in Sources */,
 				7F8732A628A1436800B74233 /* DiceView.swift in Sources */,
 				7F9A2557288EB2220026E3EB /* DropDownListView.swift in Sources */,
+				7FDC1EFE28A691AE000914FD /* AddAFriend.swift in Sources */,
 				7FB7737428902EAD00885DAA /* customButton.swift in Sources */,
 				7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */,
 				7F9069A0289A8B2D006F65E2 /* ProfileSpot.swift in Sources */,

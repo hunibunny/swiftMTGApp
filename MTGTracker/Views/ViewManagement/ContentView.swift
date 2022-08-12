@@ -23,6 +23,8 @@ struct ContentView: View {
             ProfileView()
         case .friendList:
             FriendList()
+        case .addAFriend:
+            AddAFriend()
         }
     }
 }

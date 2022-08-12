@@ -13,6 +13,7 @@ enum Page: CaseIterable{
     case hpView
     case profileView
     case friendList
+    case addAFriend
 }
 
 

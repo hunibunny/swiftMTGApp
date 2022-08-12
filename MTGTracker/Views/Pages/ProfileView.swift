@@ -23,7 +23,12 @@ struct ProfileView: View {
                 ScreenButton(rotation: 0, topColor: viewRouter.profile.topColor, bottomColor: viewRouter.profile.bottomColor, idealHeight: nil)
             }
             .frame(maxHeight: 300)
-            Text("Friends: ")
+            if(viewRouter.profile.avaibleFriends.count > 0){
+                Text("Friends: ")
+            }
+            else{
+                Text("No friends yet")
+            }
             ScrollView{
                 ForEach(0..<viewRouter.profile.avaibleFriends.count, id: \.self){index in
                     ZStack{
@@ -35,13 +40,16 @@ struct ProfileView: View {
                             Button("Remove"){
                                 showingAlert = true
                             }
-                            .alert("Are you sure?", isPresented: $showingAlert){
-                                Button("Yes", role: .cancel){viewRouter.profile.avaibleFriends.remove(at: index )}
+                            .alert("Delete this friend?", isPresented: $showingAlert){
+                                Button("Yes", action:{viewRouter.profile.avaibleFriends.remove(at: index )})
                                 Button("No", role: .cancel){}
                             }
                         }
                     }
                 }
+            }
+            ZStack{
+                Button("Add a friend", action:{viewRouter.currentPage = .addAFriend})
             }
         }
         .padding()
