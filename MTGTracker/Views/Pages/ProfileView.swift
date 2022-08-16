@@ -36,7 +36,10 @@ struct ProfileView: View {
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack{
                             Text(viewRouter.profile.avaibleFriends[index])
-                            Button("See", action:{})
+                            Button("Inspect"){
+                                viewRouter.inspectedProfile = viewRouter.profile.avaibleFriends[index]
+                                viewRouter.currentPage = .profileView
+                            }
                             Button("Remove"){
                                 showingAlert = true
                             }

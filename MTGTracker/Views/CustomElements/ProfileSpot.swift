@@ -11,7 +11,7 @@ struct ProfileSpot: View{
     @EnvironmentObject var viewRouter: ViewRouter
     @State var chosenFriend = "Choose a player"
     
-    @State var avaibleFriendsForMe: Array<String> = []
+    @State var avaibleFriendsForMe: Array<Profile> = []
     
     init(){
         self.avaibleFriendsForMe = avaibleFriendsForMe
@@ -22,11 +22,16 @@ struct ProfileSpot: View{
             ForEach(0..<self.avaibleFriendsForMe.count, id: \.self){index in
                 Button(action: {
                     print(self.avaibleFriendsForMe[index])
-                    chosenFriend = self.avaibleFriendsForMe[index]
+                    chosenFriend = self.avaibleFriendsForMe[index].username
                     if(self.chosenFriend.count == 0){
-                        self.avaibleFriendsForMe.append("Choose a player")
+                       // self.avaibleFriendsForMe.append("Choose a player")
                     }
-                    if(!viewRouter.profile.chosenFriends.contains(chosenFriend)){
+                    var listOfNames: Array<String> = []
+                    ForEach(1..<viewRouter.profile.chosenFriends.count, id:\.self){index in
+                        listOfNames.append(viewRouter.profile.chosenFriends[index].username)
+                    }
+                    //jatka tasta
+                    if(!listOfNames.contains(chosenFriend)){
                         viewRouter.profile.chosenFriends.append(chosenFriend)
                         print(viewRouter.profile.chosenFriends)
                         viewRouter.profile.chosenFriend = chosenFriend
@@ -36,7 +41,7 @@ struct ProfileSpot: View{
                         self.avaibleFriendsForMe.remove(at: indexOfRemovedName ?? 0)
                     }
                 }, label: {
-                    Text(String(self.avaibleFriendsForMe[index]))
+                    Text(String(self.avaibleFriendsForMe[index].username))
                 })
             }
         }

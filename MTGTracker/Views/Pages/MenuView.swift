@@ -15,7 +15,10 @@ struct MenuView: View {
     
     var body: some View {
         VStack{
-            Button("My Profile", action: {viewRouter.currentPage = .profileView})
+            Button("My Profile"){
+                viewRouter.inspectedProfile = viewRouter.profile
+                viewRouter.currentPage = .profileView
+            }
             Button("Start a game", action: {viewRouter.currentPage = .trackerSetUp})
         }
         .onAppear(){

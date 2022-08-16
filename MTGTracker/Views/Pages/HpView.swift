@@ -15,7 +15,7 @@ extension UIScreen{
 
 struct HpView: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    var totalPlayers = 4
+  //  var totalPlayers = 4
     var topColor1 = UIColor.cyan
     var bottomColor1 = UIColor.magenta
     var topColor2 = UIColor.cyan
@@ -29,38 +29,38 @@ struct HpView: View {
     @State var displayDices = false
     var body: some View {
         ZStack{
-            if totalPlayers == 2{
+            if viewRouter.gameSettings.ammountOfPlayers == 2{
                 VStack(spacing: 0){
-                    ScreenButton(rotation: 180, topColor: topColor1, bottomColor: bottomColor1, idealHeight: nil)
-                    ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
+                    ScreenButton(rotation: 180, topColor: viewRouter.gameSettings.players[0].topColor , bottomColor: viewRouter.gameSettings.players[0].bottomColor, idealHeight: nil)
+                    ScreenButton(rotation: 0, topColor: viewRouter.gameSettings.players[1].topColor, bottomColor:viewRouter.gameSettings.players[1].bottomColor, idealHeight: nil)
             
                 }
                 .ignoresSafeArea()
             }
-            else if totalPlayers == 3{
+            else if viewRouter.gameSettings.ammountOfPlayers == 3{
                 VStack(spacing: 0){
                     VStack(spacing: 0){
-                        ScreenButton(rotation: 180, topColor: topColor1, bottomColor: bottomColor1, idealHeight: nil)
-                        ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
+                        ScreenButton(rotation: 180, topColor: viewRouter.gameSettings.players[0].topColor, bottomColor:viewRouter.gameSettings.players[0].bottomColor, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor:viewRouter.gameSettings.players[1].topColor, bottomColor: viewRouter.gameSettings.players[1].bottomColor, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.2)
-                    ScreenButton(rotation: 0, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
+                    ScreenButton(rotation: 0, topColor: viewRouter.gameSettings.players[2].topColor, bottomColor: viewRouter.gameSettings.players[2].bottomColor, idealHeight: nil)
                 
                 }
             }
-            else if totalPlayers == 4{
+            else if viewRouter.gameSettings.ammountOfPlayers == 4{
                 VStack(spacing: 0){
                     VStack(spacing: 0){
-                        ScreenButton(rotation: 180, topColor: topColor1, bottomColor: bottomColor1, idealHeight: nil)
-                        ScreenButton(rotation: 0, topColor: topColor2, bottomColor: bottomColor2, idealHeight: nil)
+                        ScreenButton(rotation: 180, topColor: viewRouter.gameSettings.players[0].topColor, bottomColor: viewRouter.gameSettings.players[0].bottomColor, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor: viewRouter.gameSettings.players[1].topColor, bottomColor: viewRouter.gameSettings.players[1].bottomColor, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.1)
 
                     VStack(spacing: 0){
-                        ScreenButton(rotation: 180, topColor: topColor3, bottomColor: bottomColor3, idealHeight: nil)
-                        ScreenButton(rotation: 0, topColor: topColor4, bottomColor: bottomColor4, idealHeight: nil)
+                        ScreenButton(rotation: 180, topColor: viewRouter.gameSettings.players[2].topColor, bottomColor: viewRouter.gameSettings.players[2].bottomColor, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor: viewRouter.gameSettings.players[3].topColor, bottomColor: viewRouter.gameSettings.players[3].topColor, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.1)
@@ -77,7 +77,7 @@ struct HpView: View {
                 VStack{
                     HStack(){
                         Button("Go back to menu", action: {viewRouter.currentPage = .menuView})
-                        Button(chosenRandomStarter, action:{chosenRandomStarter =  viewRouter.profile.chosenFriends.randomElement() ?? "No players to choose from"})
+                        Button(chosenRandomStarter, action:{chosenRandomStarter =  viewRouter.profile.chosenFriends.randomElement()?.username ?? "No players to choose from"})
                     }
                     HStack{
                         VStack{
@@ -100,7 +100,7 @@ struct HpView: View {
         .onAppear(){
             print("displaying hpView")
         }
-        if totalPlayers == 5{
+        if viewRouter.gameSettings.ammountOfPlayers == 5{
             VStack(spacing: 0){
                 VStack{
                     HStack{

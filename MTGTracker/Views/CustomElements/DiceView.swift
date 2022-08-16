@@ -75,37 +75,61 @@ struct DiceView: View {
             HStack{
                 ZStack{
                     Triangle()
+                        .onTapGesture{
+                            fourFaceDice = Int.random(in: 1...4)
+                        }
                     Text(String(fourFaceDice))
                         .foregroundColor(Color.white)
+                       
                 }
                 ZStack{
                     Rectangle()
+                        .onTapGesture {
+                            sixFaceDice = Int.random(in: 1...6)
+                        }
                     Text(String(sixFaceDice))
                         .foregroundColor(Color.white)
+                       
                 }
             }
             HStack{
                 ZStack{
                     Triangle()
+                        .onTapGesture {
+                            eightFaceDice = Int.random(in: 1...8)
+                        }
+
                     Text(String(eightFaceDice))
                         .foregroundColor(Color.white)
-                }
+                                        }
                 ZStack{
                     Kite()
+                        .onTapGesture {
+                            tenFaceDice = Int.random(in: 1...10)
+                        }
                     Text(String(tenFaceDice))
                         .foregroundColor(Color.white)
+                        
                 }
             }
             HStack{
                 ZStack{
                     Pentagon()
+                        .onTapGesture {
+                            twelveFaceDice = Int.random(in: 1...12)
+                        }
                     Text(String(twelveFaceDice))
                         .foregroundColor(Color.white)
+                        
                 }
                 ZStack{
                     Triangle()
-                    Text(String(twelveFaceDice))
+                        .onTapGesture {
+                            twentyFaceDice = Int.random(in: 1...20)
+                        }
+                    Text(String(twentyFaceDice))
                         .foregroundColor(Color.white)
+                        
                 }
             }
         }

@@ -28,6 +28,7 @@
 		7F9A2559288EFA730026E3EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2558288EFA730026E3EB /* Profile.swift */; };
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
 		7FB7737428902EAD00885DAA /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7737328902EAD00885DAA /* customButton.swift */; };
+		7FBB022428AB8ADC00CBB767 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB022328AB8ADC00CBB767 /* GameSettings.swift */; };
 		7FDC1EFE28A691AE000914FD /* AddAFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC1EFD28A691AE000914FD /* AddAFriend.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		7F9A2558288EFA730026E3EB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		7FB7737328902EAD00885DAA /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
+		7FBB022328AB8ADC00CBB767 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		7FDC1EFD28A691AE000914FD /* AddAFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			children = (
 				7F73A77028A2AF6D009C5E60 /* ProfileData.swift */,
 				7F73A77228A2B3CD009C5E60 /* ObservableInfo.swift */,
+				7FBB022328AB8ADC00CBB767 /* GameSettings.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				7F0A6ED72875CF0700E3B57A /* ContentView.swift in Sources */,
 				7F0F850928982071002FEC34 /* RouterHelper.swift in Sources */,
 				7F8732A628A1436800B74233 /* DiceView.swift in Sources */,
+				7FBB022428AB8ADC00CBB767 /* GameSettings.swift in Sources */,
 				7F9A2557288EB2220026E3EB /* DropDownListView.swift in Sources */,
 				7FDC1EFE28A691AE000914FD /* AddAFriend.swift in Sources */,
 				7FB7737428902EAD00885DAA /* customButton.swift in Sources */,

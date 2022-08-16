@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+
 struct TrackerSetUp: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var ammountOfPlayers = 0
     @State private var format = "Choose format"
     @State var presentPopup = false
     @State var friendDictionary: Dictionary<String, Int> = [:]
+    @State var showingAlert = false
     var body: some View {
         VStack{
             Text("Game settings")
@@ -41,7 +43,20 @@ struct TrackerSetUp: View {
                 Button("Brawl", action: {format = "Brawl"})
                 Button("Pauper", action: {format = "Pauper"})
             }
-            Button("Start the game", action: {viewRouter.currentPage = .hpView})
+            Button("Start the game"){
+                if(ammountOfPlayers > 0){
+                    viewRouter.gameSettings.gameMode = format
+                    viewRouter.gameSettings.ammountOfPlayers = ammountOfPlayers
+                    viewRouter.currentPage = .hpView
+                }
+                else{
+                    showingAlert = true
+                    }
+                    
+            }
+            .alert("Choose the ammount of players", isPresented: $showingAlert){
+                Button("Ok", role: .cancel){}
+            }
         }
         .onChange(of: ammountOfPlayers){newValue in 
             

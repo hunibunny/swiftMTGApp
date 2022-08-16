@@ -8,31 +8,19 @@
 import SwiftUI
 
 
-struct Profile {
-    var username: String
-    var prefersNotifications = true
-    var seasonalPhoto = Season.winter
-    var goalDate = Date()
-    var avaibleFriends: Array<String> = ["Anna", "Ben", "Cassandra", "Daniel"]
-    var chosenFriends: Array<String> = []
+struct Profile: Identifiable, AccessibilityRotorContent{
+    var username: String = "profile name"
+    var avaibleFriends: Array<Profile> = []
+    var chosenFriends: Array<Profile> = []
     var chosenFriend = "No one"
     var profilePicture = "capybara"
     var topColor = UIColor.cyan
     var bottomColor = UIColor.green
-    
-    static let `default` = Profile(username: "g_kumar")
-
-    enum Season: String, CaseIterable, Identifiable {
-        case spring = "🌷"
-        case summer = "🌞"
-        case autumn = "🍂"
-        case winter = "☃️"
-
-        var id: String { rawValue }
-    }
+    var hp = 20
+    var specialDamage = 0
 }
 
-
+    
 class ProfileData: ObservableObject{
     @Published var profile = Profile(username: "Bebu")
 }
