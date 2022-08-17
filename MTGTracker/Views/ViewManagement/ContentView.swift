@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var modelData: ModelData
     //@EnvironmentObject var state: NavigationStack
     //@StateObject var state = NavigationStack()
     var body: some View {
-        switch viewRouter.currentPage{
+        switch modelData.viewRouter.currentPage{
         case .menuView:
             MenuView()
         case .trackerSetUp:
@@ -31,7 +31,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(ViewRouter())
+        ContentView().environmentObject(ModelData())
         
     }
 }

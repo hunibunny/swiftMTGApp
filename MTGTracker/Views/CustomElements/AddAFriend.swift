@@ -8,18 +8,64 @@
 import SwiftUI
 
 struct AddAFriend: View {
+    let names = ["Holly", "Josh", "Rhonda", "Ted"]
     @State private var searchText = ""
+
     var body: some View {
-        NavigationView {
-            Text("Searching for \(searchText)")
-                       .searchable(text: $searchText)
-                       .navigationTitle("Searchable Example")
-               }
+        TextField("Search here", text: $searchText)
+            .padding()
+            .foregroundColor(Color.white)
+            .searchable(text: $searchText) {
+                ForEach(searchResults, id: \.self) { result in
+                    Text(result).searchCompletion(result)
+                        .foregroundColor(Color.black)
+                }
+            }
+            .background(RoundedRectangle(cornerSize: CGSize(width: 20,height: 20)).fill(.gray))
+            .onTapGesture {
+                
+            }
+            .padding(.leading, 20)
+            .padding(.trailing)
+        VStack{
+            ForEach(searchResults, id: \.self) { result in
+                Text(result).searchCompletion(result)
+                    .foregroundColor(Color.black)
+                    .background()
+                    .frame(alignment: .leading)
+                
+            }
+        }
+        .frame(minWidth: UIScreen.screenWidth-20, alignment: .leading)
+        .border(Color.red, width: 2)
+        .padding(.leading, 20)
+    }
+
+    var searchResults: [String] {
+        if searchText.isEmpty {
+            return names
+        } else {
+            return names.filter { $0.contains(searchText) }
+        }
     }
 }
+
 
 struct AddAFriend_Previews: PreviewProvider {
     static var previews: some View {
         AddAFriend()
     }
 }
+
+/*
+ .alert("Send friend request?", isPresented: $showingAlert){
+     Button("Yes", action:{})
+     Button("No", role: .cancel){}
+ 
+ 
+ Button(action: {
+     //chosing the friend owo
+ }, label: {
+     Text(String(self.avaibleFriendsForMe[index].username))
+ })
+ */

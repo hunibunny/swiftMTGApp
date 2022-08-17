@@ -10,16 +10,16 @@ import SwiftUI
 
 
 struct MenuView: View {
-    @EnvironmentObject var viewRouter: ViewRouter //viewrouter only needed
+    @EnvironmentObject var modelData: ModelData //viewrouter only needed
 
     
     var body: some View {
         VStack{
             Button("My Profile"){
-                viewRouter.inspectedProfile = viewRouter.profile
-                viewRouter.currentPage = .profileView
+                modelData.inspectedProfile = modelData.profile
+                modelData.viewRouter.currentPage = .profileView
             }
-            Button("Start a game", action: {viewRouter.currentPage = .trackerSetUp})
+            Button("Start a game", action: {modelData.viewRouter.currentPage = .trackerSetUp})
         }
         .onAppear(){
             print("displaying MenuView")

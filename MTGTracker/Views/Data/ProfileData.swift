@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct Profile: Identifiable, AccessibilityRotorContent{
+struct Profile: Identifiable{
     var username: String = "profile name"
     var avaibleFriends: Array<Profile> = []
     var chosenFriends: Array<Profile> = []
@@ -18,9 +18,6 @@ struct Profile: Identifiable, AccessibilityRotorContent{
     var bottomColor = UIColor.green
     var hp = 20
     var specialDamage = 0
-}
-
-    
-class ProfileData: ObservableObject{
-    @Published var profile = Profile(username: "Bebu")
+    var userId = "hehe"
+    var id: String {userId}
 }

@@ -8,43 +8,43 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var modelData: ModelData
     @State var showingAlert = false
     var body: some View {
         VStack{
             Text("My profile")
             HStack{
                 VStack{
-                    Image(viewRouter.profile.profilePicture)
+                    Image(modelData.profile.profilePicture)
                         .resizable()
                         .frame(maxHeight: 200)
-                    Text(viewRouter.profile.username)
+                    Text(modelData.profile.username)
                 }
-                ScreenButton(rotation: 0, topColor: viewRouter.profile.topColor, bottomColor: viewRouter.profile.bottomColor, idealHeight: nil)
+                ScreenButton(rotation: 0, topColor: modelData.profile.topColor, bottomColor: modelData.profile.bottomColor, idealHeight: nil)
             }
             .frame(maxHeight: 300)
-            if(viewRouter.profile.avaibleFriends.count > 0){
+            if(modelData.profile.avaibleFriends.count > 0){
                 Text("Friends: ")
             }
             else{
                 Text("No friends yet")
             }
             ScrollView{
-                ForEach(0..<viewRouter.profile.avaibleFriends.count, id: \.self){index in
+                ForEach(0..<modelData.profile.avaibleFriends.count, id: \.self){index in
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack{
-                            Text(viewRouter.profile.avaibleFriends[index])
+                            Text(modelData.profile.avaibleFriends[index].username)
                             Button("Inspect"){
-                                viewRouter.inspectedProfile = viewRouter.profile.avaibleFriends[index]
-                                viewRouter.currentPage = .profileView
+                                modelData.inspectedProfile = modelData.profile.avaibleFriends[index]
+                                modelData.viewRouter.currentPage = .profileView
                             }
                             Button("Remove"){
                                 showingAlert = true
                             }
                             .alert("Delete this friend?", isPresented: $showingAlert){
-                                Button("Yes", action:{viewRouter.profile.avaibleFriends.remove(at: index )})
+                                Button("Yes", action:{modelData.profile.avaibleFriends.remove(at: index )})
                                 Button("No", role: .cancel){}
                             }
                         }
@@ -52,11 +52,11 @@ struct ProfileView: View {
                 }
             }
             ZStack{
-                Button("Add a friend", action:{viewRouter.currentPage = .addAFriend})
+                Button("Add a friend", action:{modelData.viewRouter.currentPage = .addAFriend})
             }
         }
         .padding()
-        Button("Back to menu", action: {viewRouter.currentPage = .menuView})
+        Button("Back to menu", action: {modelData.viewRouter.currentPage = .menuView})
             .frame(alignment: .topLeading)
             .padding()
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct TrackerSetUp: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var modelData: ModelData
     @State private var ammountOfPlayers = 0
     @State private var format = "Choose format"
     @State var presentPopup = false
@@ -45,9 +45,9 @@ struct TrackerSetUp: View {
             }
             Button("Start the game"){
                 if(ammountOfPlayers > 0){
-                    viewRouter.gameSettings.gameMode = format
-                    viewRouter.gameSettings.ammountOfPlayers = ammountOfPlayers
-                    viewRouter.currentPage = .hpView
+                    modelData.gameSettings.gameMode = format
+                    modelData.gameSettings.ammountOfPlayers = ammountOfPlayers
+                    modelData.viewRouter.currentPage = .hpView
                 }
                 else{
                     showingAlert = true

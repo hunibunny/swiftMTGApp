@@ -7,23 +7,31 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-final class ModelData: ObservableObject {
- //   @Published var landmarks: [Landmark] = load("landmarkData.json")
-   // var hikes: [Hike] = load("hikeData.json")
-  //  @Published var profile = Profile.default
 
-   // var features: [Landmark] {
-  //      landmarks.filter { $0.isFeatured }
-    }
+var stPlayer = Profile(username: "Ella", topColor: UIColor.red, bottomColor: UIColor.gray)
+var ndPlayer = Profile(username: "Fawn", topColor: UIColor.blue, bottomColor: UIColor.white)
+var rdPlayer = Profile(username: "Gaia", topColor: UIColor.green, bottomColor: UIColor.orange)
 
-   // var categories: [String: [Landmark]] {
-    //    Dictionary(
-      //      grouping: landmarks,
-          //  by: { $0.category.rawValue }
-       // )
-   // }
-//}
+class ModelData: ObservableObject{
+    @Published var profile = Profile(username: "mel mle", avaibleFriends: [stPlayer, ndPlayer, rdPlayer])
+    @Published var inspectedProfile: Profile?
+    @Published var gameSettings = GameSettings()
+    @Published var viewRouter = ViewRouter()
+}
+
+
+
+/*
+class ModelData: ObservableObject{
+   // @Published var profile = Profile(username: "mel mle", avaibleFriends: [stPlayer, ndPlayer, rdPlayer])
+    //@Published var inspectedProfile: Profile?
+    //@Published var gameSettings = GameSettings()
+    //@Published var viewRouter = ViewRouter()
+    @Published var hehe = "hehe"
+}
+
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -46,3 +54,4 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+*/
