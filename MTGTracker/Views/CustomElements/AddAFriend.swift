@@ -8,32 +8,31 @@
 import SwiftUI
 
 struct AddAFriend: View {
-    let names = ["Holly", "Josh", "Rhonda", "Ted"]
+    @EnvironmentObject var modelData: ModelData
+    @State var names = ["Holly", "Josh", "Rhonda", "Ted"]
     @State private var searchText = ""
 
     var body: some View {
         TextField("Search here", text: $searchText)
             .padding()
             .foregroundColor(Color.white)
-            .searchable(text: $searchText) {
-                ForEach(searchResults, id: \.self) { result in
-                    Text(result).searchCompletion(result)
-                        .foregroundColor(Color.black)
-                }
-            }
             .background(RoundedRectangle(cornerSize: CGSize(width: 20,height: 20)).fill(.gray))
-            .onTapGesture {
-                
-            }
             .padding(.leading, 20)
             .padding(.trailing)
         VStack{
+            
             ForEach(searchResults, id: \.self) { result in
                 Text(result).searchCompletion(result)
                     .foregroundColor(Color.black)
                     .background()
                     .frame(alignment: .leading)
-                
+                    .onTapGesture {
+                        print("Added \(result) to friends")
+                        modelData.profile.avaibleFriends.append(Profile(username: result))
+                        names = names.filter{$0 != result}
+                        print(names)
+                    }
+                    .border(.blue)
             }
         }
         .frame(minWidth: UIScreen.screenWidth-20, alignment: .leading)
@@ -68,4 +67,6 @@ struct AddAFriend_Previews: PreviewProvider {
  }, label: {
      Text(String(self.avaibleFriendsForMe[index].username))
  })
+ 
+ arcane barbarian honorbound assasin
  */

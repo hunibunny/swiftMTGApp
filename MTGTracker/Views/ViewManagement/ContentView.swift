@@ -20,7 +20,7 @@ struct ContentView: View {
         case .hpView:
             HpView()
         case .profileView:
-            ProfileView()
+            ProfileView(profileInspected: modelData.inspectedProfile ?? modelData.profile)
         case .friendList:
             FriendList()
         case .addAFriend:

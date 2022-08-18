@@ -17,6 +17,7 @@ var rdPlayer = Profile(username: "Gaia", topColor: UIColor.green, bottomColor: U
 class ModelData: ObservableObject{
     @Published var profile = Profile(username: "mel mle", avaibleFriends: [stPlayer, ndPlayer, rdPlayer])
     @Published var inspectedProfile: Profile?
+    @Published var inspectingSelf = false
     @Published var gameSettings = GameSettings()
     @Published var viewRouter = ViewRouter()
 }
