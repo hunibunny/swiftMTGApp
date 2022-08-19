@@ -20,8 +20,25 @@ struct TrackerSetUp: View {
             Text("Game settings")
             Menu(ammountOfPlayers == 0 ? "Ammount of players": String(ammountOfPlayers)){
                 Button("4",action: {ammountOfPlayers = 4})
-                Button("3",action: {ammountOfPlayers = 3})
-                Button("2",action: {ammountOfPlayers = 2})
+                Button("3",
+                       action: {
+                    ammountOfPlayers = 3;
+                    if(modelData.profile.chosenFriends.count == 4){
+                        modelData.profile.avaibleFriends.append(modelData.profile.chosenFriends[-1])
+                        modelData.profile.chosenFriends = Array(modelData.profile.chosenFriends[0..<ammountOfPlayers])
+                }})
+                Button("2",
+                       action: {
+                    ammountOfPlayers = 2
+                    if(modelData.profile.chosenFriends.count == 4){
+                        modelData.profile.avaibleFriends += modelData.profile.chosenFriends[2...3]
+                        modelData.profile.chosenFriends = Array(modelData.profile.chosenFriends[0..<ammountOfPlayers])
+                    }
+                    else if(modelData.profile.chosenFriends.count == 3){
+                        modelData.profile.avaibleFriends.append(modelData.profile.chosenFriends[2])
+                        modelData.profile.chosenFriends = Array(modelData.profile.chosenFriends[0..<ammountOfPlayers])
+                    }
+                })
             }
             HStack{
                 if ammountOfPlayers > 0{
@@ -30,6 +47,12 @@ struct TrackerSetUp: View {
                         //friendDictionary[viewRouter.chosenFriend] = index-1
 
                     }
+                }
+               
+            }
+            .onAppear(){
+                if modelData.profile.chosenFriends.count > ammountOfPlayers{
+                    
                 }
             }
             Menu(format){
@@ -62,6 +85,7 @@ struct TrackerSetUp: View {
             
         }
     }
+        
 }
 
 struct TrackerSetUp_Previews: PreviewProvider {

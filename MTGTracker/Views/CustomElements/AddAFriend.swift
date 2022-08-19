@@ -38,7 +38,15 @@ struct AddAFriend: View {
         .frame(minWidth: UIScreen.screenWidth-20, alignment: .leading)
         .border(Color.red, width: 2)
         .padding(.leading, 20)
+        Button("Back", action: {
+            modelData.inspectingSelf = true
+            modelData.inspectedProfile = modelData.profile
+            modelData.viewRouter.currentPage = .profileView
+            })
+            .frame(alignment: .topLeading)
+            .padding()
     }
+    
 
     var searchResults: [String] {
         if searchText.isEmpty {

@@ -10,25 +10,23 @@ import SwiftUI
 struct ProfileSpot: View{
     @EnvironmentObject var modelData: ModelData
     @State var chosenFriend = "Choose a player"
-    
-    @State var avaibleFriendsForMe: Array<Profile> = []
-    
-    init(){
-        self.avaibleFriendsForMe = avaibleFriendsForMe
-    }
-    
+    @State var toBeRemovedFromList = 0
     var body: some View{
         Menu(chosenFriend){
-            ForEach(0..<self.avaibleFriendsForMe.count, id: \.self){index in
+            ForEach(0..<modelData.profile.avaibleFriends.count, id: \.self){index in
                 Button(action: {
-                    //chosing the friend owo
+                    if(!modelData.profile.firstFriendHasBeenChosen){
+                        modelData.profile.avaibleFriends.append(Profile(username: "Choose a player"))
+                        modelData.profile.firstFriendHasBeenChosen = true
+                    }
+                    modelData.profile.chosenFriends.append(modelData.profile.avaibleFriends[index])
+                    chosenFriend = modelData.profile.avaibleFriends[index].username
+                    toBeRemovedFromList = index
+                    modelData.profile.avaibleFriends.remove(at: index)
                 }, label: {
-                    Text(String(self.avaibleFriendsForMe[index].username))
+                    Text(String(modelData.profile.avaibleFriends[index].username))
                 })
             }
-        }
-        .onAppear{
-            self.avaibleFriendsForMe = modelData.profile.avaibleFriends
         }
     }
 }

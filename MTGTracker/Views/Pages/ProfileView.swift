@@ -12,6 +12,7 @@ struct ProfileView: View {
     @State var showingAlert = false
     @State var profileInspected = ModelData().inspectedProfile
   //  @State var profileHeader = (ModelData().inspectingSelf ? "My profile" : ModelData().inspectedProfile!.username)
+    @State var itemNumberToDelete = 0
     var body: some View {
         VStack{
             Text("profileHeader")
@@ -45,16 +46,17 @@ struct ProfileView: View {
                             }
                             Button("Remove"){
                                 showingAlert = true
+                                itemNumberToDelete = index
                             }
                             .alert("Delete this friend?", isPresented: $showingAlert){
-                                Button("Yes", action:{profileInspected!.avaibleFriends.remove(at: index )})
+                                Button("Yes", action:{profileInspected!.avaibleFriends.remove(at: itemNumberToDelete)})
                                 Button("No", role: .cancel){}
                             }
                         }
                     }
                 }
             }
-            if(!modelData.inspectingSelf){
+            if(modelData.inspectedProfile == modelData.profile){
                 Button("Add a friend", action:{modelData.viewRouter.currentPage = .addAFriend})
             }
         }

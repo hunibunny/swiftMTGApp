@@ -8,10 +8,11 @@
 import SwiftUI
 
 
-struct Profile: Identifiable{
+struct Profile: Identifiable, Equatable{
     var username: String = "profile name"
     var avaibleFriends: Array<Profile> = []
     var chosenFriends: Array<Profile> = []
+    var firstFriendHasBeenChosen = false
     var chosenFriend = "No one"
     var profilePicture = "capybara"
     var topColor = UIColor.cyan
