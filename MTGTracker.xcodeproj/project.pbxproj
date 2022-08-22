@@ -26,7 +26,7 @@
 		7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */; };
 		7F9A2559288EFA730026E3EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2558288EFA730026E3EB /* Profile.swift */; };
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
-		7FB7737428902EAD00885DAA /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB7737328902EAD00885DAA /* customButton.swift */; };
+		7FA74C7228B3CDF000851412 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA74C7128B3CDF000851412 /* CustomButton.swift */; };
 		7FBB022428AB8ADC00CBB767 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB022328AB8ADC00CBB767 /* GameSettings.swift */; };
 		7FDC1EFE28A691AE000914FD /* AddAFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC1EFD28A691AE000914FD /* AddAFriend.swift */; };
 /* End PBXBuildFile section */
@@ -52,7 +52,7 @@
 		7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSetUp.swift; sourceTree = "<group>"; };
 		7F9A2558288EFA730026E3EB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		7FB7737328902EAD00885DAA /* customButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
+		7FA74C7128B3CDF000851412 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7FBB022328AB8ADC00CBB767 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		7FDC1EFD28A691AE000914FD /* AddAFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,7 +129,7 @@
 		7F0F850B289823DB002FEC34 /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
-				7FB7737328902EAD00885DAA /* customButton.swift */,
+				7FA74C7128B3CDF000851412 /* CustomButton.swift */,
 				7F8732A528A1436800B74233 /* DiceView.swift */,
 				7F63A21528994F900037952B /* FriendList.swift */,
 				7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */,
@@ -245,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F73A77328A2B3CD009C5E60 /* ObservableInfo.swift in Sources */,
+				7FA74C7228B3CDF000851412 /* CustomButton.swift in Sources */,
 				7F73A77128A2AF6D009C5E60 /* ProfileData.swift in Sources */,
 				7F0F850728982026002FEC34 /* ViewRouter.swift in Sources */,
 				7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */,
@@ -258,7 +259,6 @@
 				7F8732A628A1436800B74233 /* DiceView.swift in Sources */,
 				7FBB022428AB8ADC00CBB767 /* GameSettings.swift in Sources */,
 				7FDC1EFE28A691AE000914FD /* AddAFriend.swift in Sources */,
-				7FB7737428902EAD00885DAA /* customButton.swift in Sources */,
 				7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */,
 				7F9069A0289A8B2D006F65E2 /* ProfileSpot.swift in Sources */,
 				7F0F850E2898295D002FEC34 /* ProfileView.swift in Sources */,

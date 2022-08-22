@@ -7,6 +7,8 @@
 import SwiftUI
 
 
+
+
 extension UIScreen{
     static let screenWidth = UIScreen.main.bounds.size.width
     static let screenHeight = UIScreen.main.bounds.size.height
@@ -32,6 +34,8 @@ struct HpView: View {
             if modelData.gameSettings.ammountOfPlayers == 2{
                 VStack(spacing: 0){
                     ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[0].topColor , bottomColor: modelData.gameSettings.players[0].bottomColor, idealHeight: nil)
+                        
+                       
                     ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[1].topColor, bottomColor: modelData.gameSettings.players[1].bottomColor, idealHeight: nil)
             
                 }
@@ -86,7 +90,11 @@ struct HpView: View {
                                 DiceView()
                             }
                         }
-                        CustomButton(screenWidth: UIScreen.screenWidth)
+                        Button("Save the game :)", action:{})
+                            .background(RoundedRectangle(cornerSize:CGSize(width: 10, height: 10))
+                                .scale(1.1)
+                                .fill(.indigo))
+                            .foregroundColor(.white)
                     }
                 }
             }

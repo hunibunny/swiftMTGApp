@@ -27,6 +27,7 @@ func averageColor(topColor: UIColor, bottomColor: UIColor)->UIColor{
 }
 
 struct ScreenButton: View {
+    @EnvironmentObject var modelData: ModelData
     let rotation: Double
     let topColor: UIColor
     let bottomColor: UIColor
@@ -45,35 +46,42 @@ struct ScreenButton: View {
     }
     
     var body: some View {
-        ZStack{
-            VStack(spacing: 0){
-                Rectangle()
-                    .fill(.linearGradient(
-                        Gradient(colors: [Color(topColor), Color(middleColor)]),
-                        startPoint: UnitPoint(x: 0.5, y: 0),
-                        endPoint: UnitPoint(x: 0.5, y: 1)
-                    ))
-                    .frame(maxHeight: idealHeight)
-                    .border(Color.red)
-                    .onTapGesture{
-                        hp += 1
-                    }
-                Rectangle()
-                    .fill(.linearGradient(
-                        Gradient(colors: [Color(middleColor), Color(bottomColor)]),
-                        startPoint: UnitPoint(x: 0.5, y: 0),
-                        endPoint: UnitPoint(x: 0.5, y: 1)
-                    ))
-                    .frame(maxHeight: idealHeight)
-                    .border(Color.red)
-                    .onTapGesture{
-                        hp -= 1
-                    }
-            }
+        GeometryReader{geometry in
+            ZStack{
+                VStack(spacing: 0){
+                    Rectangle()
+                        .fill(.linearGradient(
+                            Gradient(colors: [Color(topColor), Color(middleColor)]),
+                            startPoint: UnitPoint(x: 0.5, y: 0),
+                            endPoint: UnitPoint(x: 0.5, y: 1)
+                        ))
+                        .frame(maxHeight: idealHeight)
+                        .border(Color.red)
+                        .onTapGesture{
+                            hp += 1
+                        }
+                    Rectangle()
+                        .fill(.linearGradient(
+                            Gradient(colors: [Color(middleColor), Color(bottomColor)]),
+                            startPoint: UnitPoint(x: 0.5, y: 0),
+                            endPoint: UnitPoint(x: 0.5, y: 1)
+                        ))
+                        .frame(maxHeight: idealHeight)
+                        .border(Color.red)
+                        .onTapGesture{
+                            hp -= 1
+                        }
+                }
             Text(String(hp))
                 .foregroundColor(Color.white)
         }
         .rotationEffect(.degrees(rotation))
+        .onAppear{
+            modelData.sizesOfViews.append(geometry.size.height)
+        }
+        
+        }
+
     }
 }
 

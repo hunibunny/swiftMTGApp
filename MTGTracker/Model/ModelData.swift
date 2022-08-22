@@ -20,6 +20,7 @@ class ModelData: ObservableObject{
     @Published var inspectingSelf = false
     @Published var gameSettings = GameSettings()
     @Published var viewRouter = ViewRouter()
+    @Published var sizesOfViews = []
 }
 
 
