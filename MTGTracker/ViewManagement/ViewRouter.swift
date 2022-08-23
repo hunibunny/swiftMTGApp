@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+import Foundation
+
+enum Page: CaseIterable{
+    case menuView
+    case trackerSetUp
+    case hpView
+    case profileView
+    case addAFriend
+}
+
 
 
 struct ViewRouter{

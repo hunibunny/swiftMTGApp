@@ -19,8 +19,8 @@ struct HpView: View {
     var bottomColor3 = UIColor.magenta
     var topColor4 = UIColor.cyan
     var bottomColor4 = UIColor.magenta
+    @State var height = 0.0
     @State private var showHpMenu = false
-    @State var chosenRandomStarter = "Choose a random starter"
     @State var displayDices = false
     var body: some View {
         ZStack{
@@ -49,11 +49,19 @@ struct HpView: View {
             else if modelData.gameSettings.ammountOfPlayers == 4{
                 VStack(spacing: 0){
                     VStack(spacing: 0){
-                        ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[0].topColor, bottomColor: modelData.gameSettings.players[0].bottomColor, idealHeight: nil)
+                        GeometryReader{geometry in
+                            ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[0].topColor, bottomColor: modelData.gameSettings.players[0].bottomColor, idealHeight: nil)
+                                .onAppear{
+                                    height = geometry.size.width
+                                }
+                        }
+                        
+                        
                         ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[1].topColor, bottomColor: modelData.gameSettings.players[1].bottomColor, idealHeight: nil)
                     }
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.1)
+
 
                     VStack(spacing: 0){
                         ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[2].topColor, bottomColor: modelData.gameSettings.players[2].bottomColor, idealHeight: nil)
@@ -62,30 +70,12 @@ struct HpView: View {
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.1)
                 }
-                .scaleEffect(x: 1.1)
                 .frame(alignment: .center)
-                
+               // .scaleEffect(x: 1.1)
+                .offset(y: height > UIScreen.screenHeight/2 ? height-UIScreen.screenHeight/2-UIScreen.screenHeight/40 :  UIScreen.screenHeight/2-UIScreen.screenHeight/40-height)
             }
-            
             if showHpMenu{
-                Rectangle()
-                    .foregroundColor(Color.black.opacity(0.5))
-                    .ignoresSafeArea()
-                VStack{
-                    HStack(){
-                        Button("Go back to menu", action: {modelData.viewRouter.currentPage = .menuView}).defaultStyling()
-                        Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.profile.chosenFriends.randomElement()?.username ?? "No players to choose from"}).defaultStyling()
-                    }
-                    HStack{
-                        VStack{
-                            Button("Throw a dice", action:{displayDices = true}).defaultStyling()
-                            if(displayDices){
-                                DiceView()
-                            }
-                        }
-                        Button("Save the game", action:{print("save the game")}).defaultStyling()
-                    }
-                }
+                HpMenu()
             }
             Circle()
                 .fill(Color.red)
@@ -93,6 +83,8 @@ struct HpView: View {
                 .onTapGesture{
                     showHpMenu = !showHpMenu
                 }
+            
+
         }
         .onAppear(){
             print("displaying hpView")

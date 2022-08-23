@@ -26,6 +26,7 @@ struct ProfileSpot: View{
                 }, label: {
                     Text(String(modelData.profile.avaibleFriends[index].username))
                 })
+                .defaultStyling()
             }
         }
     }

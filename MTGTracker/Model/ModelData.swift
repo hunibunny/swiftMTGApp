@@ -21,6 +21,7 @@ class ModelData: ObservableObject{
     @Published var gameSettings = GameSettings()
     @Published var viewRouter = ViewRouter()
     @Published var sizesOfViews = []
+    @Published var showDices = false
 }
 
 

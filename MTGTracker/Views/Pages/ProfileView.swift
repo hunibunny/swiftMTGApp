@@ -44,13 +44,18 @@ struct ProfileView: View {
                                 profileInspected = profileInspected!.avaibleFriends[index]
                                 modelData.inspectingSelf = false
                             }
+                            .defaultStyling()
                             Button("Remove"){
                                 showingAlert = true
                                 itemNumberToDelete = index
                             }
+                            .defaultStyling()
+                            
                             .alert("Delete this friend?", isPresented: $showingAlert){
                                 Button("Yes", action:{profileInspected!.avaibleFriends.remove(at: itemNumberToDelete)})
+                                    .defaultStyling()
                                 Button("No", role: .cancel){}
+                                    .defaultStyling()
                             }
                         }
                     }
@@ -58,9 +63,9 @@ struct ProfileView: View {
             }
             if(modelData.inspectedProfile == modelData.profile){
                 Button("Add a friend", action:{modelData.viewRouter.currentPage = .addAFriend})
+                    .defaultStyling(paddingAmmount: 0)
             }
         }
-        .padding()
         .onAppear{
             if(modelData.inspectedProfile == nil){
                 profileInspected = modelData.profile
@@ -78,9 +83,9 @@ struct ProfileView: View {
                 modelData.inspectedProfile = modelData.profile
                 profileInspected = modelData.profile
             }
-            })
-            .frame(alignment: .topLeading)
-            .padding()
+        })
+        .defaultStyling()
+        .frame(alignment: .topLeading)
         
     }
        

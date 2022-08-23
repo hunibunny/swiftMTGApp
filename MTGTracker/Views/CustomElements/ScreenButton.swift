@@ -7,24 +7,7 @@
 
 import SwiftUI
 
-extension UIColor{
-    var coreImageColor: CIColor{
-        return CIColor(color: self)
-    }
-    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-            let coreImageColor = self.coreImageColor
-            return (coreImageColor.red, coreImageColor.green, coreImageColor.blue, coreImageColor.alpha)
-    }
-}
 
-func averageColor(topColor: UIColor, bottomColor: UIColor)->UIColor{
-    let averageRed = (topColor.components.red + bottomColor.components.red)/2
-    let averageGreen = (topColor.components.green + bottomColor.components.green)/2
-    let averageBlue = (topColor.components.blue + bottomColor.components.blue)/2
-    let averageAlpha = (topColor.components.alpha + bottomColor.components.alpha)/2
-    let averageColor = UIColor(red: averageRed, green: averageGreen, blue: averageBlue, alpha: averageAlpha)
-    return averageColor
-}
 
 struct ScreenButton: View {
     @EnvironmentObject var modelData: ModelData
@@ -78,10 +61,20 @@ struct ScreenButton: View {
         .rotationEffect(.degrees(rotation))
         .onAppear{
             modelData.sizesOfViews.append(geometry.size.height)
+            print(geometry.size.height)
         }
         
         }
 
+    }
+    
+    func averageColor(topColor: UIColor, bottomColor: UIColor)->UIColor{
+        let averageRed = (topColor.components.red + bottomColor.components.red)/2
+        let averageGreen = (topColor.components.green + bottomColor.components.green)/2
+        let averageBlue = (topColor.components.blue + bottomColor.components.blue)/2
+        let averageAlpha = (topColor.components.alpha + bottomColor.components.alpha)/2
+        let averageColor = UIColor(red: averageRed, green: averageGreen, blue: averageBlue, alpha: averageAlpha)
+        return averageColor
     }
 }
 

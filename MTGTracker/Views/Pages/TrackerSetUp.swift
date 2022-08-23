@@ -77,6 +77,7 @@ struct TrackerSetUp: View {
                     }
                     
             }
+            .defaultStyling()
             .alert("Choose the ammount of players", isPresented: $showingAlert){
                 Button("Ok", role: .cancel){}
             }

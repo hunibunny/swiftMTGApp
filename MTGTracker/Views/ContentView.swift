@@ -21,8 +21,6 @@ struct ContentView: View {
             HpView()
         case .profileView:
             ProfileView(profileInspected: modelData.inspectedProfile ?? modelData.profile)
-        case .friendList:
-            FriendList()
         case .addAFriend:
             AddAFriend()
         }

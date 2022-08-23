@@ -43,6 +43,7 @@ struct AddAFriend: View {
             modelData.inspectedProfile = modelData.profile
             modelData.viewRouter.currentPage = .profileView
             })
+        .defaultStyling()
             .frame(alignment: .topLeading)
             .padding()
     }
