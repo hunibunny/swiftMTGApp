@@ -18,13 +18,12 @@
 		7F0F850E2898295D002FEC34 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F850D2898295D002FEC34 /* ProfileView.swift */; };
 		7F63A21628994F900037952B /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63A21528994F900037952B /* FriendList.swift */; };
 		7F73A77128A2AF6D009C5E60 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73A77028A2AF6D009C5E60 /* ProfileData.swift */; };
-		7F73A77328A2B3CD009C5E60 /* ObservableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73A77228A2B3CD009C5E60 /* ObservableInfo.swift */; };
 		7F8732A628A1436800B74233 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8732A528A1436800B74233 /* DiceView.swift */; };
+		7F87C70828B4E6A200AD58B6 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87C70728B4E6A200AD58B6 /* ScreenSize.swift */; };
 		7F9069A0289A8B2D006F65E2 /* ProfileSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F90699F289A8B2D006F65E2 /* ProfileSpot.swift */; };
 		7F9A254F288E97680026E3EB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A254E288E97680026E3EB /* .gitignore */; };
 		7F9A2551288EA2AF0026E3EB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2550288EA2AF0026E3EB /* MenuView.swift */; };
 		7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */; };
-		7F9A2559288EFA730026E3EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2558288EFA730026E3EB /* Profile.swift */; };
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
 		7FA74C7228B3CDF000851412 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA74C7128B3CDF000851412 /* CustomButton.swift */; };
 		7FBB022428AB8ADC00CBB767 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB022328AB8ADC00CBB767 /* GameSettings.swift */; };
@@ -44,13 +43,12 @@
 		7F0F850D2898295D002FEC34 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		7F63A21528994F900037952B /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
 		7F73A77028A2AF6D009C5E60 /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
-		7F73A77228A2B3CD009C5E60 /* ObservableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableInfo.swift; sourceTree = "<group>"; };
 		7F8732A528A1436800B74233 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		7F87C70728B4E6A200AD58B6 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		7F90699F289A8B2D006F65E2 /* ProfileSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSpot.swift; sourceTree = "<group>"; };
 		7F9A254E288E97680026E3EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7F9A2550288EA2AF0026E3EB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSetUp.swift; sourceTree = "<group>"; };
-		7F9A2558288EFA730026E3EB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		7FA74C7128B3CDF000851412 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7FBB022328AB8ADC00CBB767 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
@@ -89,8 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				7F0A6ED42875CF0700E3B57A /* MTGTrackerApp.swift */,
+				7F73A76F28A2AF50009C5E60 /* Data */,
+				7F87C70628B4E67C00AD58B6 /* Extensions */,
 				7F9A255A288EFA870026E3EB /* Model */,
 				7F0A6EE22875CF1E00E3B57A /* Views */,
+				7F0F850A289823B0002FEC34 /* ViewManagement */,
 				7F0A6ED82875CF0900E3B57A /* Assets.xcassets */,
 				7F0A6EDA2875CF0900E3B57A /* Preview Content */,
 			);
@@ -109,9 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0F850B289823DB002FEC34 /* CustomElements */,
-				7F73A76F28A2AF50009C5E60 /* Data */,
 				7F0F850C289823F3002FEC34 /* Pages */,
-				7F0F850A289823B0002FEC34 /* ViewManagement */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,7 +128,6 @@
 		7F0F850B289823DB002FEC34 /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
-				7FA74C7128B3CDF000851412 /* CustomButton.swift */,
 				7F8732A528A1436800B74233 /* DiceView.swift */,
 				7F63A21528994F900037952B /* FriendList.swift */,
 				7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */,
@@ -154,16 +152,23 @@
 			isa = PBXGroup;
 			children = (
 				7F73A77028A2AF6D009C5E60 /* ProfileData.swift */,
-				7F73A77228A2B3CD009C5E60 /* ObservableInfo.swift */,
 				7FBB022328AB8ADC00CBB767 /* GameSettings.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
+		7F87C70628B4E67C00AD58B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FA74C7128B3CDF000851412 /* CustomButton.swift */,
+				7F87C70728B4E6A200AD58B6 /* ScreenSize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7F9A255A288EFA870026E3EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7F9A2558288EFA730026E3EB /* Profile.swift */,
 				7F9A255B288EFAC20026E3EB /* ModelData.swift */,
 			);
 			path = Model;
@@ -244,16 +249,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F73A77328A2B3CD009C5E60 /* ObservableInfo.swift in Sources */,
 				7FA74C7228B3CDF000851412 /* CustomButton.swift in Sources */,
 				7F73A77128A2AF6D009C5E60 /* ProfileData.swift in Sources */,
 				7F0F850728982026002FEC34 /* ViewRouter.swift in Sources */,
 				7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */,
-				7F9A2559288EFA730026E3EB /* Profile.swift in Sources */,
 				7F63A21628994F900037952B /* FriendList.swift in Sources */,
 				7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */,
 				7F9A2551288EA2AF0026E3EB /* MenuView.swift in Sources */,
 				7F0F850528981FBA002FEC34 /* HpView.swift in Sources */,
+				7F87C70828B4E6A200AD58B6 /* ScreenSize.swift in Sources */,
 				7F0A6ED72875CF0700E3B57A /* ContentView.swift in Sources */,
 				7F0F850928982071002FEC34 /* RouterHelper.swift in Sources */,
 				7F8732A628A1436800B74233 /* DiceView.swift in Sources */,

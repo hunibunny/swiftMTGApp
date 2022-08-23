@@ -8,13 +8,6 @@ import SwiftUI
 
 
 
-
-extension UIScreen{
-    static let screenWidth = UIScreen.main.bounds.size.width
-    static let screenHeight = UIScreen.main.bounds.size.height
-    static let screenSize = UIScreen.main.bounds.size
-}
-
 struct HpView: View {
     @EnvironmentObject var modelData: ModelData
   //  var totalPlayers = 4
@@ -80,21 +73,17 @@ struct HpView: View {
                     .ignoresSafeArea()
                 VStack{
                     HStack(){
-                        Button("Go back to menu", action: {modelData.viewRouter.currentPage = .menuView})
-                        Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.profile.chosenFriends.randomElement()?.username ?? "No players to choose from"})
+                        Button("Go back to menu", action: {modelData.viewRouter.currentPage = .menuView}).defaultStyling()
+                        Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.profile.chosenFriends.randomElement()?.username ?? "No players to choose from"}).defaultStyling()
                     }
                     HStack{
                         VStack{
-                            Button("Throw a dice", action:{displayDices = true})
+                            Button("Throw a dice", action:{displayDices = true}).defaultStyling()
                             if(displayDices){
                                 DiceView()
                             }
                         }
-                        Button("Save the game :)", action:{})
-                            .background(RoundedRectangle(cornerSize:CGSize(width: 10, height: 10))
-                                .scale(1.1)
-                                .fill(.indigo))
-                            .foregroundColor(.white)
+                        Button("Save the game", action:{print("save the game")}).defaultStyling()
                     }
                 }
             }
