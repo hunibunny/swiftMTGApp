@@ -23,73 +23,85 @@ struct HpView: View {
     @State private var showHpMenu = false
     @State var displayDices = false
     var body: some View {
+        GeometryReader{outsideBox in
         ZStack{
-            if modelData.gameSettings.ammountOfPlayers == 2{
+            if modelData.currentGame!.ammountOfPlayers == 2{
                 VStack(spacing: 0){
-                    ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[0].topColor , bottomColor: modelData.gameSettings.players[0].bottomColor, idealHeight: nil)
-                        
+                    GeometryReader{geometry in
+                        ScreenButton(rotation: 180, topColor: modelData.currentGame!.players[0].topColor , bottomColor: modelData.currentGame!.players[0].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[0])
+                            .onAppear{
+                                height = geometry.size.width
+                            }
+                    }
                        
-                    ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[1].topColor, bottomColor: modelData.gameSettings.players[1].bottomColor, idealHeight: nil)
+                    ScreenButton(rotation: 0, topColor: modelData.currentGame!.players[1].topColor, bottomColor: modelData.currentGame!.players[1].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[1])
             
                 }
-                .ignoresSafeArea()
+                .frame(alignment: .center)
+                //.ignoresSafeArea()
             }
-            else if modelData.gameSettings.ammountOfPlayers == 3{
-                VStack(spacing: 0){
-                    VStack(spacing: 0){
-                        ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[0].topColor, bottomColor: modelData.gameSettings.players[0].bottomColor, idealHeight: nil)
-                        ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[1].topColor, bottomColor: modelData.gameSettings.players[1].bottomColor, idealHeight: nil)
-                    }
-                    .rotationEffect(.degrees(90))
-                    .scaleEffect(x: 1.2)
-                    ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[2].topColor, bottomColor: modelData.gameSettings.players[2].bottomColor, idealHeight: nil)
-                
-                }
-            }
-            else if modelData.gameSettings.ammountOfPlayers == 4{
+            else if modelData.currentGame!.ammountOfPlayers == 3{
                 VStack(spacing: 0){
                     VStack(spacing: 0){
                         GeometryReader{geometry in
-                            ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[0].topColor, bottomColor: modelData.gameSettings.players[0].bottomColor, idealHeight: nil)
+                            ScreenButton(rotation: 180, topColor: modelData.currentGame!.players[0].topColor, bottomColor: modelData.currentGame!.players[0].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[0])
+                                .onAppear{
+                                    height = geometry.size.width
+                                }
+                        }
+                        ScreenButton(rotation: 0, topColor: modelData.currentGame!.players[1].topColor, bottomColor: modelData.currentGame!.players[1].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[1])
+                    }
+                    .rotationEffect(.degrees(90))
+                    .scaleEffect(x: 1.2)
+                    ScreenButton(rotation: 0, topColor: modelData.currentGame!.players[2].topColor, bottomColor: modelData.currentGame!.players[2].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[2])
+                
+                }
+                .frame(alignment: .center)
+            }
+            else if modelData.currentGame!.ammountOfPlayers == 4{
+                VStack(spacing: 0){
+                    VStack(spacing: 0){
+                        GeometryReader{geometry in
+                            ScreenButton(rotation: 180, topColor: modelData.currentGame!.players[0].topColor, bottomColor: modelData.currentGame!.players[0].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[0])
                                 .onAppear{
                                     height = geometry.size.width
                                 }
                         }
                         
                         
-                        ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[1].topColor, bottomColor: modelData.gameSettings.players[1].bottomColor, idealHeight: nil)
+                        ScreenButton(rotation: 0, topColor: modelData.currentGame!.players[1].topColor, bottomColor: modelData.currentGame!.players[1].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[1])
                     }
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.1)
 
 
                     VStack(spacing: 0){
-                        ScreenButton(rotation: 180, topColor: modelData.gameSettings.players[2].topColor, bottomColor: modelData.gameSettings.players[2].bottomColor, idealHeight: nil)
-                        ScreenButton(rotation: 0, topColor: modelData.gameSettings.players[3].topColor, bottomColor: modelData.gameSettings.players[3].topColor, idealHeight: nil)
+                        ScreenButton(rotation: 180, topColor: modelData.currentGame!.players[2].topColor, bottomColor: modelData.currentGame!.players[2].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[2])
+                        ScreenButton(rotation: 0, topColor: modelData.currentGame!.players[3].topColor, bottomColor: modelData.currentGame!.players[3].bottomColor, idealHeight: nil, hp: modelData.currentGame!.hp[3])
                     }
                     .rotationEffect(.degrees(90))
                     .scaleEffect(x: 1.1)
                 }
                 .frame(alignment: .center)
                // .scaleEffect(x: 1.1)
-                .offset(y: height > UIScreen.screenHeight/2 ? height-UIScreen.screenHeight/2-UIScreen.screenHeight/40 :  UIScreen.screenHeight/2-UIScreen.screenHeight/40-height)
+               // .offset(y: height > UIScreen.screenHeight/2 ? height-UIScreen.screenHeight/2-UIScreen.screenHeight/40 :  UIScreen.screenHeight/2-UIScreen.screenHeight/40-height)
+                
             }
             if showHpMenu{
                 HpMenu()
             }
-            Circle()
-                .fill(Color.red)
-                .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenHeight/10, alignment: .center)
-                .onTapGesture{
-                    showHpMenu = !showHpMenu
-                }
-            
+            Button("Menu", action:{showHpMenu = !showHpMenu; modelData.showDices = false}).defaultStyling()
+            //   .fill(Color.red)
+               .frame(alignment: .center)
+               .border(Color(.red))
 
+        }
         }
         .onAppear(){
             print("displaying hpView")
         }
-        if modelData.gameSettings.ammountOfPlayers == 5{
+        /*
+        if modelData.currentGame!.ammountOfPlayers == 5{
             VStack(spacing: 0){
                 VStack{
                     HStack{
@@ -110,6 +122,7 @@ struct HpView: View {
             //.scaleEffect(x: 1.1)
             
         }
+        */
     }
 }
 

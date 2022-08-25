@@ -75,15 +75,16 @@ struct DiceView: View {
             HStack{
                 ZStack{
                     Triangle()
+                        .fill(.indigo)
                         .onTapGesture{
                             fourFaceDice = Int.random(in: 1...4)
                         }
                     Text(String(fourFaceDice))
                         .foregroundColor(Color.white)
-                       
                 }
                 ZStack{
                     Rectangle()
+                        .fill(.indigo)
                         .onTapGesture {
                             sixFaceDice = Int.random(in: 1...6)
                         }
@@ -95,6 +96,7 @@ struct DiceView: View {
             HStack{
                 ZStack{
                     Triangle()
+                        .fill(.indigo)
                         .onTapGesture {
                             eightFaceDice = Int.random(in: 1...8)
                         }
@@ -104,6 +106,7 @@ struct DiceView: View {
                                         }
                 ZStack{
                     Kite()
+                        .fill(.indigo)
                         .onTapGesture {
                             tenFaceDice = Int.random(in: 1...10)
                         }
@@ -115,6 +118,7 @@ struct DiceView: View {
             HStack{
                 ZStack{
                     Pentagon()
+                        .fill(.indigo)
                         .onTapGesture {
                             twelveFaceDice = Int.random(in: 1...12)
                         }
@@ -124,6 +128,7 @@ struct DiceView: View {
                 }
                 ZStack{
                     Triangle()
+                        .fill(.indigo)
                         .onTapGesture {
                             twentyFaceDice = Int.random(in: 1...20)
                         }
@@ -133,6 +138,7 @@ struct DiceView: View {
                 }
             }
         }
+       
     }
 }
 

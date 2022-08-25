@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct GameData: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+var firstPlayer = Profile(topColor: UIColor.red, bottomColor: UIColor.gray)
+var secondPlayer = Profile(topColor: UIColor.blue, bottomColor: UIColor.white)
+var thirdPlayer = Profile(topColor: UIColor.green, bottomColor: UIColor.orange)
+
+
+struct GameData{
+    var players: Array<Profile> = []
+    var hp = [0, 0, 0, 0]
+    var name: String?
+    var format = "Choose format"
+    var ammountOfPlayers = 0
 }
 
-struct GameData_Previews: PreviewProvider {
-    static var previews: some View {
-        GameData()
-    }
-}

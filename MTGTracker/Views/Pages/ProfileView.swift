@@ -11,21 +11,29 @@ struct ProfileView: View {
     @EnvironmentObject var modelData: ModelData
     @State var showingAlert = false
     @State var profileInspected = ModelData().inspectedProfile
-  //  @State var profileHeader = (ModelData().inspectingSelf ? "My profile" : ModelData().inspectedProfile!.username)
+    @State var pfpSize: CGSize?  //  @State var profileHeader = (ModelData().inspectingSelf ? "My profile" : ModelData().inspectedProfile!.username)
     @State var itemNumberToDelete = 0
     var body: some View {
         VStack{
-            Text("profileHeader")
-            HStack{
-                VStack{
-                    Image(profileInspected!.profilePicture)
-                        .resizable()
-                        .frame(maxHeight: 200)
-                    Text(profileInspected!.username)
+            VStack{
+                Text(profileInspected!.username).padding()
+                HStack{
+                    GeometryReader{geometry in
+                        Image(profileInspected!.profilePicture)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(idealWidth: UIScreen.screenWidth/2)
+                            .onAppear{
+                                pfpSize = geometry.size
+                            }
+                    }
+                    ScreenButton(rotation: 0, topColor: profileInspected!.topColor, bottomColor: profileInspected!.bottomColor, idealHeight: nil, hp: 20)
+                        .frame(height: pfpSize?.height)
                 }
-                ScreenButton(rotation: 0, topColor: profileInspected!.topColor, bottomColor: profileInspected!.bottomColor, idealHeight: nil)
+                //.padding()
             }
-            .frame(maxHeight: 300)
+           // .frame(maxHeight: 300)
+            .padding(.bottom, nil)
             if(profileInspected!.avaibleFriends.count > 0){
                 Text("Friends: ")
             }
@@ -38,7 +46,8 @@ struct ProfileView: View {
                         RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack{
-                            Text(profileInspected!.avaibleFriends[index].username)
+                            Text(profileInspected!.avaibleFriends[index].username).padding()
+                            Spacer()
                             Button("Inspect"){
                                 modelData.inspectedProfile = profileInspected!.avaibleFriends[index]
                                 profileInspected = profileInspected!.avaibleFriends[index]
@@ -61,6 +70,8 @@ struct ProfileView: View {
                     }
                 }
             }
+            .padding(.leading, nil)
+            .padding(.trailing, nil)
             if(modelData.inspectedProfile == modelData.profile){
                 Button("Add a friend", action:{modelData.viewRouter.currentPage = .addAFriend})
                     .defaultStyling(paddingAmmount: 0)

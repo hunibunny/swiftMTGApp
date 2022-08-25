@@ -16,10 +16,10 @@ struct ScreenButton: View {
     let bottomColor: UIColor
     var idealHeight: CGFloat?
     
-    @State var hp = 40
+    @State var hp: Int
     var middleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
 
-    init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?){
+    init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, hp: Int){
         self.rotation = rotation
         self.topColor = topColor
         self.bottomColor = bottomColor
@@ -80,7 +80,7 @@ struct ScreenButton: View {
 
 struct ScreenButton_Previews: PreviewProvider {
     static var previews: some View {
-        ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
+        ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil, hp: 10)
     }
 }
 

@@ -26,11 +26,12 @@ struct HpMenu: View {
                 .opacity(0)
                 .frame(width: UIScreen.screenWidth/10, height: UIScreen.screenHeight/10, alignment: .center)
             HStack{
-                VStack{
+                VStack(spacing: 0){
                     Button("Throw a dice", action:{modelData.showDices = true}).defaultStyling()
-                        .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
+                        .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/30)
                     if(modelData.showDices){
                         DiceView()
+                            .padding()
                     }
                 }
                 Button("Save the game", action:{print("save the game")}).defaultStyling()
