@@ -14,6 +14,7 @@ struct TrackerSetUp: View {
     @State var showingAlert = false
     @State var maxHp = "Max Hp"
     @State var alert = ""
+    @State var originalPossibilities = ModelData().profile.avaibleFriends
     var body: some View {
         VStack(spacing: nil){
             Text("Game settings").padding()
@@ -39,7 +40,13 @@ struct TrackerSetUp: View {
                     }
                 })
             }
-            
+            .onChange(of: modelData.currentGame!.ammountOfPlayers, perform: {newValue in
+                for player in originalPossibilities{
+                    if(!modelData.currentGame!.players.contains(player) && !modelData.profile.avaibleFriends.contains(player)){
+                        modelData.profile.avaibleFriends.append(player)
+                    }
+                }
+            })
             if modelData.currentGame!.ammountOfPlayers > 0{
                 HStack{
                     ForEach(1...modelData.currentGame!.ammountOfPlayers, id: \.self){index in

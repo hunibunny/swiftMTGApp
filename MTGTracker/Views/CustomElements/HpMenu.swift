@@ -10,16 +10,18 @@ import SwiftUI
 struct HpMenu: View {
     @EnvironmentObject var modelData: ModelData
     @State var chosenRandomStarter = "Choose a random starter"
-
+   // var listToRandomiceFrom = ModelData().currentGame.players
     var body: some View {
         Rectangle()
             .foregroundColor(Color.black.opacity(0.5))
             .ignoresSafeArea()
         VStack{
             HStack(){
-                Button("Go back to menu", action: {modelData.viewRouter.currentPage = .menuView}).defaultStyling()
+                Button("Go back to menu", action: {modelData.viewRouter.currentPage = .menuView})
+                    .defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
-                Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.profile.chosenFriends.randomElement()?.username ?? "No players to choose from"}).defaultStyling()
+                Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.currentGame!.players.prefix(modelData.currentGame!.ammountOfPlayers).randomElement()?.username ?? "No players to choose from"})
+                    .defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
             }
             Circle()
@@ -37,6 +39,9 @@ struct HpMenu: View {
                 Button("Save the game", action:{print("save the game")}).defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
             }
+        }
+        .onAppear{
+            print(modelData.currentGame!.players[3].username)
         }
     }
 }

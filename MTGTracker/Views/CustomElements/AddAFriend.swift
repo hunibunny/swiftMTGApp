@@ -11,28 +11,40 @@ struct AddAFriend: View {
     @EnvironmentObject var modelData: ModelData
     @State var names = ["Holly", "Josh", "Rhonda", "Ted"]
     @State private var searchText = ""
-
+    @State var searchboxHeight: CGFloat = 0
     var body: some View {
-        TextField("Search here", text: $searchText)
-            .padding()
-            .foregroundColor(Color.white)
-            .background(RoundedRectangle(cornerSize: CGSize(width: 20,height: 20)).fill(.gray))
-            .padding(.leading, 20)
-            .padding(.trailing)
+        GeometryReader{geometry in
+            TextField("Search here", text: $searchText)
+                .padding()
+                .foregroundColor(Color.white)
+                .background(RoundedRectangle(cornerSize: CGSize(width: 20,height: 20)).fill(.gray))
+                .padding(.leading, 20)
+                .padding(.trailing)
+                .onAppear{
+                    searchboxHeight = geometry.size.height
+                }
+        }
         VStack{
             
             ForEach(searchResults, id: \.self) { result in
-                Text(result).searchCompletion(result)
-                    .foregroundColor(Color.black)
-                    .background()
-                    .frame(alignment: .leading)
-                    .onTapGesture {
-                        print("Added \(result) to friends")
-                        modelData.profile.avaibleFriends.append(Profile(username: result))
-                        names = names.filter{$0 != result}
-                        print(names)
-                    }
-                    .border(.blue)
+                ZStack{
+                    RoundedRectangle(cornerSize: CGSize(width: 20, height:20))
+                        .fill(Color.gray)
+                    Text(result).searchCompletion(result)
+                        .foregroundColor(Color.white)
+                        .background(RoundedRectangle(cornerSize: CGSize(width: 10, height: 5)).fill(Color.indigo))
+                        .frame(alignment: .leading)
+                        .padding()
+                        .onTapGesture {
+                            print("Added \(result) to friends")
+                            modelData.profile.avaibleFriends.append(Profile(username: result))
+                            names = names.filter{$0 != result}
+                            print(names)
+                        }
+                        .border(.blue)
+                }
+                .padding(.trailing)
+                .frame(maxHeight: searchboxHeight)
             }
         }
         .frame(minWidth: UIScreen.screenWidth-20, alignment: .leading)
