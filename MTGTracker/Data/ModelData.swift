@@ -26,15 +26,6 @@ class ModelData: ObservableObject{
 
 
 
-/*
-class ModelData: ObservableObject{
-   // @Published var profile = Profile(username: "mel mle", avaibleFriends: [stPlayer, ndPlayer, rdPlayer])
-    //@Published var inspectedProfile: Profile?
-    //@Published var gameSettings = GameSettings()
-    //@Published var viewRouter = ViewRouter()
-    @Published var hehe = "hehe"
-}
-
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -57,4 +48,4 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
-*/
+

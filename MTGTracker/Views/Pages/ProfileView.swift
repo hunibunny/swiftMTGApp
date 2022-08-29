@@ -16,7 +16,12 @@ struct ProfileView: View {
     var body: some View {
         VStack{
             VStack{
-                Text(profileInspected!.username).padding()
+                HStack{
+                    if(modelData.inspectingSelf){
+                        Text("My profile:")
+                    }
+                    Text(profileInspected!.username).padding()
+                }
                 HStack{
                     GeometryReader{geometry in
                         Image(profileInspected!.profilePicture)
@@ -34,10 +39,11 @@ struct ProfileView: View {
             }
            // .frame(maxHeight: 300)
             .padding(.bottom, nil)
+            Button("Edit", action: {}).defaultStyling()
             if(profileInspected!.avaibleFriends.count > 0){
                 Text("Friends: ")
             }
-            else{
+            if( modelData.inspectingSelf){
                 Text("No friends yet")
             }
             ScrollView{
@@ -54,7 +60,7 @@ struct ProfileView: View {
                                 modelData.inspectingSelf = false
                             }
                             .defaultStyling()
-                            Button("Remove"){
+                            Button("Delete"){
                                 showingAlert = true
                                 itemNumberToDelete = index
                             }
@@ -73,7 +79,7 @@ struct ProfileView: View {
             .padding(.leading, nil)
             .padding(.trailing, nil)
             if(modelData.inspectedProfile == modelData.profile){
-                Button("Add a friend", action:{modelData.viewRouter.currentPage = .addAFriend})
+                Button("Add a profile", action:{modelData.profile.avaibleFriends.append(Profile(username: "New profile"));modelData.viewRouter.currentPage = .addAFriend})
                     .defaultStyling(paddingAmmount: 0)
             }
         }

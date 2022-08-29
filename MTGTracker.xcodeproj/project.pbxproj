@@ -15,6 +15,9 @@
 		7F0F850528981FBA002FEC34 /* HpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F850428981FBA002FEC34 /* HpView.swift */; };
 		7F0F850728982026002FEC34 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F850628982026002FEC34 /* ViewRouter.swift */; };
 		7F0F850E2898295D002FEC34 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F850D2898295D002FEC34 /* ProfileView.swift */; };
+		7F6C7ABC28BCF7D900E5F872 /* hikeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F6C7ABA28BCF7D900E5F872 /* hikeData.json */; };
+		7F6C7ABD28BCF7D900E5F872 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F6C7ABB28BCF7D900E5F872 /* landmarkData.json */; };
+		7F6C7AC628BCFF6C00E5F872 /* profileData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F6C7AC528BCFF6C00E5F872 /* profileData.json */; };
 		7F73A77128A2AF6D009C5E60 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73A77028A2AF6D009C5E60 /* ProfileData.swift */; };
 		7F7BDA5D28B630370077248E /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BDA5C28B630370077248E /* GameData.swift */; };
 		7F8732A628A1436800B74233 /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8732A528A1436800B74233 /* DiceView.swift */; };
@@ -40,6 +43,9 @@
 		7F0F850428981FBA002FEC34 /* HpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpView.swift; sourceTree = "<group>"; };
 		7F0F850628982026002FEC34 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		7F0F850D2898295D002FEC34 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		7F6C7ABA28BCF7D900E5F872 /* hikeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hikeData.json; sourceTree = "<group>"; };
+		7F6C7ABB28BCF7D900E5F872 /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
+		7F6C7AC528BCFF6C00E5F872 /* profileData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = profileData.json; sourceTree = "<group>"; };
 		7F73A77028A2AF6D009C5E60 /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
 		7F7BDA5C28B630370077248E /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		7F8732A528A1436800B74233 /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
@@ -86,13 +92,14 @@
 		7F0A6ED32875CF0700E3B57A /* MTGTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7F0A6EDA2875CF0900E3B57A /* Preview Content */,
 				7F0A6ED42875CF0700E3B57A /* MTGTrackerApp.swift */,
+				7F0A6ED82875CF0900E3B57A /* Assets.xcassets */,
 				7F73A76F28A2AF50009C5E60 /* Data */,
 				7F87C70628B4E67C00AD58B6 /* Extensions */,
-				7F0A6EE22875CF1E00E3B57A /* Views */,
+				7F6C7AB928BCF7D900E5F872 /* Resources */,
 				7F0F850A289823B0002FEC34 /* ViewManagement */,
-				7F0A6ED82875CF0900E3B57A /* Assets.xcassets */,
-				7F0A6EDA2875CF0900E3B57A /* Preview Content */,
+				7F0A6EE22875CF1E00E3B57A /* Views */,
 			);
 			path = MTGTracker;
 			sourceTree = "<group>";
@@ -144,6 +151,16 @@
 				7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		7F6C7AB928BCF7D900E5F872 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F6C7ABA28BCF7D900E5F872 /* hikeData.json */,
+				7F6C7ABB28BCF7D900E5F872 /* landmarkData.json */,
+				7F6C7AC528BCFF6C00E5F872 /* profileData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7F73A76F28A2AF50009C5E60 /* Data */ = {
@@ -228,8 +245,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F6C7ABC28BCF7D900E5F872 /* hikeData.json in Resources */,
 				7F0A6EDC2875CF0900E3B57A /* Preview Assets.xcassets in Resources */,
 				7F9A254F288E97680026E3EB /* .gitignore in Resources */,
+				7F6C7AC628BCFF6C00E5F872 /* profileData.json in Resources */,
+				7F6C7ABD28BCF7D900E5F872 /* landmarkData.json in Resources */,
 				7F0A6ED92875CF0900E3B57A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

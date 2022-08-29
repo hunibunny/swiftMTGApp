@@ -9,63 +9,30 @@ import SwiftUI
 
 struct AddAFriend: View {
     @EnvironmentObject var modelData: ModelData
-    @State var names = ["Holly", "Josh", "Rhonda", "Ted"]
-    @State private var searchText = ""
-    @State var searchboxHeight: CGFloat = 0
+    @State var testString = "Mle"
+    @State var chosenTopColor = Color.white
+    @State var chosenBottomColor = Color.white
+    @State var name = "New profile"
+    @State private var bgColor = Color.red
+    @State var idealHeight: CGFloat?
     var body: some View {
-        GeometryReader{geometry in
-            TextField("Search here", text: $searchText)
-                .padding()
-                .foregroundColor(Color.white)
-                .background(RoundedRectangle(cornerSize: CGSize(width: 20,height: 20)).fill(.gray))
-                .padding(.leading, 20)
-                .padding(.trailing)
-                .onAppear{
-                    searchboxHeight = geometry.size.height
-                }
-        }
         VStack{
-            
-            ForEach(searchResults, id: \.self) { result in
-                ZStack{
-                    RoundedRectangle(cornerSize: CGSize(width: 20, height:20))
-                        .fill(Color.gray)
-                    Text(result).searchCompletion(result)
-                        .foregroundColor(Color.white)
-                        .background(RoundedRectangle(cornerSize: CGSize(width: 10, height: 5)).fill(Color.indigo))
-                        .frame(alignment: .leading)
-                        .padding()
-                        .onTapGesture {
-                            print("Added \(result) to friends")
-                            modelData.profile.avaibleFriends.append(Profile(username: result))
-                            names = names.filter{$0 != result}
-                            print(names)
-                        }
-                        .border(.blue)
+            TextField("Enter name here", text: $name)
+                .multilineTextAlignment(.center)
+            HStack{
+                VStack{
+                    Text("Top color:")
+                    ColorPicker("Set color", selection: $chosenTopColor, supportsOpacity: false)
+                        .padding(.leading)
+                    
+                    Text("Bottom color")
+                    ColorPicker("Set color", selection: $chosenBottomColor, supportsOpacity: false)
+                        .padding(.leading)
                 }
-                .padding(.trailing)
-                .frame(maxHeight: searchboxHeight)
+                ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
             }
-        }
-        .frame(minWidth: UIScreen.screenWidth-20, alignment: .leading)
-        .border(Color.red, width: 2)
-        .padding(.leading, 20)
-        Button("Back", action: {
-            modelData.inspectingSelf = true
-            modelData.inspectedProfile = modelData.profile
-            modelData.viewRouter.currentPage = .profileView
-            })
-        .defaultStyling()
-            .frame(alignment: .topLeading)
-            .padding()
-    }
-    
-
-    var searchResults: [String] {
-        if searchText.isEmpty {
-            return names
-        } else {
-            return names.filter { $0.contains(searchText) }
+            Button("Save", action:{})
+            Button("Go back", action:{modelData.viewRouter.currentPage = .profileView}).defaultStyling()
         }
     }
 }

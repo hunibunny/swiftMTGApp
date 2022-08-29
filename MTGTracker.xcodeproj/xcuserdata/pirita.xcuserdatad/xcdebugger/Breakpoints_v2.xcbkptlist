@@ -154,8 +154,8 @@
             filePath = "MTGTracker/Views/Pages/ProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -170,10 +170,73 @@
             filePath = "MTGTracker/Views/Pages/ProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBA56D7E-124F-447B-9ADB-BBB1750EDFD3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MTGTracker/Views/CustomElements/AddAFriend.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "AddAFriend"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "BBA56D7E-124F-447B-9ADB-BBB1750EDFD3 - 5bd69f673dc299e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MTGTracker.AddAFriend.modelData.getter : MTGTracker.ModelData"
+                  moduleName = "MTGTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pirita/Documents/xCodes/MTGTracker/MTGTracker/Views/CustomElements/AddAFriend.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "BBA56D7E-124F-447B-9ADB-BBB1750EDFD3 - 6c302503f7c8b293"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MTGTracker.AddAFriend.$modelData.getter : SwiftUI.EnvironmentObject&lt;MTGTracker.ModelData&gt;.Wrapper"
+                  moduleName = "MTGTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pirita/Documents/xCodes/MTGTracker/MTGTracker/Views/CustomElements/AddAFriend.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "BBA56D7E-124F-447B-9ADB-BBB1750EDFD3 - ce90c31f031b0109"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MTGTracker.AddAFriend.init() -&gt; MTGTracker.AddAFriend"
+                  moduleName = "MTGTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pirita/Documents/xCodes/MTGTracker/MTGTracker/Views/CustomElements/AddAFriend.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "54">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

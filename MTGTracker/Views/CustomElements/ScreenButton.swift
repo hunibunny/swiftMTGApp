@@ -56,7 +56,10 @@ struct ScreenButton: View {
                         }
                 }
             Text(String(hp))
-                .foregroundColor(Color.white)
+                    .foregroundColor(middleColor.components.red+middleColor.components.green+middleColor.components.blue/3 > 0.5 ? Color.black : Color.white)
+                    .onAppear{
+                        print(middleColor.components.red)
+                    }
         }
         .rotationEffect(.degrees(rotation))
         .onAppear{

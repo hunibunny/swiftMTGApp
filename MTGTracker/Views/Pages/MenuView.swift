@@ -13,7 +13,7 @@ struct MenuView: View {
     @EnvironmentObject var modelData: ModelData //viewrouter only needed
     var body: some View {
         VStack{
-            Button("My Profile"){
+            Button("Profiles"){
                 modelData.inspectedProfile = modelData.profile
                 modelData.viewRouter.currentPage = .profileView
             }
