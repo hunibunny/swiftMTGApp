@@ -15,13 +15,15 @@ var ndPlayer = Profile(username: "Fawn", topColor: UIColor.blue, bottomColor: UI
 var rdPlayer = Profile(username: "Gaia", topColor: UIColor.green, bottomColor: UIColor.orange)
 
 class ModelData: ObservableObject{
-    @Published var profile = Profile(username: "mel mle", avaibleFriends: [stPlayer, ndPlayer, rdPlayer])
     @Published var inspectedProfile: Profile?
     @Published var inspectingSelf = false
     @Published var viewRouter = ViewRouter()
     @Published var sizesOfViews = []
     @Published var showDices = false
     @Published var currentGame: GameData?
+    @Published var profiles: Array<Profile> = []
+    @Published var editedProfile: Profile?
+    @Published var editingProfile = false
 }
 
 

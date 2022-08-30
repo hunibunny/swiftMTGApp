@@ -14,7 +14,7 @@ struct TrackerSetUp: View {
     @State var showingAlert = false
     @State var maxHp = "Max Hp"
     @State var alert = ""
-    @State var originalPossibilities = ModelData().profile.avaibleFriends
+    @State private var avaiblePlayers = ModelData().profiles
     var body: some View {
         VStack(spacing: nil){
             Text("Game settings").padding()
@@ -23,34 +23,34 @@ struct TrackerSetUp: View {
                 Button("3",
                        action: {
                     modelData.currentGame!.ammountOfPlayers = 3;
-                    if(modelData.profile.chosenFriends.count == 4){
-                        modelData.profile.avaibleFriends.append(modelData.profile.chosenFriends[-1])
-                        modelData.profile.chosenFriends = Array(modelData.profile.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
+                    if(modelData.currentGame!.chosenFriends.count == 4){
+                        modelData.profiles.append(modelData.currentGame!.chosenFriends.last!)
+                        modelData.currentGame?.chosenFriends = Array(modelData.currentGame!.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
                 }})
                 Button("2",
                        action: {
                     modelData.currentGame!.ammountOfPlayers = 2
-                    if(modelData.profile.chosenFriends.count == 4){
-                        modelData.profile.avaibleFriends += modelData.profile.chosenFriends[2...3]
-                        modelData.profile.chosenFriends = Array(modelData.profile.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
+                    if(modelData.currentGame!.chosenFriends.count == 4){
+                        modelData.profiles += modelData.currentGame!.chosenFriends[2...3]
+                        modelData.currentGame?.chosenFriends = Array(modelData.currentGame!.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
                     }
-                    else if(modelData.profile.chosenFriends.count == 3){
-                        modelData.profile.avaibleFriends.append(modelData.profile.chosenFriends[2])
-                        modelData.profile.chosenFriends = Array(modelData.profile.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
+                    else if(modelData.currentGame!.chosenFriends.count == 3){
+                        modelData.profiles.append(modelData.currentGame!.chosenFriends[2])
+                        modelData.currentGame?.chosenFriends = Array(modelData.currentGame!.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
                     }
                 })
             }
             .onChange(of: modelData.currentGame!.ammountOfPlayers, perform: {newValue in
-                for player in originalPossibilities{
-                    if(!modelData.currentGame!.players.contains(player) && !modelData.profile.avaibleFriends.contains(player)){
-                        modelData.profile.avaibleFriends.append(player)
+                for player in avaiblePlayers{
+                    if(!modelData.currentGame!.players.contains(player) && !modelData.profiles.contains(player)){
+                        modelData.profiles.append(player)
                     }
                 }
             })
             if modelData.currentGame!.ammountOfPlayers > 0{
                 HStack{
                     ForEach(1...modelData.currentGame!.ammountOfPlayers, id: \.self){index in
-                        ProfileSpot()
+                        ChosenProfile(avaiablePlayers: $avaiblePlayers)
                     }
                 }
             }

@@ -13,8 +13,8 @@ enum Page: CaseIterable{
     case menuView
     case trackerSetUp
     case hpView
-    case profileView
-    case addAFriend
+    case profileEdit
+    case profileList
 }
 
 

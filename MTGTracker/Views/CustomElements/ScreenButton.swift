@@ -56,7 +56,7 @@ struct ScreenButton: View {
                         }
                 }
             Text(String(hp))
-                    .foregroundColor(middleColor.components.red+middleColor.components.green+middleColor.components.blue/3 > 0.5 ? Color.black : Color.white)
+                    .foregroundColor(middleColor.components.red+middleColor.components.green+middleColor.components.blue/3 > 0.55 ? Color.black : Color.white)
                     .onAppear{
                         print(middleColor.components.red)
                     }

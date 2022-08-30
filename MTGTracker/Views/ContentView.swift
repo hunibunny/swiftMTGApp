@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+func convertUIColor (uiColor: UIColor) -> Color {
+    return Color(red: Double(uiColor.cgColor.components![0]), green: Double(uiColor.cgColor.components![1]), blue: Double(uiColor.cgColor.components![2]))
+}
+
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     //@EnvironmentObject var state: NavigationStack
@@ -19,10 +23,10 @@ struct ContentView: View {
             TrackerSetUp()
         case .hpView:
             HpView()
-        case .profileView:
-            ProfileView(profileInspected: modelData.inspectedProfile ?? modelData.profile)
-        case .addAFriend:
-            AddAFriend()
+        case .profileEdit:
+            ProfileEdit(chosenTopColor: convertUIColor(uiColor: (modelData.editedProfile!.topColor)), chosenBottomColor: convertUIColor(uiColor: (modelData.editedProfile!.bottomColor)), editedProfile: modelData.editedProfile!, editingProfile: modelData.editingProfile)
+        case .profileList:
+            ProfileList()
         }
     }
 }
