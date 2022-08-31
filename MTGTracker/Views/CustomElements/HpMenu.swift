@@ -40,9 +40,6 @@ struct HpMenu: View {
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
             }
         }
-        .onAppear{
-            print(modelData.currentGame!.players[3].username)
-        }
     }
 }
 

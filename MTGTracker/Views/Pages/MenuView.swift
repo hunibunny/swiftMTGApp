@@ -21,9 +21,6 @@ struct MenuView: View {
             Button("Start a game", action: {modelData.currentGame = GameData(name: "New Game"); modelData.viewRouter.currentPage = .trackerSetUp})
                 .defaultStyling()
         }
-        .onAppear(){
-            print("displaying MenuView")
-        }
     }
 }
 

@@ -58,7 +58,7 @@
 		7F9A254E288E97680026E3EB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7F9A2550288EA2AF0026E3EB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSetUp.swift; sourceTree = "<group>"; };
-		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		7F9A4DFE28BF8C3000717840 /* ChosenPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayers.swift; sourceTree = "<group>"; };
 		7FA74C7128B3CDF000851412 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */

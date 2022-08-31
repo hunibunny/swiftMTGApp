@@ -23,8 +23,6 @@ struct ChosenProfile: View {
                     currentPlayer = modelData.profiles[index]
                     buttonText = currentPlayer?.username ?? "Select player"
                     chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index])
-                    print(modelData.profiles[index])
-                    print(modelData.currentGame!.chosenFriends)
                 }, label: {
                     Text(modelData.profiles[index].username)
                 })

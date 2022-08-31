@@ -97,9 +97,6 @@ struct HpView: View {
 
         }
         }
-        .onAppear(){
-            print("displaying hpView")
-        }
     }
 }
 
