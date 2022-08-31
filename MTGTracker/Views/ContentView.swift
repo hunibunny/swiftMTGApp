@@ -13,8 +13,6 @@ func convertUIColor (uiColor: UIColor) -> Color {
 
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
-    //@EnvironmentObject var state: NavigationStack
-    //@StateObject var state = NavigationStack()
     var body: some View {
         switch modelData.viewRouter.currentPage{
         case .menuView:

@@ -14,43 +14,22 @@ struct TrackerSetUp: View {
     @State var showingAlert = false
     @State var maxHp = "Max Hp"
     @State var alert = ""
-    @State private var avaiblePlayers = ModelData().profiles
+    @State var chosenPlayers = chosenProfiles()
     var body: some View {
         VStack(spacing: nil){
             Text("Game settings").padding()
             Menu(modelData.currentGame!.ammountOfPlayers == 0 ? "Ammount of players": String(modelData.currentGame!.ammountOfPlayers)){
-                Button("4",action: {modelData.currentGame!.ammountOfPlayers = 4})
-                Button("3",
-                       action: {
-                    modelData.currentGame!.ammountOfPlayers = 3;
-                    if(modelData.currentGame!.chosenFriends.count == 4){
-                        modelData.profiles.append(modelData.currentGame!.chosenFriends.last!)
-                        modelData.currentGame?.chosenFriends = Array(modelData.currentGame!.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
-                }})
-                Button("2",
-                       action: {
-                    modelData.currentGame!.ammountOfPlayers = 2
-                    if(modelData.currentGame!.chosenFriends.count == 4){
-                        modelData.profiles += modelData.currentGame!.chosenFriends[2...3]
-                        modelData.currentGame?.chosenFriends = Array(modelData.currentGame!.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
-                    }
-                    else if(modelData.currentGame!.chosenFriends.count == 3){
-                        modelData.profiles.append(modelData.currentGame!.chosenFriends[2])
-                        modelData.currentGame?.chosenFriends = Array(modelData.currentGame!.chosenFriends[0..<modelData.currentGame!.ammountOfPlayers])
-                    }
-                })
+                Button("4", action: {modelData.currentGame!.ammountOfPlayers = 4;})
+                Button("3", action: {modelData.currentGame!.ammountOfPlayers = 3;})
+                Button("2", action: {modelData.currentGame!.ammountOfPlayers = 2;})
             }
             .onChange(of: modelData.currentGame!.ammountOfPlayers, perform: {newValue in
-                for player in avaiblePlayers{
-                    if(!modelData.currentGame!.players.contains(player) && !modelData.profiles.contains(player)){
-                        modelData.profiles.append(player)
-                    }
-                }
+                chosenPlayers.empty()
             })
             if modelData.currentGame!.ammountOfPlayers > 0{
                 HStack{
                     ForEach(1...modelData.currentGame!.ammountOfPlayers, id: \.self){index in
-                        ChosenProfile(avaiablePlayers: $avaiblePlayers)
+                        ChosenProfile(chosenPlayers: $chosenPlayers, location: index)
                     }
                 }
             }
@@ -79,10 +58,8 @@ struct TrackerSetUp: View {
             })
             Button("Start the game"){
                 if(modelData.currentGame!.ammountOfPlayers > 0 && modelData.currentGame!.hp[0] != 0){
-                    modelData.currentGame!.players.append(Profile(username: "Guest 1"))
-                    modelData.currentGame!.players.append(Profile(username: "Guest 2"))
-                    modelData.currentGame!.players.append(Profile(username: "Guest 3"))
-                    modelData.currentGame!.players.append(Profile(username: "Guest 4"))
+                    chosenPlayers.fillToLength(fillTo: modelData.currentGame!.ammountOfPlayers)
+                    modelData.currentGame!.players = chosenPlayers.returnChosenPlayers()
                     modelData.viewRouter.currentPage = .hpView
                 }
                 else{

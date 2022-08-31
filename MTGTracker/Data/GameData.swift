@@ -20,6 +20,5 @@ struct GameData{
     var ammountOfPlayers = 0
     var chosenFriends: Array<Profile> = []
     var firstFriendHasBeenChosen = false
-    var chosenFriend = "No one"
 }
 

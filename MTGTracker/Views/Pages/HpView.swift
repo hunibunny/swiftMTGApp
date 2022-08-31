@@ -100,29 +100,6 @@ struct HpView: View {
         .onAppear(){
             print("displaying hpView")
         }
-        /*
-        if modelData.currentGame!.ammountOfPlayers == 5{
-            VStack(spacing: 0){
-                VStack{
-                    HStack{
-                        ScreenButton(rotation: 90, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil)
-                        ScreenButton(rotation: 270, topColor: UIColor.green, bottomColor: UIColor.black, idealHeight: nil)
-                    //.rotationEffect(.degrees(90))
-                    }
-                    scaledToFill()
-                    HStack{
-                        ScreenButton(rotation: 90, topColor: UIColor.blue, bottomColor: UIColor.black, idealHeight: nil)
-                        ScreenButton(rotation: 270, topColor: UIColor.red, bottomColor: UIColor.black, idealHeight: nil)
-                    }
-                    scaledToFill()
-                    //.rotationEffect(.degrees(90))
-                }
-                ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: UIScreen.screenHeight/6)
-            }
-            //.scaleEffect(x: 1.1)
-            
-        }
-        */
     }
 }
 

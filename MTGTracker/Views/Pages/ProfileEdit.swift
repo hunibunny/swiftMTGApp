@@ -47,21 +47,3 @@ struct ProfileEdit: View {
         .padding(.trailing)
     }
 }
-
-
-
-
-/*
- .alert("Send friend request?", isPresented: $showingAlert){
-     Button("Yes", action:{})
-     Button("No", role: .cancel){}
- 
- 
- Button(action: {
-     //chosing the friend owo
- }, label: {
-     Text(String(self.avaibleFriendsForMe[index].username))
- })
- 
- arcane barbarian honorbound assasin
- */

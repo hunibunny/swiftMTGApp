@@ -11,35 +11,37 @@ struct ChosenProfile: View {
     @EnvironmentObject var modelData: ModelData
     @State var chosenFriend = "Choose a player"
     @State var toBeRemovedFromList = 0
-    @Binding var avaiablePlayers: Array<Profile>
     @State var playerAddedBack: Profile?
+    @Binding var chosenPlayers: chosenProfiles
+    @State var location: Int
+    @State var currentPlayer: Profile?
+    @State var buttonText = "Couldn't find the name"
     var body: some View {
-        Menu(chosenFriend){
+        Menu(buttonText){
             ForEach(0..<modelData.profiles.count, id: \.self){index in
                 Button(action: {
-                    if(!modelData.currentGame!.firstFriendHasBeenChosen){
-                        modelData.profiles.append(Profile(username: "Choose a player"))
-                        modelData.currentGame?.firstFriendHasBeenChosen = true
-                    }
-                    else{
-                        for player in modelData.profiles{
-                            if player.username == chosenFriend{
-                                playerAddedBack = player
-                                avaiablePlayers.append(playerAddedBack!)
-                            }
-                        }
-                    }
-                    modelData.currentGame!.chosenFriends.append(modelData.profiles[index])
-                    //modelData.currentGame!.chosenFriends += modelData.profiles[index]
-                    chosenFriend = modelData.profiles[index].username
-                    toBeRemovedFromList = index
-                    modelData.profiles.remove(at: index)
+                    currentPlayer = modelData.profiles[index]
+                    buttonText = currentPlayer?.username ?? "Select player"
+                    chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index])
+                    print(modelData.profiles[index])
+                    print(modelData.currentGame!.chosenFriends)
                 }, label: {
-                    Text(String(modelData.profiles[index].username))
+                    Text(modelData.profiles[index].username)
                 })
-                .defaultStyling()
             }
+            Button("Choose a player", action:{
+                if currentPlayer != nil{
+                    chosenPlayers.removeFromChosenPlayers(toRemove: currentPlayer!)
+                    currentPlayer = nil
+            }})
         }
     }
 }
 
+/*
+// first lets join arr2 and arr3 to a dictionary
+var dict: [Int: String] = [:]
+zip(arr2, arr3).forEach({ (pair) in
+    dict[pair.0] = pair.1
+})
+*/

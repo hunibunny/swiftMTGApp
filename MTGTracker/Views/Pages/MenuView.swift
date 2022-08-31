@@ -18,7 +18,7 @@ struct MenuView: View {
                 modelData.viewRouter.currentPage = .profileList
             }
             .defaultStyling()
-            Button("Start a game", action: {modelData.currentGame = GameData(name: "New Game"); print(modelData.inspectedProfile ?? "mle no value"); modelData.inspectingSelf = true; modelData.viewRouter.currentPage = .trackerSetUp})
+            Button("Start a game", action: {modelData.currentGame = GameData(name: "New Game"); modelData.viewRouter.currentPage = .trackerSetUp})
                 .defaultStyling()
         }
         .onAppear(){

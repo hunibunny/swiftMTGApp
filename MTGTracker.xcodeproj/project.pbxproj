@@ -30,6 +30,7 @@
 		7F9A2551288EA2AF0026E3EB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2550288EA2AF0026E3EB /* MenuView.swift */; };
 		7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */; };
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
+		7F9A4DFF28BF8C3000717840 /* ChosenPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A4DFE28BF8C3000717840 /* ChosenPlayers.swift */; };
 		7FA74C7228B3CDF000851412 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA74C7128B3CDF000851412 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		7F9A2550288EA2AF0026E3EB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7F9A2554288EA4200026E3EB /* TrackerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSetUp.swift; sourceTree = "<group>"; };
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		7F9A4DFE28BF8C3000717840 /* ChosenPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayers.swift; sourceTree = "<group>"; };
 		7FA74C7128B3CDF000851412 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 		7F73A76F28A2AF50009C5E60 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7F9A4DFE28BF8C3000717840 /* ChosenPlayers.swift */,
 				7F9A255B288EFAC20026E3EB /* ModelData.swift */,
 				7F73A77028A2AF6D009C5E60 /* ProfileData.swift */,
 				7F7BDA5C28B630370077248E /* GameData.swift */,
@@ -271,6 +274,7 @@
 				7F0F850528981FBA002FEC34 /* HpView.swift in Sources */,
 				7F87C70828B4E6A200AD58B6 /* ScreenSize.swift in Sources */,
 				7F0A6ED72875CF0700E3B57A /* ContentView.swift in Sources */,
+				7F9A4DFF28BF8C3000717840 /* ChosenPlayers.swift in Sources */,
 				7F93CFD928BE5DA600AD9C44 /* ChosenProfile.swift in Sources */,
 				7F8732A628A1436800B74233 /* DiceView.swift in Sources */,
 				7F7BDA5D28B630370077248E /* GameData.swift in Sources */,

@@ -24,4 +24,3 @@ struct ViewRouter{
     var numberOfPages = Page.allCases.count
     var allPages = Page.allCases
 }
-//, LosslessStringConvertible
