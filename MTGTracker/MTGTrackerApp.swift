@@ -15,6 +15,9 @@ struct MTGTrackerApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(modelData)
+                .onAppear{
+                    save(modelDataToSave: modelData)
+                }
         }
     }
 }

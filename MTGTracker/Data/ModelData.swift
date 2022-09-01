@@ -15,39 +15,18 @@ var ndPlayer = Profile(username: "Fawn", topColor: UIColor.blue, bottomColor: UI
 var rdPlayer = Profile(username: "Gaia", topColor: UIColor.green, bottomColor: UIColor.orange)
 
 class ModelData: ObservableObject{
-    @Published var inspectedProfile: Profile?
-    @Published var inspectingSelf = false
-    @Published var viewRouter = ViewRouter()
-    @Published var sizesOfViews = []
-    @Published var showDices = false
-    @Published var currentGame: GameData?
-    @Published var profiles: Array<Profile> = []
-    @Published var editedProfile: Profile?
-    @Published var editingProfile = false
+    @Published var inspectedProfile: Profile? //nah
+    @Published var inspectingSelf = false  //nah
+    @Published var viewRouter = ViewRouter()  //nah
+    @Published var sizesOfViews = []    //nah
+    @Published var showDices = false   //nah
+    @Published var currentGame: GameData? //nah
+    @Published var profiles: Array<Profile> = []  //yes
+    @Published var editedProfile: Profile?  //nah
+    @Published var editingProfile = false   //nah
+    @Published var savedGames: Array<GameData> = [] //yes
 }
 
 
 
-
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else {
-            fatalError("Couldn't find \(filename) in main bundle.")
-    }
-
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-    }
-}
 

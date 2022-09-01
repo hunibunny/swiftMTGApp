@@ -15,6 +15,7 @@ enum Page: CaseIterable{
     case hpView
     case profileEdit
     case profileList
+    case gameList
 }
 
 

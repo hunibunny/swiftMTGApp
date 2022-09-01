@@ -25,6 +25,8 @@ struct ContentView: View {
             ProfileEdit(chosenTopColor: convertUIColor(uiColor: (modelData.editedProfile!.topColor)), chosenBottomColor: convertUIColor(uiColor: (modelData.editedProfile!.bottomColor)), editedProfile: modelData.editedProfile!, editingProfile: modelData.editingProfile)
         case .profileList:
             ProfileList()
+        case .gameList:
+            GameList()
         }
     }
 }

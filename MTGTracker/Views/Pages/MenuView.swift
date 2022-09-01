@@ -13,13 +13,14 @@ struct MenuView: View {
     @EnvironmentObject var modelData: ModelData //viewrouter only needed
     var body: some View {
         VStack{
+            Button("Start a game", action: {modelData.currentGame = GameData(name: "New Game"); modelData.viewRouter.currentPage = .trackerSetUp})
+                .defaultStyling()
             Button("Profiles"){
                 //modelData.inspectedProfile = modelData.profile
                 modelData.viewRouter.currentPage = .profileList
             }
             .defaultStyling()
-            Button("Start a game", action: {modelData.currentGame = GameData(name: "New Game"); modelData.viewRouter.currentPage = .trackerSetUp})
-                .defaultStyling()
+            Button("Saved games", action:{modelData.viewRouter.currentPage = .gameList}).defaultStyling()
         }
     }
 }
