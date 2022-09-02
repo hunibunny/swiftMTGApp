@@ -23,7 +23,7 @@ struct ProfileList: View {
                         RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack{
-                            Text(modelData.profiles[index].username).padding()
+                            Text(modelData.profiles[index].name).padding()
                             Spacer()
                             Button("Edit"){
                                 modelData.inspectedProfile = modelData.profiles[index]
@@ -54,7 +54,7 @@ struct ProfileList: View {
             .frame(alignment: .center)
             .padding(.leading, nil)
             .padding(.trailing, nil)
-            Button("Add a profile", action:{modelData.profiles.append(Profile(username: "New profile"));
+            Button("Add a profile", action:{modelData.profiles.append(Profile(name: "New profile"));
                 modelData.editedProfile = modelData.profiles.last;
                 modelData.editingProfile = false
                 modelData.viewRouter.currentPage = .profileEdit})

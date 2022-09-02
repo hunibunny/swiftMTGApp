@@ -37,7 +37,7 @@ struct ProfileEdit: View {
                 }
                 ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
             }
-            Button("Save", action:{let len = modelData.profiles.count; modelData.profiles[len-1].username = name; modelData.profiles[len-1].topColor = UIColor(chosenTopColor); modelData.profiles[len-1].bottomColor = UIColor(chosenBottomColor); modelData.viewRouter.currentPage = .profileList}).defaultStyling()
+            Button("Save", action:{let len = modelData.profiles.count; modelData.profiles[len-1].name = name; modelData.profiles[len-1].topColor = UIColor(chosenTopColor); modelData.profiles[len-1].bottomColor = UIColor(chosenBottomColor); modelData.viewRouter.currentPage = .profileList}).defaultStyling()
             Button("Go back", action:{if(editingProfile){
                 
             } else{modelData.profiles.remove(at: modelData.profiles.count-1)};

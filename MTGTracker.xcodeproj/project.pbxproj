@@ -14,6 +14,7 @@
 		7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */; };
 		7F0F850528981FBA002FEC34 /* HpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F850428981FBA002FEC34 /* HpView.swift */; };
 		7F0F850728982026002FEC34 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F850628982026002FEC34 /* ViewRouter.swift */; };
+		7F3E6F0428C218B600976700 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E6F0328C218B600976700 /* DataController.swift */; };
 		7F6C7ABC28BCF7D900E5F872 /* hikeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F6C7ABA28BCF7D900E5F872 /* hikeData.json */; };
 		7F6C7ABD28BCF7D900E5F872 /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F6C7ABB28BCF7D900E5F872 /* landmarkData.json */; };
 		7F6C7AC628BCFF6C00E5F872 /* profileData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F6C7AC528BCFF6C00E5F872 /* profileData.json */; };
@@ -45,6 +46,7 @@
 		7F0A6EE32875CF3700E3B57A /* ScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenButton.swift; sourceTree = "<group>"; };
 		7F0F850428981FBA002FEC34 /* HpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HpView.swift; sourceTree = "<group>"; };
 		7F0F850628982026002FEC34 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		7F3E6F0328C218B600976700 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		7F6C7ABA28BCF7D900E5F872 /* hikeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hikeData.json; sourceTree = "<group>"; };
 		7F6C7ABB28BCF7D900E5F872 /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		7F6C7AC528BCFF6C00E5F872 /* profileData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = profileData.json; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				7F73A77028A2AF6D009C5E60 /* ProfileData.swift */,
 				7F7BDA5C28B630370077248E /* GameData.swift */,
 				7F99E46028C0C03C00979D43 /* DataManagement.swift */,
+				7F3E6F0328C218B600976700 /* DataController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				7F0F850728982026002FEC34 /* ViewRouter.swift in Sources */,
 				7F9A2555288EA4200026E3EB /* TrackerSetUp.swift in Sources */,
 				7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */,
+				7F3E6F0428C218B600976700 /* DataController.swift in Sources */,
 				7F87C70C28B51C1E00AD58B6 /* ColorExtensions.swift in Sources */,
 				7F9A2551288EA2AF0026E3EB /* MenuView.swift in Sources */,
 				7F0F850528981FBA002FEC34 /* HpView.swift in Sources */,

@@ -21,10 +21,10 @@ struct ChosenProfile: View {
             ForEach(0..<modelData.profiles.count, id: \.self){index in
                 Button(action: {
                     currentPlayer = modelData.profiles[index]
-                    buttonText = currentPlayer?.username ?? "Select player"
+                    buttonText = currentPlayer?.name ?? "Select player"
                     chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index])
                 }, label: {
-                    Text(modelData.profiles[index].username)
+                    Text(modelData.profiles[index].name)
                 })
             }
             Button("Choose a player", action:{

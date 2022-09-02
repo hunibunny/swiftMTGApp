@@ -20,7 +20,7 @@ struct HpMenu: View {
                 Button("Go back to menu", action: {modelData.viewRouter.currentPage = .menuView})
                     .defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
-                Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.currentGame!.players.prefix(modelData.currentGame!.ammountOfPlayers).randomElement()?.username ?? "No players to choose from"})
+                Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.currentGame!.players.prefix(modelData.currentGame!.ammountOfPlayers).randomElement()?.name ?? "No players to choose from"})
                     .defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
             }

@@ -12,7 +12,10 @@ func convertUIColor (uiColor: UIColor) -> Color {
 }
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
+    @FetchRequest var noodles: FetchedResults<Profile>
+    
     var body: some View {
         switch modelData.viewRouter.currentPage{
         case .menuView:

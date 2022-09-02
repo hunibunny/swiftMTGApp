@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
+import CoreData
 
 
 struct Profile: Identifiable, Equatable{
-    var username: String = "profile name"
+    var name: String = "profile name"
     var profilePicture = "capybara"
     var topColor = UIColor.cyan
     var bottomColor = UIColor.green
     var hp = 20
     var specialDamage = 0
     var userId = "hehe"
-    var id: String {userId}
+    var id = UUID().uuidString
+   // let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.username)
+    static func ==(lhs: Profile, rhs: Profile) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
+
+
