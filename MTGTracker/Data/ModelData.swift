@@ -10,10 +10,6 @@ import Combine
 import SwiftUI
 
 
-var stPlayer = Profile(name: "Ella", topColor: UIColor.red, bottomColor: UIColor.gray)
-var ndPlayer = Profile(name: "Fawn", topColor: UIColor.blue, bottomColor: UIColor.white)
-var rdPlayer = Profile(name: "Gaia", topColor: UIColor.green, bottomColor: UIColor.orange)
-
 class ModelData: ObservableObject{
     @Published var inspectedProfile: Profile? //nah
     @Published var inspectingSelf = false  //nah

@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
+import CoreData
 
 func convertUIColor (uiColor: UIColor) -> Color {
     return Color(red: Double(uiColor.cgColor.components![0]), green: Double(uiColor.cgColor.components![1]), blue: Double(uiColor.cgColor.components![2]))
 }
 
+struct Testing{
+    var id = UUID().uuidString
+    var name: String
+}
+
+
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
-    @FetchRequest var noodles: FetchedResults<Profile>
+    @FetchRequest(sortDescriptors: []) var profiles: FetchedResults<Profile>
     
     var body: some View {
         switch modelData.viewRouter.currentPage{

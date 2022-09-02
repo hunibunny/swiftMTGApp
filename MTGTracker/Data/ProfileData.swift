@@ -9,16 +9,18 @@ import SwiftUI
 import CoreData
 
 
-struct Profile: Identifiable, Equatable{
-    var name: String = "profile name"
-    var profilePicture = "capybara"
-    var topColor = UIColor.cyan
-    var bottomColor = UIColor.green
+
+class Profile: NSManagedObject, Identifiable{
+    @NSManaged var testAttribute: String
+    var name = "no name set :)"
+    var topColor = UIColor.green
+    var bottomColor = UIColor.blue
     var hp = 20
     var specialDamage = 0
     var userId = "hehe"
     var id = UUID().uuidString
    // let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.username)
+    
     static func ==(lhs: Profile, rhs: Profile) -> Bool {
         return lhs.name == rhs.name
     }

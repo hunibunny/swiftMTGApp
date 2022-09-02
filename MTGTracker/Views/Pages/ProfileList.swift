@@ -54,7 +54,10 @@ struct ProfileList: View {
             .frame(alignment: .center)
             .padding(.leading, nil)
             .padding(.trailing, nil)
-            Button("Add a profile", action:{modelData.profiles.append(Profile(name: "New profile"));
+            Button("Add a profile", action:{
+                let newProfile = Profile()
+                newProfile.name = "New profile"
+                modelData.profiles.append(newProfile);
                 modelData.editedProfile = modelData.profiles.last;
                 modelData.editingProfile = false
                 modelData.viewRouter.currentPage = .profileEdit})

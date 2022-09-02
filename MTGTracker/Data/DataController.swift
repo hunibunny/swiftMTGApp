@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 class DataController{
-    let container = NSPersistentContainer(name: "Bookworm")
+    let container = NSPersistentContainer(name: "CoreDataModel")
     
     init(){
         container.loadPersistentStores{description, error in

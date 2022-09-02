@@ -32,7 +32,9 @@ class chosenProfiles{
     func fillToLength(fillTo: Int){
         let rounds = fillTo-chosenPlayers.count
         for i in 1...rounds{
-            chosenPlayers.append(Profile(name: "Guest \(i)"))
+            let newProfile = Profile()
+            newProfile.name = "Guest \(i)"
+            chosenPlayers.append(newProfile)
             print("Added \(i):st quest")
         }
     }

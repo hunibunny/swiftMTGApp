@@ -35,6 +35,8 @@
 		7F9A255C288EFAC20026E3EB /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A255B288EFAC20026E3EB /* ModelData.swift */; };
 		7F9A4DFF28BF8C3000717840 /* ChosenPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A4DFE28BF8C3000717840 /* ChosenPlayers.swift */; };
 		7FA74C7228B3CDF000851412 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA74C7128B3CDF000851412 /* CustomButton.swift */; };
+		7FECD19F28C237B600F18E48 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FECD19D28C237B600F18E48 /* CoreDataModel.xcdatamodeld */; };
+		7FECD1A528C245E800F18E48 /* ProfileDataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FECD1A428C245E800F18E48 /* ProfileDataManagement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		7F9A255B288EFAC20026E3EB /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		7F9A4DFE28BF8C3000717840 /* ChosenPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayers.swift; sourceTree = "<group>"; };
 		7FA74C7128B3CDF000851412 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7FECD19E28C237B600F18E48 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		7FECD1A428C245E800F18E48 /* ProfileDataManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataManagement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				7F7BDA5C28B630370077248E /* GameData.swift */,
 				7F99E46028C0C03C00979D43 /* DataManagement.swift */,
 				7F3E6F0328C218B600976700 /* DataController.swift */,
+				7FECD19D28C237B600F18E48 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				7FA74C7128B3CDF000851412 /* CustomButton.swift */,
 				7F87C70728B4E6A200AD58B6 /* ScreenSize.swift */,
 				7F87C70B28B51C1E00AD58B6 /* ColorExtensions.swift */,
+				7FECD1A428C245E800F18E48 /* ProfileDataManagement.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -287,9 +293,11 @@
 				7F99E46128C0C03C00979D43 /* DataManagement.swift in Sources */,
 				7F9A4DFF28BF8C3000717840 /* ChosenPlayers.swift in Sources */,
 				7F93CFD928BE5DA600AD9C44 /* ChosenProfile.swift in Sources */,
+				7FECD1A528C245E800F18E48 /* ProfileDataManagement.swift in Sources */,
 				7F8732A628A1436800B74233 /* DiceView.swift in Sources */,
 				7F7BDA5D28B630370077248E /* GameData.swift in Sources */,
 				7F87C70A28B4FC1600AD58B6 /* HpMenu.swift in Sources */,
+				7FECD19F28C237B600F18E48 /* CoreDataModel.xcdatamodeld in Sources */,
 				7F0A6EE42875CF3700E3B57A /* ScreenButton.swift in Sources */,
 				7F93CFD528BE215400AD9C44 /* ProfileList.swift in Sources */,
 				7F0A6ED52875CF0700E3B57A /* MTGTrackerApp.swift in Sources */,
@@ -497,6 +505,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7FECD19D28C237B600F18E48 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7FECD19E28C237B600F18E48 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 7FECD19E28C237B600F18E48 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7F0A6EC92875CF0700E3B57A /* Project object */;
 }
