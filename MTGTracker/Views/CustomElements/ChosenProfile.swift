@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ChosenProfile: View {
     @EnvironmentObject var modelData: ModelData
-    @State var chosenFriend = "Choose a player"
-    @State var toBeRemovedFromList = 0
+    @State private var chosenFriend = "Choose a player"
+    @State private var toBeRemovedFromList = 0
     @State var playerAddedBack: Profile?
     @Binding var chosenPlayers: chosenProfiles
     @State var location: Int
     @State var currentPlayer: Profile?
-    @State var buttonText = "Couldn't find the name"
+    @State private var buttonText = "Couldn't find the name"
     var body: some View {
         Menu(buttonText){
             ForEach(0..<modelData.profiles.count, id: \.self){index in
@@ -24,7 +24,7 @@ struct ChosenProfile: View {
                     buttonText = currentPlayer?.name ?? "Select player"
                     chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index])
                 }, label: {
-                    Text(modelData.profiles[index].name)
+                    Text(modelData.profiles[index].name ?? "No name found")
                 })
             }
             Button("Choose a player", action:{

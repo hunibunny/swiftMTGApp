@@ -9,22 +9,44 @@ import SwiftUI
 
 
 struct TrackerSetUp: View {
+    @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
     @State var presentPopup = false
     @State var showingAlert = false
     @State var maxHp = "Max Hp"
     @State var alert = ""
     @State var chosenPlayers = chosenProfiles()
+    @State var twoPlayersChosen = false
+    @State var threePlayersChosen = false
+    @State var fourPlayersChosen = false
     var body: some View {
         VStack(spacing: nil){
             Text("Game settings").padding()
-            Menu(modelData.currentGame!.ammountOfPlayers == 0 ? "Ammount of players": String(modelData.currentGame!.ammountOfPlayers)){
+            HStack{
                 Button("4", action: {modelData.currentGame!.ammountOfPlayers = 4;})
+                    .foregroundColor(fourPlayersChosen ? .indigo : nil)
                 Button("3", action: {modelData.currentGame!.ammountOfPlayers = 3;})
+                    .foregroundColor(threePlayersChosen ? .indigo : nil)
                 Button("2", action: {modelData.currentGame!.ammountOfPlayers = 2;})
+                    .foregroundColor(twoPlayersChosen ? .indigo : nil)
             }
             .onChange(of: modelData.currentGame!.ammountOfPlayers, perform: {newValue in
                 chosenPlayers.empty()
+                if(newValue == 4){
+                    fourPlayersChosen = true
+                    threePlayersChosen = false
+                    twoPlayersChosen = false
+                }
+                else if(newValue == 3){
+                    fourPlayersChosen = false
+                    threePlayersChosen = true
+                    twoPlayersChosen = false
+                }
+                else if(newValue == 2){
+                    fourPlayersChosen = false
+                    threePlayersChosen = false
+                    twoPlayersChosen = true
+                }
             })
             if modelData.currentGame!.ammountOfPlayers > 0{
                 HStack{
@@ -58,7 +80,7 @@ struct TrackerSetUp: View {
             })
             Button("Start the game"){
                 if(modelData.currentGame!.ammountOfPlayers > 0 && modelData.currentGame!.hp[0] != 0){
-                    chosenPlayers.fillToLength(fillTo: modelData.currentGame!.ammountOfPlayers)
+                    chosenPlayers.fillToLength(fillTo: modelData.currentGame!.ammountOfPlayers, moc: moc)
                     modelData.currentGame!.players = chosenPlayers.returnChosenPlayers()
                     modelData.viewRouter.currentPage = .hpView
                 }

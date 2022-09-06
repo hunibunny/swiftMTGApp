@@ -16,7 +16,7 @@ struct ScreenButton: View {
     let bottomColor: UIColor
     var idealHeight: CGFloat?
     
-    @State var hp: Int
+    @State private var hp: Int
     var middleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
 
     init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, hp: Int){

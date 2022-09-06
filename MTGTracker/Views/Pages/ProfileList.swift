@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-
+import CoreData
 
 
 struct ProfileList: View {
+    @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
     @State var showingAlert = false
     @State var itemNumberToDelete = 0
@@ -23,7 +24,7 @@ struct ProfileList: View {
                         RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack{
-                            Text(modelData.profiles[index].name).padding()
+                            Text(modelData.profiles[index].name ?? "no name found").padding()
                             Spacer()
                             Button("Edit"){
                                 modelData.inspectedProfile = modelData.profiles[index]
@@ -55,7 +56,7 @@ struct ProfileList: View {
             .padding(.leading, nil)
             .padding(.trailing, nil)
             Button("Add a profile", action:{
-                let newProfile = Profile()
+                let newProfile = Profile(context: moc)
                 newProfile.name = "New profile"
                 modelData.profiles.append(newProfile);
                 modelData.editedProfile = modelData.profiles.last;

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HpMenu: View {
     @EnvironmentObject var modelData: ModelData
-    @State var chosenRandomStarter = "Choose a random starter"
+    @State private var chosenRandomStarter = "Choose a random starter"
    // var listToRandomiceFrom = ModelData().currentGame.players
     var body: some View {
         Rectangle()

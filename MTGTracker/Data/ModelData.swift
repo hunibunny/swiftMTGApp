@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
-
+import CoreData
 
 class ModelData: ObservableObject{
     @Published var inspectedProfile: Profile? //nah
@@ -21,7 +21,8 @@ class ModelData: ObservableObject{
     @Published var editedProfile: Profile?  //nah
     @Published var editingProfile = false   //nah
     @Published var savedGames: Array<GameData> = [] //yes
-    @Published var dataController = DataController()
+    @Published var container = NSPersistentContainer(name: "ProfileData")
+    //@Published var dataController = DataController()
 }
 
 

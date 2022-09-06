@@ -59,15 +59,15 @@ public struct Pentagon: Shape {
 }
 
 struct DiceView: View {
-    @State var fourFaceDice = 4
-    @State var sixFaceDice = 6
-    @State var eightFaceDice = 8
-    @State var tenFaceDice = 10
-    @State var twelveFaceDice = 12
-    @State var twentyFaceDice = 20
-    @State var round = 0
-    @State var diceShapes = [Triangle(), Rectangle(), Triangle(), Kite(), Pentagon(), Triangle()]
-    @State var diceNumbers = [4, 6, 8, 10, 12, 20]
+    @State private var fourFaceDice = 4
+    @State private var sixFaceDice = 6
+    @State private var eightFaceDice = 8
+    @State private var tenFaceDice = 10
+    @State private var twelveFaceDice = 12
+    @State private var twentyFaceDice = 20
+    @State private var round = 0
+    @State private var diceShapes = [Triangle(), Rectangle(), Triangle(), Kite(), Pentagon(), Triangle()]
+    @State private var diceNumbers = [4, 6, 8, 10, 12, 20]
 
 
     var body: some View {
