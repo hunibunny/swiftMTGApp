@@ -26,16 +26,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 @main
 struct MTGTrackerApp: App {
+    //@Environment(\.managedObjectContext) var moc
     @StateObject var modelData = ModelData()
+
    // @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    let persistenceController = PersistenceController.shared
-   
+    let context = PersistenceController.shared
+
     //@StateObject var dataController = DataController()
    // @StateObject var observableInfo = ObservableInfo()
     var body: some Scene {
         WindowGroup {
             ContentView()
-                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, context.container.viewContext)
                 .environmentObject(modelData)
             
         }

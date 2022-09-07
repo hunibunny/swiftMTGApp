@@ -20,10 +20,10 @@ struct Testing{
 
 
 struct ContentView: View {
-    //@Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
-    //@FetchRequest(sortDescriptors: []) var profiles: FetchedResults<Profile>
-    let persistenceController = PersistenceController.shared
+    @FetchRequest(sortDescriptors: []) var fetchedProfiles: FetchedResults<Profile>
+    //let persistenceController = PersistenceController.shared
     
     var body: some View {
         switch modelData.viewRouter.currentPage{
@@ -31,13 +31,15 @@ struct ContentView: View {
             MenuView()
         case .trackerSetUp:
             TrackerSetUp()
+                //.environment(\.managedObjectContext, moc)
         case .hpView:
             HpView()
         case .profileEdit:
             ProfileEdit(chosenTopColor: convertUIColor(uiColor: (modelData.editedProfile!.topColor)), chosenBottomColor: convertUIColor(uiColor: (modelData.editedProfile!.bottomColor)), editedProfile: modelData.editedProfile!, editingProfile: modelData.editingProfile)
+                //.environment(\.managedObjectContext, moc)
         case .profileList:
             ProfileList()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                //.environment(\.managedObjectContext, moc)
         case .gameList:
             GameList()
         }

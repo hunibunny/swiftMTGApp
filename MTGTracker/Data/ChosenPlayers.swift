@@ -32,12 +32,14 @@ class chosenProfiles{
     
     func fillToLength(fillTo: Int, moc: NSManagedObjectContext){
         let rounds = fillTo-chosenPlayers.count
-        for i in 1...rounds{
-            //let newProfile = Profile()
-            let newProfile = Profile(context: moc)
-            newProfile.name = "Guest \(i)"
-            chosenPlayers.append(newProfile)
-            print("Added \(i):st quest")
+        if rounds > 0{
+            for i in 1...rounds{
+                //let newProfile = Profile()
+                let newProfile = Profile(context: moc)
+                newProfile.name = "Guest \(i)"
+                chosenPlayers.append(newProfile)
+                print("Added \(i):st quest")
+            }
         }
     }
 }

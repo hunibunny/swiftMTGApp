@@ -22,6 +22,7 @@ struct TrackerSetUp: View {
     var body: some View {
         VStack(spacing: nil){
             Text("Game settings").padding()
+            Text("Ammount of players: ").padding()
             HStack{
                 Button("4", action: {modelData.currentGame!.ammountOfPlayers = 4;})
                     .foregroundColor(fourPlayersChosen ? .indigo : nil)
@@ -36,16 +37,19 @@ struct TrackerSetUp: View {
                     fourPlayersChosen = true
                     threePlayersChosen = false
                     twoPlayersChosen = false
+                    maxHp = "40"
                 }
                 else if(newValue == 3){
                     fourPlayersChosen = false
                     threePlayersChosen = true
                     twoPlayersChosen = false
+                    maxHp = "40"
                 }
                 else if(newValue == 2){
                     fourPlayersChosen = false
                     threePlayersChosen = false
                     twoPlayersChosen = true
+                    maxHp = "20"
                 }
             })
             if modelData.currentGame!.ammountOfPlayers > 0{

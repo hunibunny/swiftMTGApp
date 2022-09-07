@@ -24,7 +24,7 @@ struct ChosenProfile: View {
                     buttonText = currentPlayer?.name ?? "Select player"
                     chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index])
                 }, label: {
-                    Text(modelData.profiles[index].name ?? "No name found")
+                    Text(modelData.profiles[index].name ?? "no name yet")
                 })
             }
             Button("Choose a player", action:{

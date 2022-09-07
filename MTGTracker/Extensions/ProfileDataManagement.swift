@@ -15,12 +15,10 @@ extension Profile {
         return NSFetchRequest<Profile>(entityName: "Profile")
     }
 
-    public var wrappedName: String {
-        name ?? "Unknown"
-    }
+
 }
-*/
-/*
+
+
 
 @objc
 protocol MyProtocol {
@@ -30,3 +28,6 @@ protocol MyProtocol {
 
 extension Profile: MyProtocol { }
 */
+
+
+

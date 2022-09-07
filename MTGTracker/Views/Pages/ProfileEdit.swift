@@ -14,7 +14,7 @@ extension Array {
 }
 
 struct ProfileEdit: View {
-    //@Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
     @State var testString = "Mle"
     @State var chosenTopColor: Color
@@ -38,7 +38,14 @@ struct ProfileEdit: View {
                 }
                 ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
             }
-            Button("Save", action:{let len = modelData.profiles.count; modelData.profiles[len-1].name = name; modelData.profiles[len-1].topColor = UIColor(chosenTopColor); modelData.profiles[len-1].bottomColor = UIColor(chosenBottomColor); modelData.viewRouter.currentPage = .profileList;}).defaultStyling()
+            Button("Save", action:{let len = modelData.profiles.count; modelData.profiles[len-1].name = name; modelData.profiles[len-1].topColor = UIColor(chosenTopColor); modelData.profiles[len-1].bottomColor = UIColor(chosenBottomColor); modelData.viewRouter.currentPage = .profileList;
+                do {
+                try moc.save()
+            }
+            catch {
+                // Handle Error
+            }
+}).defaultStyling()
             Button("Go back", action:{if(editingProfile){
                 
             } else{modelData.profiles.remove(at: modelData.profiles.count-1)};

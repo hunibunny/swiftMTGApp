@@ -4,7 +4,7 @@
 //
 //  Created by Pirita on 09/08/2022.
 //
-
+//Users/pirita/Documents/xCodes/MTGTracker/MTGTracker/Data/ProfileData.swift:    // let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.username)
 import SwiftUI
 import CoreData
 
@@ -14,13 +14,15 @@ import CoreData
 
 @objc
 class Profile: NSManagedObject{
+    @NSManaged var name: String?
+    @NSManaged var testAttribute: String?
     var topColor = UIColor.green
     var bottomColor = UIColor.blue
     var hp = 20
     var specialDamage = 0
     var userId = "hehe"
     var id = UUID().uuidString
-    // let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.username)
+    //let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: name ?? "no name")
      
    //  static func ==(lhs: Profile, rhs: Profile) -> Bool {
      //    return lhs.name == rhs.name

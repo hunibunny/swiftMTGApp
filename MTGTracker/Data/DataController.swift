@@ -28,6 +28,14 @@ struct PersistenceController {
 
         return controller
     }()
+    
+    func load(recievedList: FetchedResults<Profile>)->Array<Profile>{
+        var toReturn: Array<Profile>
+        for profile in recievedList{
+            toReturn.append(profile)
+        }
+        return toReturn
+    }
 
     // An initializer to load Core Data, optionally able
     // to use an in-memory store.
