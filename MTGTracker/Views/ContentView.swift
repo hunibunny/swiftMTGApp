@@ -22,7 +22,7 @@ struct Testing{
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var modelData: ModelData
-    @FetchRequest(sortDescriptors: []) var fetchedProfiles: FetchedResults<Profile>
+    //@FetchRequest(sortDescriptors: []) var fetchedProfiles: FetchedResults<Profile>
     //let persistenceController = PersistenceController.shared
     
     var body: some View {

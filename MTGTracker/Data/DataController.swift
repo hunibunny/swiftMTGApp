@@ -29,8 +29,8 @@ struct PersistenceController {
         return controller
     }()
     
-    func load(recievedList: FetchedResults<Profile>)->Array<Profile>{
-        var toReturn: Array<Profile>
+    func load(recievedList: AnySequence<Profile>)->Array<Profile>{
+        var toReturn: Array<Profile> = []
         for profile in recievedList{
             toReturn.append(profile)
         }
