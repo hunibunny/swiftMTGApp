@@ -63,6 +63,19 @@ struct ProfileList: View {
                 modelData.editingProfile = false
                 modelData.viewRouter.currentPage = .profileEdit})
                     .defaultStyling(paddingAmmount: 0)
+            Button("Test button", action:{
+                let newItem = Profile(context: moc)
+                    //newItem.name = "New item"
+
+                    do {
+                        try moc.save()
+                    } catch {
+                        // Replace this implementation with code to handle the error appropriately.
+                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    }
+            })
             Button("Back", action:{modelData.viewRouter.currentPage = .menuView}).defaultStyling()
         }
     }
@@ -73,3 +86,37 @@ struct ProfileList_Previews: PreviewProvider {
         ProfileList()
     }
 }
+
+
+/*
+ private func addProfile() {
+     let controller = PersistenceController.shared
+     let newItem = Profile(context: controller.container.viewContext)
+         newItem.name = "New item"
+
+         do {
+             try controller.container.viewContext.save()
+         } catch {
+             // Replace this implementation with code to handle the error appropriately.
+             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+             let nsError = error as NSError
+             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+         }
+     }
+ }
+
+ private func deleteItems(offsets: IndexSet) {
+     withAnimation {
+         offsets.map { items[$0] }.forEach(viewContext.delete)
+
+         do {
+             try viewContext.save()
+         } catch {
+             // Replace this implementation with code to handle the error appropriately.
+             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+             let nsError = error as NSError
+             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+         }
+     }
+ }
+ */

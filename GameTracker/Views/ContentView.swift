@@ -20,9 +20,9 @@ struct Testing{
 
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
-    //@FetchRequest(sortDescriptors: []) var fetchedProfiles: FetchedResults<Profile>
+    @FetchRequest(sortDescriptors: []) var fetchedProfiles: FetchedResults<Profile>
     //let persistenceController = PersistenceController.shared
     
     var body: some View {
@@ -39,11 +39,17 @@ struct ContentView: View {
                 //.environment(\.managedObjectContext, moc)
         case .profileList:
             ProfileList()
+                //.onAppear{
+              //      modelData.profiles = Array(fetchedProfiles)
+              //  }
                 //.environment(\.managedObjectContext, moc)
         case .gameList:
             GameList()
         }
     }
+    //init(){
+      //  _fetchedProfiles = FetchRequest<Profile>(sortDescriptors: [])
+    //}
 }
 
 struct ContentView_Previews: PreviewProvider {

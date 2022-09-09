@@ -14,7 +14,6 @@ import CoreData
 
 @objc
 class Profile: NSManagedObject{
-    @NSManaged var name: String?
     @NSManaged var testAttribute: String?
     var topColor = UIColor.green
     var bottomColor = UIColor.blue
@@ -27,7 +26,7 @@ class Profile: NSManagedObject{
    //  static func ==(lhs: Profile, rhs: Profile) -> Bool {
      //    return lhs.name == rhs.name
      //}
- }
+}
  
  /*
  let moc = …
