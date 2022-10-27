@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 import CoreData
 
-func createNewProfile(name: String?, moc: NSManagedObjectContext, topColor: UIColor? = nil, bottomColor: UIColor? = nil, permament: Bool? = false)->Profile{
-    let newProfile = Profile(name: name ?? "New profile", topColor: topColor ?? UIColor.random, bottomColor: bottomColor ?? UIColor.random, permament: permament!, moc: moc)
+func createNewProfile(name: String?, moc: NSManagedObjectContext, topColor: UIColor? = nil, bottomColor: UIColor? = nil, alwaysPermament: Bool? = false)->Profile{
+    let newProfile = Profile(name: name ?? "New profile", topColor: topColor ?? UIColor.random, bottomColor: bottomColor ?? UIColor.random, alwaysPermament: alwaysPermament!, moc: moc)
     if moc.hasChanges{
         try! moc.save()
     }

@@ -8,15 +8,15 @@
 import SwiftUI
 import CoreData
 
-
 class Profile: NSManagedObject{
     //var topColor = UIColor.green
     //var bottomColor = UIColor.blue
     var specialDamage = 0
     var userId = "hehe"
     var id = UUID().uuidString
+   
     
-    convenience init(name: String, topColor: UIColor, bottomColor: UIColor, permament: Bool, moc: NSManagedObjectContext) {
+    convenience init(name: String, topColor: UIColor, bottomColor: UIColor, alwaysPermament: Bool, moc: NSManagedObjectContext) {
         self.init(entity: NSEntityDescription.entity(forEntityName: "ProfileData", in: moc)!, insertInto: moc)
         self.specialDamage =  0
         self.userId = "hehe"
@@ -24,7 +24,9 @@ class Profile: NSManagedObject{
         self.bottomColor = bottomColor
         self.topColor = topColor
         self.name = name
-        self.permament = permament
+        self.alwaysPermament = alwaysPermament
+        self.permament = alwaysPermament ? true : false
+
     }
     
     func returnTopColor()->UIColor{
@@ -34,4 +36,5 @@ class Profile: NSManagedObject{
     func returnBottomColor()->UIColor{
         return self.bottomColor as! UIColor
     }
+
 }

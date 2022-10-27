@@ -39,7 +39,7 @@ struct ProfileEdit: View {
                 ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
             }
             Button("Save", action:{
-                modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor))
+                modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), alwaysPermament: true)
                 modelData.profiles.append(modelData.editedProfile!);
                 //do{try moc.save()}
                 //catch{print("fail :)")}

@@ -23,10 +23,9 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
     
    for profile in fetchedData{
         if !profile.permament{
-            if profile.partOfAGame == nil{
-                moc.delete(profile)
-                try! moc.save()
-            }
+            moc.delete(profile)
+            try! moc.save()
+            
         }
     }
     

@@ -38,6 +38,7 @@
 		5BB48F3728EB4B4E00DBA454 /* HealthPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */; };
 		5BB48F3A28EB55D400DBA454 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB48F3928EB55D400DBA454 /* DataTransformer.swift */; };
 		5BB48F3B28EB60FE00DBA454 /* tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76B28EB214C005DEBD4 /* tracker.xcdatamodeld */; };
+		5BDEE115290AAE6000C4BBCA /* SaveGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE114290AAE6000C4BBCA /* SaveGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		5B8717F128EB307900833D8B /* GlobalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModel.swift; sourceTree = "<group>"; };
 		5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPoint.swift; sourceTree = "<group>"; };
 		5BB48F3928EB55D400DBA454 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
+		5BDEE114290AAE6000C4BBCA /* SaveGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				5B65F79B28EB2491005DEBD4 /* ColorConvertion.swift */,
 				5B65F79D28EB24A7005DEBD4 /* LoadData.swift */,
 				5B65F79F28EB24B9005DEBD4 /* CustomShapes.swift */,
+				5BDEE114290AAE6000C4BBCA /* SaveGame.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				5BB48F3A28EB55D400DBA454 /* DataTransformer.swift in Sources */,
 				5B65F79A28EB2467005DEBD4 /* ChosenPlayers.swift in Sources */,
 				5B65F7AE28EB2591005DEBD4 /* CounterView.swift in Sources */,
+				5BDEE115290AAE6000C4BBCA /* SaveGame.swift in Sources */,
 				5B65F79628EB2437005DEBD4 /* ColorExtensions.swift in Sources */,
 				5B65F79C28EB2491005DEBD4 /* ColorConvertion.swift in Sources */,
 				5B65F7A428EB251C005DEBD4 /* GameList.swift in Sources */,

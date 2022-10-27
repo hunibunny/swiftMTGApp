@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+
+/*
+func showColor() {
+    UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseOut, animations: {
+        self.view.backgroundColor = self.colors.randomElement()
+    }, completion: { finished in
+       print("another animation! - 1")
+       Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(showColorAgain), userInfo: nil, repeats: false)
+    })
+}
+
+@objc func showColorAgain() {
+    showColor()
+}
+ */
+
 //geometry reader here
 
 struct ScreenButton: View {
@@ -17,15 +33,21 @@ struct ScreenButton: View {
     var idealHeight: CGFloat?
     
     @State private var hp: Int
+    var upperMiddleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+    var lowerMiddleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
     var middleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+    
 
     init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, hp: Int){
         self.rotation = rotation
         self.topColor = topColor
         self.bottomColor = bottomColor
         self.hp = hp
+        self.upperMiddleColor = averageColor(topColor: self.topColor, bottomColor: self.bottomColor)
+        self.lowerMiddleColor = averageColor(topColor: self.topColor, bottomColor: self.bottomColor)
         self.middleColor = averageColor(topColor: self.topColor, bottomColor: self.bottomColor)
         self.idealHeight = idealHeight
+        
     }
     
     var body: some View {
@@ -34,7 +56,7 @@ struct ScreenButton: View {
                 VStack(spacing: 0){
                     Rectangle()
                         .fill(.linearGradient(
-                            Gradient(colors: [Color(topColor), Color(middleColor)]),
+                            Gradient(colors: [Color(topColor), Color(upperMiddleColor)]),
                             startPoint: UnitPoint(x: 0.5, y: 0),
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         ))
@@ -42,10 +64,15 @@ struct ScreenButton: View {
                         .border(Color.red)
                         .onTapGesture{
                             hp += 1
+                            //topColor = topColor
+                            
+                            print("hehe")
+                            }
+                            
                         }
                     Rectangle()
                         .fill(.linearGradient(
-                            Gradient(colors: [Color(middleColor), Color(bottomColor)]),
+                            Gradient(colors: [Color(lowerMiddleColor), Color(bottomColor)]),
                             startPoint: UnitPoint(x: 0.5, y: 0),
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         ))
@@ -61,7 +88,6 @@ struct ScreenButton: View {
         .rotationEffect(.degrees(rotation))
         }
 
-    }
     
     func averageColor(topColor: UIColor, bottomColor: UIColor)->UIColor{
         let averageRed = (topColor.components.red + bottomColor.components.red)/2

@@ -9,10 +9,11 @@
     </entity>
     <entity name="HealthPointData" representedClassName=".HealthPoint" syncable="YES" codeGenerationType="category">
         <attribute name="hp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="owner" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer"/>
+        <attribute name="owner" optional="YES" attributeType="Transformable" valueTransformerName=""/>
         <relationship name="partOfGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameData" inverseName="hpsPartOfGame" inverseEntity="GameData"/>
     </entity>
     <entity name="ProfileData" representedClassName=".Profile" syncable="YES" codeGenerationType="category">
+        <attribute name="alwaysPermament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="bottomColor" optional="YES" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="permament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

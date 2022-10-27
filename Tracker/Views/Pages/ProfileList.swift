@@ -17,6 +17,8 @@ struct ProfileList: View {
     @State var itemNumberToDelete = 0
     @State var profileInspected = ModelData().inspectedProfile
     @State var itemToDelete: Profile? = nil
+    @State var gamesOfDeletedProfile = []
+    @State var inGame = false
     var body: some View {
         VStack{
             GeometryReader{geometry in
@@ -39,13 +41,26 @@ struct ProfileList: View {
                                 }
                                 .defaultStyling()
                                 Button("Delete"){
-                                    showingAlert = true
                                     itemNumberToDelete = index
                                     itemToDelete = modelData.profiles[itemNumberToDelete]
+                                    
+                                    for game in modelData.savedGames{
+                                        if(game.playerArray!.contains(itemToDelete!)){
+                                            inGame = true
+                                            gamesOfDeletedProfile.append(game)
+                                        }
+                                    }
+                                    showingAlert = true
+                                
                                 }
                                 .defaultStyling()
-                                .alert("Delete this friend?", isPresented: $showingAlert){
-                                    Button("Yes", action:{moc.delete(itemToDelete!);try! moc.save();modelData.profiles.remove(at: itemNumberToDelete)})
+                                .alert(inGame ? "This friend is part of some game(s), are you sure to delete?" : "Are you sure to delete this friend?", isPresented: $showingAlert){
+                                    Button("Yes", action:{
+                                        for game in gamesOfDeletedProfile{
+                                            moc.delete(game as! NSManagedObject)
+                                            try! moc.save()
+                                        }
+                                        moc.delete(itemToDelete!);try! moc.save();modelData.profiles.remove(at: itemNumberToDelete)})
                                         .defaultStyling()
                                     Button("No", role: .cancel){}
                                         .defaultStyling()

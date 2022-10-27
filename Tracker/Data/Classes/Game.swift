@@ -31,7 +31,7 @@ class Game: NSManagedObject{
         self.init(entity: NSEntityDescription.entity(forEntityName: "GameData", in: moc)!, insertInto: moc)
         self.gameName = gameName ?? name
         //self.players = players
-        //self.playerArray = (setToArray(listToChange: players ?? nil) as! Array<Profile>)
+        //self.playerArray = (profileSetToArray(listToChange: players))
         self.format = format ?? "No format"
         self.ammountOfPlayers = ammountOfPlayers
         

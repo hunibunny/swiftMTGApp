@@ -35,7 +35,7 @@ class chosenProfiles{
         let rounds = fillTo-chosenPlayers.count
         if rounds > 0{
             for i in 1...rounds{
-                let newProfile = createNewProfile(name: "Guest \(i)", moc: moc, permament: false)
+                let newProfile = createNewProfile(name: "Guest \(i)", moc: moc, alwaysPermament: false)
                 chosenPlayers.append(newProfile)
                 print("Added \(i):st quest")
             }
