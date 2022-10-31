@@ -33,7 +33,7 @@ struct ProfileList: View {
                                 Spacer()
                                 Button("Edit"){
                                     modelData.inspectedProfile = modelData.profiles[index]
-                                    profileInspected = modelData.profiles[index]
+                                    //profileInspected = modelData.profiles[index]
                                     modelData.editedProfile = modelData.profiles[index]
                                     modelData.editingProfile = true
                                     modelData.nameOfEditedProfile = modelData.editedProfile!.name
