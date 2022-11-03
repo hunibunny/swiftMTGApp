@@ -22,14 +22,14 @@ struct ChosenProfile: View {
                 Button(action: {
                     currentPlayer = modelData.profiles[index]
                     buttonText = currentPlayer?.name ?? "Select player"
-                    chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index])
+                    modelData.avaiablePlayers = chosenPlayers.addToChosenPlayers(toAdd: modelData.profiles[index], avaiblePlayers: modelData.avaiablePlayers)
                 }, label: {
                     Text(modelData.profiles[index].name ?? "no name yet")
                 })
             }
             Button("Choose a player", action:{
                 if currentPlayer != nil{
-                    chosenPlayers.removeFromChosenPlayers(toRemove: currentPlayer!)
+                    modelData.avaiablePlayers = chosenPlayers.removeFromChosenPlayers(toRemove: currentPlayer!, avaiablePlayers: modelData.avaiablePlayers)
                     currentPlayer = nil
             }})
         }

@@ -28,7 +28,7 @@ struct GameList: View {
                                 //.fixedSize(horizontal: true, vertical: true)
                             Spacer()
                             Button("Continue"){
-                                print(modelData.savedGames.count )
+                                //print(modelData.savedGames.count )
                                 modelData.currentGame = modelData.savedGames[index]
                                 modelData.viewRouter.currentPage = .counterView
                             }

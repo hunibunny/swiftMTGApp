@@ -18,16 +18,16 @@ func createNewProfile(name: String?, moc: NSManagedObjectContext, topColor: UICo
 }
 
 
-func createNewGame(name: String? = "Unnamed Game", moc: NSManagedObjectContext, players: Array<Profile>, hp: String?, hpArray: Array<String>?,  format: String?)->Game{
+func createNewGame(name: String? = "Unnamed Game", moc: NSManagedObjectContext, players: Array<Profile>, hp: Double, hpArray: Array<String>?,  format: String?)->Game{
     let newGame = Game(name: name, moc: moc, format: format)
     var playerSet: Set<Profile> = []
     var hpSet: Set<HealthPoint> = []
     var round = 0
     for player in players{
         playerSet.insert(player)
-        hpSet.insert(createNewHealthPoint(hp: hp != nil ? Double(Int(hp!)!) : Double(Int(hpArray![round])!), owner: player, moc: moc))
-        print("set here")
-        print(hpSet)
+        hpSet.insert(createNewHealthPoint(hp: hp , owner: player, moc: moc))
+        //print("set here")
+        //print(hpSet)
         //player.hp = Int32(hp ?? hpArray![round])!
         round += 1
     }
@@ -37,7 +37,7 @@ func createNewGame(name: String? = "Unnamed Game", moc: NSManagedObjectContext, 
     newGame.hpArray = healthPointSetToArray(listToChange: newGame.hpsPartOfGame as! Set<HealthPoint>)
     //try! moc.save()
     newGame.playerArray = profileSetToArray(listToChange: newGame.profilesPartOfGame as! Set<Profile>)
-    print("array lenght")
+    //print("array lenght")
     //newGame.playerArray?[0].returnColors()
     return newGame
 }

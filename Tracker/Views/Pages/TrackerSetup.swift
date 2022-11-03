@@ -11,14 +11,14 @@ import CoreData
 
 //lisaa niin etta kaikilla voi olla eri hp :)
 
-func startGame(gameName: String, ammountOfPlayers: Int, maxHp: String? = nil, hpArray: Array<String>? = nil, format: String, chosenPlayers: chosenProfiles, moc: NSManagedObjectContext)->Game{
-    print(ammountOfPlayers)
+func startGame(gameName: String, ammountOfPlayers: Int, maxHp: Double, hpArray: Array<String>? = nil, format: String, chosenPlayers: chosenProfiles, moc: NSManagedObjectContext)->Game{
+    //print(ammountOfPlayers)
     chosenPlayers.fillToLength(fillTo: Int(ammountOfPlayers), moc: moc)
-    let newGame = createNewGame(name: gameName, moc: moc, players: chosenPlayers.returnChosenPlayers(), hp: maxHp, hpArray: hpArray, format: format)
+    let newGame = createNewGame(name: gameName, moc: moc, players: chosenPlayers.returnChosenPlayers(), hp:maxHp, hpArray: hpArray, format: format)
     //
     //modelData.currentGame!.playerArray = chosenPlayers.returnChosenPlayers()
     //modelData.currentGame!.players = chosenPlayers.returnChosenPlayers()
-    print(newGame)
+    //print(newGame)
     //print(newGame.playerArray)
     //print(newGame.playerArray?.count)
     return newGame
@@ -29,9 +29,8 @@ func startGame(gameName: String, ammountOfPlayers: Int, maxHp: String? = nil, hp
 struct TrackerSetUp: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
-    @State var presentPopup = false
     @State var showingAlert = false
-    @State var maxHp = "Max Hp"
+    @State var maxHp = 0
     @State var alert = ""
     @State var chosenPlayers = chosenProfiles()
     @State var twoPlayersChosen = false
@@ -48,31 +47,19 @@ struct TrackerSetUp: View {
                 .foregroundColor(Color.blue)
             HStack{
                 Button("2", action: {ammountOfPlayers = 2;})
-                    .foregroundColor(twoPlayersChosen ? .indigo : nil)
+                    .foregroundColor(ammountOfPlayers == 2 ? .indigo : nil)
                 Button("3", action: {ammountOfPlayers = 3;})
-                    .foregroundColor(threePlayersChosen ? .indigo : nil)
+                    .foregroundColor(ammountOfPlayers == 3 ? .indigo : nil)
                 Button("4", action: {ammountOfPlayers = 4;})
-                    .foregroundColor(fourPlayersChosen ? .indigo : nil)
+                    .foregroundColor(ammountOfPlayers == 4 ? .indigo : nil)
             }
             .onChange(of: ammountOfPlayers, perform: {newValue in
-                chosenPlayers.empty()
-                if(newValue == 4){
-                    fourPlayersChosen = true
-                    threePlayersChosen = false
-                    twoPlayersChosen = false
-                    maxHp = "40"
+                modelData.avaiablePlayers = chosenPlayers.empty(avaiablePlayers: modelData.avaiablePlayers)
+                if(ammountOfPlayers == 4 || ammountOfPlayers == 3){
+                    maxHp = 40
                 }
-                else if(newValue == 3){
-                    fourPlayersChosen = false
-                    threePlayersChosen = true
-                    twoPlayersChosen = false
-                    maxHp = "40"
-                }
-                else if(newValue == 2){
-                    fourPlayersChosen = false
-                    threePlayersChosen = false
-                    twoPlayersChosen = true
-                    maxHp = "20"
+                else if(ammountOfPlayers == 2){
+                    maxHp = 20
                 }
             })
             if ammountOfPlayers > 0{
@@ -94,16 +81,16 @@ struct TrackerSetUp: View {
                 Button("Pauper", action: {format = "Pauper"})
             }
             
-            Menu(maxHp){
-                Button("10", action: {maxHp = "10"})
-                Button("20", action: {maxHp = "20"})
-                Button("30", action: {maxHp = "30"})
-                Button("40", action: {maxHp = "40"})
+            Menu(String(maxHp)){
+                Button("10", action: {maxHp = 10})
+                Button("20", action: {maxHp = 20})
+                Button("30", action: {maxHp = 30})
+                Button("40", action: {maxHp = 40})
             }
             Button("Start the game"){
-                if(ammountOfPlayers > 0 && maxHp != "0"){
+                if(ammountOfPlayers > 0 && maxHp != 0){
                     //need to set up new game with settings from here :)
-                    modelData.currentGame = startGame(gameName: gameName ?? "Unnamed", ammountOfPlayers: ammountOfPlayers, maxHp: maxHp, format: format ?? "no format", chosenPlayers: chosenPlayers, moc: moc)
+                    modelData.currentGame = startGame(gameName: gameName ?? "Unnamed", ammountOfPlayers: ammountOfPlayers, maxHp: Double(maxHp), format: format ?? "no format", chosenPlayers: chosenPlayers, moc: moc)
                     modelData.currentGame?.ammountOfPlayers = Double(ammountOfPlayers)
                     modelData.viewRouter.currentPage = .counterView
                     

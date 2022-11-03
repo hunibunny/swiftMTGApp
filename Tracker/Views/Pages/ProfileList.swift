@@ -37,6 +37,8 @@ struct ProfileList: View {
                                     modelData.editedProfile = modelData.profiles[index]
                                     modelData.editingProfile = true
                                     modelData.nameOfEditedProfile = modelData.editedProfile!.name
+                                    //print("editing profile")
+                                    //print(modelData.editedProfile!.topColor)
                                     modelData.viewRouter.currentPage = .profileEdit
                                 }
                                 .defaultStyling()

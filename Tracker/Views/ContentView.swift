@@ -27,7 +27,7 @@ struct ContentView: View {
             TrackerSetUp()
             .onAppear{
                 modelData.profiles = loadProfileData(moc: moc)
-                
+                modelData.avaiablePlayers = modelData.profiles
             }
              
                 //.environment(\.managedObjectContext, moc)

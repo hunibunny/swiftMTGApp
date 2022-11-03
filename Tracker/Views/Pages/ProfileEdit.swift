@@ -32,14 +32,14 @@ struct ProfileEdit: View {
                 VStack{
                     ColorPicker("Top color:", selection: $chosenTopColor, supportsOpacity: false)
                         .padding(.leading)
-    
+                    
                     ColorPicker("Bottom color:", selection: $chosenBottomColor, supportsOpacity: false)
                         .padding(.leading)
                 }
                 ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
             }
             Button("Save", action:{
-                modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), alwaysPermament: true)
+                modelData.editingProfile ? changeValuesOfExistingProfile() : makeNewProfile()
                 modelData.profiles.append(modelData.editedProfile!);
                 //do{try moc.save()}
                 //catch{print("fail :)")}
@@ -52,7 +52,13 @@ struct ProfileEdit: View {
         .frame(maxHeight: UIScreen.screenHeight/2)
         .padding(.trailing)
         .onAppear{
-            print(editingProfile)
+            //print(editingProfile)
         }
+    }
+    func changeValuesOfExistingProfile(){
+        modelData.editedProfile!.name = name
+    }
+    func makeNewProfile(){
+        modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), alwaysPermament: true)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
+//consider name change
 class ModelData: ObservableObject{
     @Published var inspectedProfile: Profile?
     @Published var inspectingSelf = false
@@ -22,4 +23,5 @@ class ModelData: ObservableObject{
     @Published var savedGames: Array<Game> = []
     @Published var container = NSPersistentContainer(name: "tracker")
     @Published var nameOfEditedProfile: String?
+    @Published var avaiablePlayers: Array<Profile> = []
 }

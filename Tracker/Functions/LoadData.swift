@@ -15,7 +15,7 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
         try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
         //modelData.profiles = fetchedData
         //modelData.profiles = try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
-        print(fetchedData)
+        //print(fetchedData)
     }
     catch {
         print("rip")
@@ -34,7 +34,7 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
         try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
         //modelData.profiles = fetchedData
         //modelData.profiles = try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
-        print(fetchedData)
+        //print(fetchedData)
     }
     catch {
         print("rip2")
