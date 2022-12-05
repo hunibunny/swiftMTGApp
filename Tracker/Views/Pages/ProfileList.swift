@@ -24,7 +24,7 @@ struct ProfileList: View {
             GeometryReader{geometry in
             ScrollView{
                 ForEach(0..<modelData.profiles.count, id: \.self){index in
-                    if(modelData.profiles[index].permament){
+                    if(modelData.profiles[index].alwaysPermament){
                         ZStack{
                             RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                                 .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))

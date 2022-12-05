@@ -14,27 +14,32 @@ class Profile: NSManagedObject{
     var specialDamage = 0
     var userId = "hehe"
     var id = UUID().uuidString
-   
+    var topUIColor: UIColor?;
+    var bottomUIColor: UIColor?;
     
     convenience init(name: String, topColor: UIColor, bottomColor: UIColor, alwaysPermament: Bool, moc: NSManagedObjectContext) {
         self.init(entity: NSEntityDescription.entity(forEntityName: "ProfileData", in: moc)!, insertInto: moc)
         self.specialDamage =  0
         self.userId = "hehe"
         self.id = UUID().uuidString
-        self.bottomColor = bottomColor
-        self.topColor = topColor
+        self.bottomUIColor = bottomColor;
+        self.topUIColor = topColor;
         self.name = name
         self.alwaysPermament = alwaysPermament
         self.permament = alwaysPermament ? true : false
 
     }
-    
-    func returnTopColor()->UIColor{
-        return self.topColor as! UIColor
+    /*
+    func returnTopUIColor()->UIColor{
+        return self.topUIColor!
     }
     
-    func returnBottomColor()->UIColor{
-        return self.bottomColor as! UIColor
+    func returnBottomUIColor()->UIColor{
+        return self.bottomUIColor!
     }
+     */
 
 }
+
+// convert to data NSData *theData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor blackColor]];
+// convert to UIColor UIColor *theColor = (UIColor *)[NSKeyedUnarchiver unarchiveObjectWithData:theData];

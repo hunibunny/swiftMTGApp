@@ -14,10 +14,10 @@
     </entity>
     <entity name="ProfileData" representedClassName=".Profile" syncable="YES" codeGenerationType="category">
         <attribute name="alwaysPermament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="bottomColor" optional="YES" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
+        <attribute name="bottomColor" optional="YES" attributeType="Binary" valueTransformerName="UIColorValueTransformer"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="permament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="topColor" optional="YES" attributeType="Transformable" valueTransformerName="UIColorValueTransformer"/>
+        <attribute name="topColor" optional="YES" attributeType="Binary" valueTransformerName="UIColorValueTransformer"/>
         <relationship name="partOfAGame" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameData" inverseName="profilesPartOfGame" inverseEntity="GameData"/>
     </entity>
 </model>
