@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B5FA124293E5B5800F2D32A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5FA123293E5B5800F2D32A /* Data.swift */; };
+		5B5FA126293E69EB00F2D32A /* GameSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5FA125293E69EB00F2D32A /* GameSetUp.swift */; };
 		5B65F76828EB214C005DEBD4 /* TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76728EB214C005DEBD4 /* TrackerApp.swift */; };
 		5B65F76A28EB214C005DEBD4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76928EB214C005DEBD4 /* Persistence.swift */; };
 		5B65F76F28EB214C005DEBD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76E28EB214C005DEBD4 /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		5B5FA123293E5B5800F2D32A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5B5FA125293E69EB00F2D32A /* GameSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetUp.swift; sourceTree = "<group>"; };
 		5B65F76428EB214C005DEBD4 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B65F76728EB214C005DEBD4 /* TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerApp.swift; sourceTree = "<group>"; };
 		5B65F76928EB214C005DEBD4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				5B65F79D28EB24A7005DEBD4 /* LoadData.swift */,
 				5B65F79F28EB24B9005DEBD4 /* CustomShapes.swift */,
 				5BDEE114290AAE6000C4BBCA /* SaveGame.swift */,
+				5B5FA125293E69EB00F2D32A /* GameSetUp.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5FA126293E69EB00F2D32A /* GameSetUp.swift in Sources */,
 				5BB48F3B28EB60FE00DBA454 /* tracker.xcdatamodeld in Sources */,
 				5B65F79428EB2425005DEBD4 /* CustomButton.swift in Sources */,
 				5B65F78328EB2366005DEBD4 /* ViewController.swift in Sources */,

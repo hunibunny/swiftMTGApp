@@ -51,7 +51,7 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
         try moc.fetch(NSFetchRequest(entityName: "GameData"))
         //modelData.profiles = fetchedData
         //modelData.profiles = try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
-        print(fetchedData)
+        //print(fetchedData)
     }
     catch {
         print("rip")
@@ -59,6 +59,9 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
     return fetchedData
 }
 
+func loadHealthPointsOfGame(){
+    
+}
 
 func loadPlayersOfGame(gameToGetPlayersFrom: Game  , moc: NSManagedObjectContext)-> Array<Profile> {
     let fetchedData: Array<Profile> = profileSetToArray(listToChange: gameToGetPlayersFrom.profilesPartOfGame as! Set<Profile>)

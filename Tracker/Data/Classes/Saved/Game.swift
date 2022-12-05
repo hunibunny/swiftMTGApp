@@ -34,6 +34,7 @@ class Game: NSManagedObject{
         //self.playerArray = (profileSetToArray(listToChange: players))
         self.format = format ?? "No format"
         self.ammountOfPlayers = ammountOfPlayers
+        //self.hpArray =
         
     }
 }

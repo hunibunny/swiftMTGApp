@@ -9,34 +9,19 @@
 import SwiftUI
 import CoreData
 
-//lisaa niin etta kaikilla voi olla eri hp :)
-
-func startGame(gameName: String, ammountOfPlayers: Int, maxHp: Double, hpArray: Array<String>? = nil, format: String, chosenPlayers: chosenProfiles, moc: NSManagedObjectContext)->Game{
-    //print(ammountOfPlayers)
-    chosenPlayers.fillToLength(fillTo: Int(ammountOfPlayers), moc: moc)
-    let newGame = createNewGame(name: gameName, moc: moc, players: chosenPlayers.returnChosenPlayers(), hp:maxHp, hpArray: hpArray, format: format)
-    //
-    //modelData.currentGame!.playerArray = chosenPlayers.returnChosenPlayers()
-    //modelData.currentGame!.players = chosenPlayers.returnChosenPlayers()
-    //print(newGame)
-    //print(newGame.playerArray)
-    //print(newGame.playerArray?.count)
-    return newGame
-}
-
 
 
 struct TrackerSetUp: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
     @State var showingAlert = false
-    @State var maxHp = 0
+    @State var maxHp: Double = 0
     @State var alert = ""
     @State var chosenPlayers = chosenProfiles()
     @State var twoPlayersChosen = false
     @State var threePlayersChosen = false
     @State var fourPlayersChosen = false
-    @State var ammountOfPlayers = 0
+    @State var ammountOfPlayers: Int = 0
     @State var format: String? = nil
     @State var gameName: String? = ""
     var body: some View {
@@ -81,7 +66,7 @@ struct TrackerSetUp: View {
                 Button("Pauper", action: {format = "Pauper"})
             }
             
-            Menu(String(maxHp)){
+            Menu(String(Int(maxHp))){
                 Button("10", action: {maxHp = 10})
                 Button("20", action: {maxHp = 20})
                 Button("30", action: {maxHp = 30})
@@ -90,8 +75,16 @@ struct TrackerSetUp: View {
             Button("Start the game"){
                 if(ammountOfPlayers > 0 && maxHp != 0){
                     //need to set up new game with settings from here :)
-                    modelData.currentGame = startGame(gameName: gameName ?? "Unnamed", ammountOfPlayers: ammountOfPlayers, maxHp: Double(maxHp), format: format ?? "no format", chosenPlayers: chosenPlayers, moc: moc)
-                    modelData.currentGame?.ammountOfPlayers = Double(ammountOfPlayers)
+                    chosenPlayers.fillToLength(fillTo: ammountOfPlayers, moc: moc)
+                    if moc.hasChanges{
+                        try! moc.save()
+                    }
+                    var hpArray : Array<HealthPoint> = []
+                    for index in 0..<ammountOfPlayers{
+                        hpArray.append(createNewHealthPoint(hp: maxHp, player: chosenPlayers.returnChosenPlayers()[index], game: modelData.currentGame!, moc: moc))
+                    }
+                    modelData.currentGame = newGame(gameName: gameName ?? "Unnamed", ammountOfPlayers: ammountOfPlayers, maxHp: Double(maxHp),format: format ?? "no format", chosenPlayers: chosenPlayers, moc: moc)
+                    //modelData.currentGame?.ammountOfPlayers = Double(ammountOfPlayers)
                     modelData.viewRouter.currentPage = .counterView
                     
                 }

@@ -29,7 +29,7 @@ struct ChosenProfile: View {
                                 modelData.avaiablePlayers.append(lastPlayer!)
                             }
                         }
-                        print(modelData.avaiablePlayers.count)
+                        //print(modelData.avaiablePlayers.count)
                         lastPlayer = profile
                     }, label: {
                         Text(profile.name ?? "waaaaa")
