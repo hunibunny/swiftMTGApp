@@ -14,16 +14,14 @@ class Profile: NSManagedObject{
     var specialDamage = 0
     var userId = "hehe"
     var id = UUID().uuidString
-    var topUIColor: UIColor?;
-    var bottomUIColor: UIColor?;
-    
+
     convenience init(name: String, topColor: UIColor, bottomColor: UIColor, alwaysPermament: Bool, moc: NSManagedObjectContext) {
         self.init(entity: NSEntityDescription.entity(forEntityName: "ProfileData", in: moc)!, insertInto: moc)
         self.specialDamage =  0
         self.userId = "hehe"
         self.id = UUID().uuidString
-        self.bottomUIColor = bottomColor;
-        self.topUIColor = topColor;
+        self.bottomDataColor = bottomColor.encode;
+        self.topDataColor = topColor.encode;
         self.name = name
         self.alwaysPermament = alwaysPermament
         self.permament = alwaysPermament ? true : false

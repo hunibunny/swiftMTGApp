@@ -30,4 +30,7 @@ extension UIColor{
             alpha: 1
         )
     }
+    var encode: Data{
+        return try! NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
+    }
 }
