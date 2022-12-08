@@ -26,19 +26,13 @@ func createNewGame(name: String? = "Unnamed Game", moc: NSManagedObjectContext, 
     for player in players{
         playerSet.insert(player)
         hpSet.insert(HealthPoint(hp: hp, player: player, moc: moc))
-        //print("set here")
-        //print(hpSet)
-        //player.hp = Int32(hp ?? hpArray![round])!
         round += 1
     }
 
     newGame.addToProfilesPartOfGame(playerSet as NSSet)
     newGame.addToHpsPartOfGame(hpSet as NSSet)
     newGame.hpArray = healthPointSetToArray(listToChange: newGame.hpsPartOfGame as! Set<HealthPoint>)
-    //try! moc.save()
     newGame.playerArray = profileSetToArray(listToChange: newGame.profilesPartOfGame as! Set<Profile>)
-    //print("array lenght")
-    //newGame.playerArray?[0].returnColors()
     return newGame
 }
 

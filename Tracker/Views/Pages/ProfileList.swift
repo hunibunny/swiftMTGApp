@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 //geometry reader here too
-
+//could do so that make new profile when making new here instead of in the other one so not so much difference between editing and creating but it's not super important
 struct ProfileList: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
@@ -33,13 +33,8 @@ struct ProfileList: View {
                                 Spacer()
                                 Button("Edit"){
                                     modelData.inspectedProfile = modelData.profiles[index]
-                                    //profileInspected = modelData.profiles[index]
                                     modelData.editedProfile = modelData.profiles[index]
                                     modelData.editingProfile = true
-                                    //modelData.nameOfEditedProfile = modelData.editedProfile.name
-                                    //print("editing profile")
-                                    //print(modelData.editedProfile!.topColor)
-                                        //  print(modelData.editedProfile.topData)
                                     modelData.viewRouter.currentPage = .profileEdit
                                 }
                                 .defaultStyling()
@@ -78,8 +73,6 @@ struct ProfileList: View {
             .padding(.leading, nil)
             .padding(.trailing, nil)
             Button("Add a profile", action:{
-                //let newProfile = createNewProfile(name: "New Profile", moc: moc, isSaved: false)
-                //modelData.editedProfile = newProfile
                 modelData.editingProfile = false
                 modelData.viewRouter.currentPage = .profileEdit})
                     .defaultStyling(paddingAmmount: 0)

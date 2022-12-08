@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-extension Array {
-    var lastest: Any {
-        return self[self.endIndex - 1]
-    }
-}
-
+//make it so that new is created already earlier and this just changes the saving and display
 struct ProfileEdit: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
@@ -40,9 +35,7 @@ struct ProfileEdit: View {
             }
             Button("Save", action:{
                 modelData.editingProfile ? changeValuesOfExistingProfile() : makeNewProfile()
-                modelData.profiles.append(modelData.editedProfile);
-                //do{try moc.save()}
-                //catch{print("fail :)")}
+                modelData.profiles.append(modelData.editedProfile)
                 modelData.viewRouter.currentPage = .profileList;
             }).defaultStyling()
             
@@ -51,12 +44,10 @@ struct ProfileEdit: View {
         }
         .frame(maxHeight: UIScreen.screenHeight/2)
         .padding(.trailing)
-        .onAppear{
-            //print(editingProfile)
-        }
     }
     func changeValuesOfExistingProfile(){
         modelData.editedProfile.name = name
+        //ok this is playway
     }
     func makeNewProfile(){
         modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), alwaysPermament: true)

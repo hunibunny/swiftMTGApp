@@ -18,8 +18,6 @@ enum Page: CaseIterable{
     case gameList
 }
 
-
-
 struct ViewRouter{
     var currentPage: Page = .menuView
     var numberOfPages = Page.allCases.count

@@ -21,7 +21,6 @@ class chosenProfiles{
         let index = Int(avaiblePlayers.firstIndex(of: toAdd)!)
         toReturn.remove(at: index)
         chosenPlayers.append(toAdd)
-        //print("added \(toAdd)")
         return toReturn
     }
     
@@ -30,7 +29,6 @@ class chosenProfiles{
         toReturn.append(toRemove)
         let index = Int(chosenPlayers.firstIndex(of: toRemove)!)
         chosenPlayers.remove(at: index)
-        //print("removed \(toRemove) from \(String(describing: index))")
         return toReturn
     }
     
@@ -45,13 +43,10 @@ class chosenProfiles{
     
     func fillToLength(fillTo: Int, moc: NSManagedObjectContext){
         let rounds = fillTo-chosenPlayers.count
-        //print(chosenPlayers.count)
         if rounds > 0{
             for i in 1...rounds{
                 let newProfile = createNewProfile(name: "Guest \(i)", moc: moc, alwaysPermament: false)
                 chosenPlayers.append(newProfile)
-                //print("Added \(i):st quest")
-                print("added")
             }
         }
     }

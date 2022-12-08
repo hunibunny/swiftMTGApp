@@ -8,8 +8,7 @@
 import SwiftUI
 
 
-
-//redo this :)
+//redo this maube?
 struct ScreenButton: View {
     @EnvironmentObject var modelData: ModelData
     let rotation: Double

@@ -9,8 +9,6 @@ import SwiftUI
 import CoreData
 
 class Profile: NSManagedObject{
-    //var topColor = UIColor.green
-    //var bottomColor = UIColor.blue
     var specialDamage = 0
     var userId = "hehe"
     var id = UUID().uuidString
@@ -30,17 +28,5 @@ class Profile: NSManagedObject{
         self.alwaysPermament = alwaysPermament
         self.permament = true
     }
-    /*
-    func returnTopUIColor()->UIColor{
-        return self.topUIColor!
-    }
-    
-    func returnBottomUIColor()->UIColor{
-        return self.bottomUIColor!
-    }
-     */
-
 }
 
-// convert to data NSData *theData = [NSKeyedArchiver archivedDataWithRootObject:[UIColor blackColor]];
-// convert to UIColor UIColor *theColor = (UIColor *)[NSKeyedUnarchiver unarchiveObjectWithData:theData];

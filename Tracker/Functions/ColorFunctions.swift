@@ -19,8 +19,5 @@ func averageColor(topColor: UIColor, bottomColor: UIColor) -> UIColor{
     let averageBlue = (topColor.components.blue + bottomColor.components.blue)/2
     let averageAlpha = (topColor.components.alpha + bottomColor.components.alpha)/2
     let averageColor = UIColor(red: averageRed, green: averageGreen, blue: averageBlue, alpha: averageAlpha)
-    //print("average color here ")
-    //print( averageColor)
-    //print("success")
     return averageColor
 }

@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 import CoreData
 
+//hello?
+
 class AppDelegate: NSObject, UIApplicationDelegate {
 
     

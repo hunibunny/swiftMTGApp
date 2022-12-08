@@ -25,10 +25,8 @@ struct GameList: View {
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack(spacing: 0){
                             Text(modelData.savedGames[index].gameName ?? "Unnamed Game").padding()
-                                //.fixedSize(horizontal: true, vertical: true)
                             Spacer()
                             Button("Continue"){
-                                //print(modelData.savedGames.count )
                                 modelData.currentGame = modelData.savedGames[index]
                                 modelData.viewRouter.currentPage = .counterView
                             }
