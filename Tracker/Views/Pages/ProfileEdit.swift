@@ -40,7 +40,7 @@ struct ProfileEdit: View {
             }
             Button("Save", action:{
                 modelData.editingProfile ? changeValuesOfExistingProfile() : makeNewProfile()
-                modelData.profiles.append(modelData.editedProfile!);
+                modelData.profiles.append(modelData.editedProfile);
                 //do{try moc.save()}
                 //catch{print("fail :)")}
                 modelData.viewRouter.currentPage = .profileList;
@@ -56,7 +56,7 @@ struct ProfileEdit: View {
         }
     }
     func changeValuesOfExistingProfile(){
-        modelData.editedProfile!.name = name
+        modelData.editedProfile.name = name
     }
     func makeNewProfile(){
         modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), alwaysPermament: true)

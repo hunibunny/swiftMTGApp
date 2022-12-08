@@ -34,7 +34,12 @@ struct ContentView: View {
         case .counterView:
             CounterView()
         case .profileEdit:
-            ProfileEdit(chosenTopColor: convertUIColor(uiColor: UIColor.random), chosenBottomColor: convertUIColor(uiColor: UIColor.random), name: modelData.nameOfEditedProfile,editedProfile: modelData.editedProfile, editingProfile: modelData.editingProfile)
+            ProfileEdit(
+                chosenTopColor: modelData.editingProfile ? convertUIColor(uiColor:(modelData.editedProfile.topDataColor!.color)) : convertUIColor(uiColor: UIColor.random),
+                chosenBottomColor: modelData.editingProfile ? convertUIColor(uiColor:(modelData.editedProfile.bottomDataColor!.color)) : convertUIColor(uiColor: UIColor.random),
+                name: modelData.editingProfile ? modelData.editedProfile.name : nil,
+                editedProfile: modelData.editedProfile,
+                editingProfile: modelData.editingProfile)
                 //.environment(\.managedObjectContext, moc)
         case .profileList:
             ProfileList()

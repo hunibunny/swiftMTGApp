@@ -36,9 +36,10 @@ struct ProfileList: View {
                                     //profileInspected = modelData.profiles[index]
                                     modelData.editedProfile = modelData.profiles[index]
                                     modelData.editingProfile = true
-                                    modelData.nameOfEditedProfile = modelData.editedProfile!.name
+                                    //modelData.nameOfEditedProfile = modelData.editedProfile.name
                                     //print("editing profile")
                                     //print(modelData.editedProfile!.topColor)
+                                        //  print(modelData.editedProfile.topData)
                                     modelData.viewRouter.currentPage = .profileEdit
                                 }
                                 .defaultStyling()
@@ -80,7 +81,6 @@ struct ProfileList: View {
                 //let newProfile = createNewProfile(name: "New Profile", moc: moc, isSaved: false)
                 //modelData.editedProfile = newProfile
                 modelData.editingProfile = false
-                modelData.nameOfEditedProfile = nil
                 modelData.viewRouter.currentPage = .profileEdit})
                     .defaultStyling(paddingAmmount: 0)
             Button("Back", action:{modelData.viewRouter.currentPage = .menuView}).defaultStyling()

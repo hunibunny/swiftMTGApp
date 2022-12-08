@@ -18,10 +18,9 @@ class ModelData: ObservableObject{
     @Published var showDices = false
     @Published var currentGame: Game?
     @Published var profiles: Array<Profile> = []
-    @Published var editedProfile: Profile?
+    @Published var editedProfile: Profile = Profile();
     @Published var editingProfile = false
     @Published var savedGames: Array<Game> = []
     @Published var container = NSPersistentContainer(name: "tracker")
-    @Published var nameOfEditedProfile: String?
     @Published var avaiablePlayers: Array<Profile> = []
 }
