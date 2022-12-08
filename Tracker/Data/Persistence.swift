@@ -30,6 +30,21 @@ struct PersistenceController {
     }()
 
     let container: NSPersistentContainer
+    /*
+     private static var persistentContainer: NSPersistentContainer = {
+                 let container = NSPersistentContainer(name: "CDOriEPS")
+                 container.loadPersistentStores { description, error in
+                     if let error = error {
+                          fatalError("Unable to load persistent stores: \(error)")
+                     }
+                 }
+                 return container
+             }()
+         
+         var context: NSManagedObjectContext {
+             return Self.persistentContainer.viewContext
+         }
+    */
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "tracker")
@@ -54,4 +69,9 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+    /*
+    var context: NSManagedObjectContext {
+        return Self.shared.viewContext
+    }
+     */
 }

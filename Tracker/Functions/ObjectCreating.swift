@@ -25,7 +25,7 @@ func createNewGame(name: String? = "Unnamed Game", moc: NSManagedObjectContext, 
     var round = 0
     for player in players{
         playerSet.insert(player)
-        //hpSet.insert(createNewHealthPoint(hp: hp , owner: player, moc: moc))
+        hpSet.insert(HealthPoint(hp: hp, player: player, moc: moc))
         //print("set here")
         //print(hpSet)
         //player.hp = Int32(hp ?? hpArray![round])!
@@ -42,7 +42,3 @@ func createNewGame(name: String? = "Unnamed Game", moc: NSManagedObjectContext, 
     return newGame
 }
 
-func createNewHealthPoint(hp: Double, player: Profile, moc: NSManagedObjectContext)->HealthPoint{
-    let newHealthPoint = HealthPoint()
-    return newHealthPoint
-}

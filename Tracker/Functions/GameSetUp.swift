@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 //lisaa niin etta kaikilla voi olla eri hp :)
+//mitä vittua :D
 /*
 func startGame(gameName: String, ammountOfPlayers: Int, maxHp: Double, hpArray: Array<HealthPoint>, format: String, chosenPlayers: chosenProfiles, moc: NSManagedObjectContext)->Game{
     //print(ammountOfPlayers)

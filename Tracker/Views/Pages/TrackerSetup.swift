@@ -76,14 +76,12 @@ struct TrackerSetUp: View {
                 if(ammountOfPlayers > 0 && maxHp != 0){
                     //need to set up new game with settings from here :)
                     chosenPlayers.fillToLength(fillTo: ammountOfPlayers, moc: moc)
-                    if moc.hasChanges{
-                        try! moc.save()
-                    }
                     var hpArray : Array<HealthPoint> = []
                     for index in 0..<ammountOfPlayers{
-                        hpArray.append(createNewHealthPoint(hp: maxHp, player: chosenPlayers.returnChosenPlayers()[index], game: modelData.currentGame!, moc: moc))
+                        hpArray.append(HealthPoint(hp: maxHp, player: chosenPlayers.returnChosenPlayers()[index], moc: moc))
                     }
-                    modelData.currentGame = newGame(gameName: gameName ?? "Unnamed", ammountOfPlayers: ammountOfPlayers, maxHp: Double(maxHp),format: format ?? "no format", chosenPlayers: chosenPlayers, moc: moc)
+                    modelData.currentGame = createNewGame(moc: moc, players: chosenPlayers.returnChosenPlayers(), hp: maxHp, hpArray: hpArray, format: format)
+                    //modelData.currentGame = createNewGame(gameName: gameName ?? "Unnamed", ammountOfPlayers: ammountOfPlayers, maxHp: Double(maxHp),format: format ?? "no format", chosenPlayers: chosenPlayers, moc: moc)
                     //modelData.currentGame?.ammountOfPlayers = Double(ammountOfPlayers)
                     modelData.viewRouter.currentPage = .counterView
                     

@@ -24,8 +24,7 @@ class Profile: NSManagedObject{
         self.topDataColor = topColor.encode;
         self.name = name
         self.alwaysPermament = alwaysPermament
-        self.permament = alwaysPermament ? true : false
-
+        self.permament = true
     }
     /*
     func returnTopUIColor()->UIColor{

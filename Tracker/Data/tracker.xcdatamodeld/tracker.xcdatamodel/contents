@@ -4,12 +4,13 @@
         <attribute name="ammountOfPlayers" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="format" optional="YES" attributeType="String"/>
         <attribute name="gameName" optional="YES" attributeType="String"/>
-        <relationship name="hpsPartOfGame" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HealthPointData"/>
+        <relationship name="hpsPartOfGame" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HealthPointData" inverseName="gamePartOf" inverseEntity="HealthPointData"/>
         <relationship name="profilesPartOfGame" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProfileData" inverseName="partOfAGame" inverseEntity="ProfileData"/>
     </entity>
     <entity name="HealthPointData" representedClassName=".HealthPoint" syncable="YES" codeGenerationType="category">
         <attribute name="hp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="player" optional="YES" attributeType="Transformable"/>
+        <relationship name="gamePartOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameData" inverseName="hpsPartOfGame" inverseEntity="GameData"/>
+        <relationship name="playerOwner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProfileData" inverseName="hpOf" inverseEntity="ProfileData"/>
     </entity>
     <entity name="ProfileData" representedClassName=".Profile" syncable="YES" codeGenerationType="category">
         <attribute name="alwaysPermament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -17,6 +18,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="permament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="topDataColor" optional="YES" attributeType="Binary" valueTransformerName="UIColorValueTransformer"/>
+        <relationship name="hpOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HealthPointData" inverseName="playerOwner" inverseEntity="HealthPointData"/>
         <relationship name="partOfAGame" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameData" inverseName="profilesPartOfGame" inverseEntity="GameData"/>
     </entity>
 </model>
