@@ -15,7 +15,6 @@ struct ProfileList: View {
     @EnvironmentObject var modelData: ModelData
     @State var showingAlert = false
     @State var itemNumberToDelete = 0
-    @State var profileInspected = ModelData().inspectedProfile
     @State var itemToDelete: Profile? = nil
     @State var gamesOfDeletedProfile = []
     @State var inGame = false
@@ -32,7 +31,6 @@ struct ProfileList: View {
                                 Text(modelData.profiles[index].name ?? "no name found").padding()
                                 Spacer()
                                 Button("Edit"){
-                                    modelData.inspectedProfile = modelData.profiles[index]
                                     modelData.editedProfile = modelData.profiles[index]
                                     modelData.editingProfile = true
                                     modelData.viewRouter.currentPage = .profileEdit
@@ -73,7 +71,8 @@ struct ProfileList: View {
             .padding(.leading, nil)
             .padding(.trailing, nil)
             Button("Add a profile", action:{
-                modelData.editingProfile = false
+                modelData.editingProfile = true
+                modelData.editedProfile = createNewProfile(name: nil, moc: moc)
                 modelData.viewRouter.currentPage = .profileEdit})
                     .defaultStyling(paddingAmmount: 0)
             Button("Back", action:{modelData.viewRouter.currentPage = .menuView}).defaultStyling()

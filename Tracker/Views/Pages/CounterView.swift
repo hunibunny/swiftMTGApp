@@ -71,7 +71,7 @@ struct CounterView: View {
             
             Button("Menu", action:{showCounterViewMenu = !showCounterViewMenu; modelData.showDices = false}).defaultStyling()
                .frame(alignment: .center)
-               .border(Color(.red))
+               //.border(Color(.red))
         }
     }
 }

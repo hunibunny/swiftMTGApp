@@ -11,10 +11,7 @@ import CoreData
 
 //consider name change
 class ModelData: ObservableObject{
-    @Published var inspectedProfile: Profile?
-    @Published var inspectingSelf = false
     @Published var viewRouter = ViewRouter()
-    @Published var sizesOfViews = []
     @Published var showDices = false
     @Published var currentGame: Game?
     @Published var profiles: Array<Profile> = []

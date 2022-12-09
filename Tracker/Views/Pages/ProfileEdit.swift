@@ -34,8 +34,11 @@ struct ProfileEdit: View {
                 ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
             }
             Button("Save", action:{
-                modelData.editingProfile ? changeValuesOfExistingProfile() : makeNewProfile()
-                modelData.profiles.append(modelData.editedProfile)
+                changeProfileValues()
+                //if(!modelData.editingProfile){
+                  //  modelData.profiles.append(modelData.editedProfile)
+                    //try! moc.save();
+               // }
                 modelData.viewRouter.currentPage = .profileList;
             }).defaultStyling()
             
@@ -45,11 +48,18 @@ struct ProfileEdit: View {
         .frame(maxHeight: UIScreen.screenHeight/2)
         .padding(.trailing)
     }
-    func changeValuesOfExistingProfile(){
+    func changeProfileValues(){
         modelData.editedProfile.name = name
+        modelData.editedProfile.bottomUIColor = UIColor(chosenBottomColor);
+        modelData.editedProfile.topDataColor = UIColor(chosenTopColor).encode;
+        modelData.editedProfile.topUIColor = UIColor(chosenTopColor);
+        modelData.editedProfile.bottomDataColor = UIColor(chosenBottomColor).encode;
+        modelData.editedProfile.alwaysPermament = true;
         //ok this is playway
     }
+    /*
     func makeNewProfile(){
         modelData.editedProfile = createNewProfile(name: name, moc: moc, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), alwaysPermament: true)
     }
+     */
 }

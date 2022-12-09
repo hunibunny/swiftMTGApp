@@ -31,10 +31,13 @@ struct ContentView: View {
                 name: modelData.editingProfile ? modelData.editedProfile.name : nil,
                 editedProfile: modelData.editedProfile,
                 editingProfile: modelData.editingProfile)
-        case .profileList:
+        case .profileList:            
             ProfileList()
                 .onAppear{
                     modelData.profiles = loadProfileData(moc: moc)
+                    modelData.profiles.sort{
+                        $0.name?.localizedStandardCompare($1.name ?? "No Name") == .orderedAscending;
+                    }
                 }
         case .gameList:
             GameList()
