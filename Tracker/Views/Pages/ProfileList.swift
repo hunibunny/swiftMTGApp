@@ -17,7 +17,6 @@ struct ProfileList: View {
     @State var itemNumberToDelete = 0
     @State var itemToDelete: Profile? = nil
     @State var gamesOfDeletedProfile = []
-    @State var inGame = false
     var body: some View {
         VStack{
             GeometryReader{geometry in
@@ -42,7 +41,7 @@ struct ProfileList: View {
                                     
                                     for game in modelData.savedGames{
                                         if(game.playerArray!.contains(itemToDelete!)){
-                                            inGame = true  //what does this shit do?
+                                            //inGame = true  //what does this shit do?
                                             gamesOfDeletedProfile.append(game)
                                         }
                                     }
@@ -50,13 +49,10 @@ struct ProfileList: View {
                                 
                                 }
                                 .defaultStyling()
-                                .alert(inGame ? "This friend is part of some game(s), are you sure to delete?" : "Are you sure to delete this friend?", isPresented: $showingAlert){
+                                .alert(modelData.profiles[index].hpOf!.count > 0  ? "This profile is part of some game(s), and they will be deleted, are you sure to delete?" : "Are you sure to delete this profile?", isPresented: $showingAlert){
                                     Button("Yes", action:{
-                                        for game in gamesOfDeletedProfile{
-                                            moc.delete(game as! NSManagedObject)
-                                            try! moc.save()
-                                        }
-                                        moc.delete(itemToDelete!);try! moc.save();modelData.profiles.remove(at: itemNumberToDelete)})
+                                        var indexInList = 0;
+                                        moc.delete(itemToDelete!);try! moc.save();modelData.profiles = loadProfileData(moc: moc)})
                                         .defaultStyling()
                                     Button("No", role: .cancel){}
                                         .defaultStyling()

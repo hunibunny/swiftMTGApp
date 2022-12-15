@@ -23,6 +23,9 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
     
    for profile in fetchedData{
         if !profile.permament{
+            for hp in healthPointSetToArray(listToChange: profile.hpOf as! Set<HealthPoint>){
+                print("deleted player part of a game: " + (hp.gamePartOf?.gameName ?? "no name found"))
+            }
             moc.delete(profile)
             try! moc.save()
             
@@ -62,8 +65,23 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
     return fetchedData
 }
 
-func loadHealthPointsOfGame(){
-//for(health)
+func loadHealthPointsOfGame(moc: NSManagedObjectContext)->Array<HealthPoint>{
+    var fetchedData: Array<HealthPoint> = []
+    do {
+        fetchedData =
+        try moc.fetch(NSFetchRequest(entityName: "HealthPointData"))
+        //modelData.profiles = fetchedData
+        //modelData.profiles = try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
+        //print(fetchedData)
+        //for game in fetchedData{
+           // game. loadPlayersOfGame(gameToGetPlayersFrom: game, moc: moc)
+        //}
+    }
+    catch {
+        print("rip")
+    }
+    return fetchedData
+    
 }
 
 func loadPlayersOfGame(gameToGetPlayersFrom: Game  , moc: NSManagedObjectContext)-> Array<Profile> {

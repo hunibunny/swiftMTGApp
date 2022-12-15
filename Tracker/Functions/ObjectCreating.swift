@@ -18,13 +18,18 @@ func createNewProfile(name: String?, moc: NSManagedObjectContext, topColor: UICo
 }
 
 
-func createNewGame(name: String = "Unnamed game", moc: NSManagedObjectContext, players: Array<Profile>, hp: Double, hpArray: Array<HealthPoint>,  format: String?)->Game{
-    let newGame = Game(name: name, moc: moc, format: format, playerArray: players, hpArray: hpArray)
+func createNewGame(name: String = "Unnamed game", moc: NSManagedObjectContext, hp: Double, hpArray: Array<HealthPoint>,  format: String?)->Game{
+    var playerArray: Array<Profile> = []
+    for hp in hpArray{
+        playerArray.append(hp.playerOwner!);
+    }
+    print(name)
+    let newGame = Game(name: name, moc: moc, format: format, playerArray: playerArray, hpArray: hpArray)
     print(name)
     var playerSet: Set<Profile> = []
     var hpSet: Set<HealthPoint> = []
     var round = 0
-    for player in players{
+    for player in playerArray{
         playerSet.insert(player)
         hpSet.insert(HealthPoint(hp: hp, player: player, moc: moc))
         round += 1
