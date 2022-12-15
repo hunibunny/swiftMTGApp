@@ -33,6 +33,7 @@ struct GameList: View {
                             .defaultStyling()
                             .fixedSize(horizontal: true, vertical: true)
                             Button("Delete"){
+                                print("pressed delete")
                                 showingAlert = true
                                 itemNumberToDelete = index
                                 itemToDelete = modelData.savedGames[itemNumberToDelete]

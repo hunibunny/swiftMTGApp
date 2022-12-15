@@ -52,6 +52,9 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
         //modelData.profiles = fetchedData
         //modelData.profiles = try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
         //print(fetchedData)
+        //for game in fetchedData{
+           // game. loadPlayersOfGame(gameToGetPlayersFrom: game, moc: moc)
+        //}
     }
     catch {
         print("rip")
@@ -60,7 +63,7 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
 }
 
 func loadHealthPointsOfGame(){
-    
+//for(health)
 }
 
 func loadPlayersOfGame(gameToGetPlayersFrom: Game  , moc: NSManagedObjectContext)-> Array<Profile> {

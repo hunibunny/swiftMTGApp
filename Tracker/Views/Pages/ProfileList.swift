@@ -42,7 +42,7 @@ struct ProfileList: View {
                                     
                                     for game in modelData.savedGames{
                                         if(game.playerArray!.contains(itemToDelete!)){
-                                            inGame = true
+                                            inGame = true  //what does this shit do?
                                             gamesOfDeletedProfile.append(game)
                                         }
                                     }

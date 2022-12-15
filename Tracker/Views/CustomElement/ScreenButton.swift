@@ -20,13 +20,17 @@ struct ScreenButton: View {
     @State var changeOfBottomColors: CGFloat = 0
     
     @State private var hp: Int
+    private var index: Int
+    private var inGame : Bool
     let middleColor: UIColor
     
-    init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, hp: Int){
+    init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, hp: Int, index : Int? = 0, inGame : Bool? = false){
         self.rotation = rotation
         self.topColor = topColor
         self.bottomColor = bottomColor
         self.hp = hp
+        self.index = index!
+        self.inGame = inGame!
         self.middleColor = averageColor(topColor: self.topColor, bottomColor: self.bottomColor)
         self.idealHeight = idealHeight
         
@@ -45,7 +49,8 @@ struct ScreenButton: View {
                         ))
                         .border(Color.red)
                         .onTapGesture{
-                            hp += 1
+                            if(self.inGame){modelData.currentGame?.hpArray![index].hp += 1}
+                            self.hp += 1
                             flashTop()
                         }
                     Rectangle()
@@ -57,7 +62,9 @@ struct ScreenButton: View {
                         ))
                         .border(Color.red)
                         .onTapGesture{
-                            hp -= 1
+                            if(self.inGame){modelData.currentGame?.hpArray![index].hp -= 1}
+                            self.hp -= 1
+                            //modelData.currentGame?.hpArray![index].hp -= 1
                             flashBottom()
                         }
                 }
@@ -87,7 +94,7 @@ struct ScreenButton: View {
 
 struct ScreenButton_Previews: PreviewProvider {
     static var previews: some View {
-        ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil, hp: 10)
+        ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil, hp: 10, index: nil, inGame: false)
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-//onko tarpeellinen :D?
+//onko tarpeellinen :D? ilmesesti joo
 func saveGame(currentGame: Game, moc: NSManagedObjectContext){
     for player in currentGame.playerArray!{
         player.permament = true

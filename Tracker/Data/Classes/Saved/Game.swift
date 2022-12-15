@@ -18,16 +18,19 @@ func profileSetToArray(listToChange: Set<Profile>)->Array<Profile>{
     return returnArray
 }
 
+
+
 @objc
 class Game: NSManagedObject{
     var playerArray: Array<Profile>? = []
     var hpArray: Array<HealthPoint>? = []
     
-    convenience init(name: String? = "New game", moc: NSManagedObjectContext, format: String?){
+    convenience init(name: String, moc: NSManagedObjectContext, format: String?, playerArray : Array<Profile>, hpArray : Array<HealthPoint>){
         self.init(entity: NSEntityDescription.entity(forEntityName: "GameData", in: moc)!, insertInto: moc)
-        self.gameName = gameName ?? name
+        self.gameName = name
         self.format = format ?? "No format"
         self.ammountOfPlayers = ammountOfPlayers
-        
+        self.playerArray = playerArray
+        self.hpArray = hpArray
     }
 }

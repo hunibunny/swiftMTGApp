@@ -49,12 +49,12 @@ struct ProfileEdit: View {
         .padding(.trailing)
     }
     func changeProfileValues(){
-        modelData.editedProfile.name = name
-        modelData.editedProfile.bottomUIColor = UIColor(chosenBottomColor);
-        modelData.editedProfile.topDataColor = UIColor(chosenTopColor).encode;
-        modelData.editedProfile.topUIColor = UIColor(chosenTopColor);
-        modelData.editedProfile.bottomDataColor = UIColor(chosenBottomColor).encode;
-        modelData.editedProfile.alwaysPermament = true;
+        modelData.editedProfile!.name = name
+        modelData.editedProfile!.bottomUIColor = UIColor(chosenBottomColor);
+        modelData.editedProfile!.topDataColor = UIColor(chosenTopColor).encode;
+        modelData.editedProfile!.topUIColor = UIColor(chosenTopColor);
+        modelData.editedProfile!.bottomDataColor = UIColor(chosenBottomColor).encode;
+        modelData.editedProfile!.alwaysPermament = true;
         //ok this is playway
     }
     /*
