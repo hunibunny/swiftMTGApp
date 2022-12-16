@@ -19,15 +19,16 @@ struct GameList: View {
         VStack{
             GeometryReader{geometry in
             ScrollView{
-                ForEach(0..<modelData.savedGames.count, id: \.self){index in
+                ForEach(modelData.savedGames, id: \.self){game in
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                         HStack(spacing: 0){
-                            Text(modelData.savedGames[index].gameName ?? "Unnamed Game").padding()
+                            Text(game.gameName ?? "Unnamed Game").padding()
                             Spacer()
                             Button("Continue"){
-                                modelData.currentGame = modelData.savedGames[index]
+                                modelData.currentGame = game
+                                print(modelData.currentGame, "here")
                                 modelData.viewRouter.currentPage = .counterView
                             }
                             .defaultStyling()
@@ -35,14 +36,14 @@ struct GameList: View {
                             Button("Delete"){
                                 print("pressed delete")
                                 showingAlert = true
-                                itemNumberToDelete = index
+                                //itemNumberToDelete = index
                                 itemToDelete = modelData.savedGames[itemNumberToDelete]
                             }
                             .defaultStyling()
                             .fixedSize(horizontal: true, vertical: true)
                         
                             .alert("Do you want to delete this game?", isPresented: $showingAlert){
-                                Button("Yes", action:{modelData.savedGames.remove(at: itemNumberToDelete); moc.delete(itemToDelete!);try! moc.save();})
+                                Button("Yes", action:{moc.delete(itemToDelete!);try! moc.save(); modelData.savedGames = loadGameData(moc: moc)})
                                     .defaultStyling()
                                 Button("No", role: .cancel){}
                                     .defaultStyling()

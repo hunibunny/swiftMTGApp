@@ -21,38 +21,28 @@ struct ProfileList: View {
         VStack{
             GeometryReader{geometry in
             ScrollView{
-                ForEach(0..<modelData.profiles.count, id: \.self){index in
-                    if(modelData.profiles[index].alwaysPermament){
+                ForEach(modelData.profiles, id: \.self){profile in
+                    if(profile.alwaysPermament){
                         ZStack{
                             RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                                 .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
                             HStack{
-                                Text(modelData.profiles[index].name ?? "no name found").padding()
+                                Text(profile.name ?? "no name found").padding()
                                 Spacer()
                                 Button("Edit"){
-                                    modelData.editedProfile = modelData.profiles[index]
+                                    modelData.editedProfile = profile
                                     modelData.editingProfile = true
                                     modelData.viewRouter.currentPage = .profileEdit
                                 }
                                 .defaultStyling()
                                 Button("Delete"){
-                                    itemNumberToDelete = index
-                                    itemToDelete = modelData.profiles[itemNumberToDelete]
-                                    
-                                    for game in modelData.savedGames{
-                                        if(game.playerArray!.contains(itemToDelete!)){
-                                            //inGame = true  //what does this shit do?
-                                            gamesOfDeletedProfile.append(game)
-                                        }
-                                    }
                                     showingAlert = true
                                 
                                 }
                                 .defaultStyling()
-                                .alert(modelData.profiles[index].hpOf!.count > 0  ? "This profile is part of some game(s), and they will be deleted, are you sure to delete?" : "Are you sure to delete this profile?", isPresented: $showingAlert){
+                                .alert(profile.hpOf!.count > 0  ? "This profile is part of some game(s), and they will be deleted, are you sure to delete?" : "Are you sure to delete this profile?", isPresented: $showingAlert){
                                     Button("Yes", action:{
-                                        var indexInList = 0;
-                                        moc.delete(itemToDelete!);try! moc.save();modelData.profiles = loadProfileData(moc: moc)})
+                                        moc.delete(profile);try! moc.save();modelData.profiles = loadProfileData(moc: moc)})
                                         .defaultStyling()
                                     Button("No", role: .cancel){}
                                         .defaultStyling()

@@ -38,6 +38,7 @@
 		5B6944D029467218008F9F13 /* SaveHealthPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6944CF29467218008F9F13 /* SaveHealthPoint.swift */; };
 		5B8717F028EB2BE900833D8B /* CounterViewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8717EF28EB2BE900833D8B /* CounterViewMenu.swift */; };
 		5B8717F228EB307900833D8B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8717F128EB307900833D8B /* ViewModel.swift */; };
+		5BAB835B294C6D440075D09F /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB835A294C6D440075D09F /* CustomFont.swift */; };
 		5BB48F3728EB4B4E00DBA454 /* HealthPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */; };
 		5BB48F3A28EB55D400DBA454 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB48F3928EB55D400DBA454 /* DataTransformer.swift */; };
 		5BB48F3B28EB60FE00DBA454 /* tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76B28EB214C005DEBD4 /* tracker.xcdatamodeld */; };
@@ -79,6 +80,7 @@
 		5B6944CF29467218008F9F13 /* SaveHealthPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveHealthPoint.swift; sourceTree = "<group>"; };
 		5B8717EF28EB2BE900833D8B /* CounterViewMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewMenu.swift; sourceTree = "<group>"; };
 		5B8717F128EB307900833D8B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5BAB835A294C6D440075D09F /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPoint.swift; sourceTree = "<group>"; };
 		5BB48F3928EB55D400DBA454 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
 		5BDEE114290AAE6000C4BBCA /* SaveGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGame.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				5B65F7B128EB25BF005DEBD4 /* DiceView.swift */,
 				5B65F7B528EB25F1005DEBD4 /* ScreenButton.swift */,
 				5B8717EF28EB2BE900833D8B /* CounterViewMenu.swift */,
+				5BAB835A294C6D440075D09F /* CustomFont.swift */,
 			);
 			path = CustomElement;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BAB835B294C6D440075D09F /* CustomFont.swift in Sources */,
 				5BB48F3B28EB60FE00DBA454 /* tracker.xcdatamodeld in Sources */,
 				5B65F79428EB2425005DEBD4 /* CustomButton.swift in Sources */,
 				5B65F78328EB2366005DEBD4 /* ViewController.swift in Sources */,
