@@ -47,7 +47,6 @@ struct ScreenButton: View {
                             startPoint: UnitPoint(x: 0.5, y: 0),
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         ))
-                        .border(Color.red)
                         .onTapGesture{
                             if(self.inGame){modelData.currentGame?.hpArray![index].hp += 1}
                             self.hp += 1
@@ -60,7 +59,6 @@ struct ScreenButton: View {
                             startPoint: UnitPoint(x: 0.5, y: 0),
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         ))
-                        .border(Color.red)
                         .onTapGesture{
                             if(self.inGame){modelData.currentGame?.hpArray![index].hp -= 1}
                             self.hp -= 1
