@@ -30,7 +30,7 @@ struct ProfileEdit: View {
                     ColorPicker("Bottom color:", selection: $chosenBottomColor, supportsOpacity: false)
                         .padding(.leading)
                 }
-                ScreenButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, hp: 20)
+                CounterButton(rotation: 0, topColor: UIColor(chosenTopColor), bottomColor: UIColor(chosenBottomColor), idealHeight: idealHeight, localHp: 20)
             }
             Button("Save", action:{
                 changeProfileValues()

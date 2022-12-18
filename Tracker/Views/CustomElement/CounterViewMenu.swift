@@ -17,7 +17,7 @@ struct CounterViewMenu: View {
             .ignoresSafeArea()
         VStack{
             HStack(){
-                Button("Go back to menu", action: {saveGame(currentGame: modelData.currentGame!, moc: moc);modelData.viewRouter.currentPage = .menuView})
+                Button("Go back to menu", action: {saveGame(currentGame: modelData.currentGame!, moc: moc); try! moc.save(); modelData.viewRouter.currentPage = .menuView})
                     .defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
                 Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.currentGame?.playerArray?.randomElement()?.name ?? "No players to choose from"})

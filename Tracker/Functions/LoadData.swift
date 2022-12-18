@@ -53,17 +53,25 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
         print("rip")
     }
     for game in fetchedData{
-        print(healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>).count)
+        //print(healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>).count)
         if healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>).count > 0{
             for healthPoint in healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>){
                 game.hpArray?.append(healthPoint)
             }
-            game.hpArray! = (game.hpArray?.sorted(by: {$0.playerNumber > $1.playerNumber}))!
+            game.hpArray! = (game.hpArray?.sorted(by: {$0.playerNumber < $1.playerNumber}))!
             for healthPoint in game.hpArray!{
                 game.playerArray?.append(healthPoint.playerOwner!)
             }
+            for index in 0..<game.hpArray!.count{
+                print("here")
+                print(game.hpArray?[index].hp)
+                print(game.hpArray?[index].playerOwner)
+            }
+            try! moc.save()
         }
     }
+   
+    
     do {
         fetchedData =
         try moc.fetch(NSFetchRequest(entityName: "GameData"))
