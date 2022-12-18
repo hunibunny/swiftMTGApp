@@ -39,7 +39,7 @@ struct ProfileList: View {
                                 
                                 }
                                 .defaultStyling()
-                                .alert(profile.hpOf!.count > 0  ? "This profile is part of some game(s), and they will be deleted, are you sure to delete?" : "Are you sure to delete this profile?", isPresented: $showingAlert){
+                                .alert(profile.hpInGame!.count > 0  ? "This profile is part of some game(s), and they will be deleted, are you sure to delete?" : "Are you sure to delete this profile?", isPresented: $showingAlert){
                                     Button("Yes", action:{
                                         moc.delete(profile);try! moc.save();modelData.profiles = loadProfileData(moc: moc); modelData.savedGames = loadGameData(moc: moc)})
                                         .defaultStyling()

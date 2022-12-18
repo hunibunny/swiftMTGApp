@@ -22,7 +22,7 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
     
    for profile in fetchedData{
         if !profile.permament{
-            for hp in healthPointSetToArray(listToChange: profile.hpOf as! Set<HealthPoint>){
+            for hp in healthPointSetToArray(listToChange: profile.hpInGame as! Set<HealthPoint>){
                 print("deleted player part of a game: " + (hp.gamePartOf?.gameName ?? "no name found"))
             }
             moc.delete(profile)
