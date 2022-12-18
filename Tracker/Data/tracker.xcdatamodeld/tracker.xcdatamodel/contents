@@ -5,7 +5,6 @@
         <attribute name="format" optional="YES" attributeType="String"/>
         <attribute name="gameName" optional="YES" attributeType="String"/>
         <relationship name="hpsPartOfGame" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HealthPointData" inverseName="gamePartOf" inverseEntity="HealthPointData"/>
-        <relationship name="profilesPartOfGame" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="ProfileData" inverseName="partOfAGame" inverseEntity="ProfileData"/>
     </entity>
     <entity name="HealthPointData" representedClassName=".HealthPoint" syncable="YES" codeGenerationType="category">
         <attribute name="hp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -20,6 +19,5 @@
         <attribute name="permament" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="topDataColor" optional="YES" attributeType="Binary" valueTransformerName="UIColorValueTransformer"/>
         <relationship name="hpOf" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HealthPointData" inverseName="playerOwner" inverseEntity="HealthPointData"/>
-        <relationship name="partOfAGame" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="GameData" inverseName="profilesPartOfGame" inverseEntity="GameData"/>
     </entity>
 </model>

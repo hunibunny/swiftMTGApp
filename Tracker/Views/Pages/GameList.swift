@@ -39,7 +39,7 @@ struct GameList: View {
                             .fixedSize(horizontal: true, vertical: true)
                         
                             .alert("Do you want to delete this game?", isPresented: $showingAlert){
-                                Button("Yes", action:{print("pressed delete");
+                                Button("Yes", action:{
                                     moc.delete(itemToDelete!);
                                     try! moc.save();
                                     modelData.savedGames = loadGameData(moc: moc)})

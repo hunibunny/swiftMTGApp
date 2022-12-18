@@ -28,7 +28,6 @@ func createNewGame(name: String = "New Game", maxHp: Double, moc: NSManagedObjec
         playerArray.append(hp.playerOwner!);
     }
     let newGame = Game(name: name, moc: moc, format: format, playerArray: playerArray, hpArray: hpArray)
-    newGame.addToProfilesPartOfGame(Set(playerArray) as! NSSet)
     newGame.addToHpsPartOfGame(Set(hpArray) as! NSSet)
     return newGame
 }

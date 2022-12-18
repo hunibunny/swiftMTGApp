@@ -37,7 +37,7 @@ struct CounterViewMenu: View {
                             .padding()
                     }
                 }
-                Button("Automatic save on", action:{print("save the game"); try! moc.save()}).defaultStyling()
+                Button("Automatic save on", action:{try! moc.save()}).defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
             }
         }
