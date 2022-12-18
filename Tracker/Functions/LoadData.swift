@@ -17,7 +17,7 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
         try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
     }
     catch {
-        print("rip")
+        print("profile data load failed")
     }
     
    for profile in fetchedData{
@@ -36,7 +36,7 @@ func loadProfileData(moc: NSManagedObjectContext)->Array<Profile>{
         try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
     }
     catch {
-        print("rip2")
+        print("profile data load failed")
     }
     
     return fetchedData
@@ -50,10 +50,10 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
         try moc.fetch(NSFetchRequest(entityName: "GameData"))
     }
     catch {
-        print("rip")
+        print("game data load failed")
     }
-    for game in fetchedData{
-        //print(healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>).count)
+    for index in 0..<fetchedData.count{
+        let game = fetchedData[index]
         if healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>).count > 0{
             for healthPoint in healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>){
                 game.hpArray?.append(healthPoint)
@@ -61,11 +61,6 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
             game.hpArray! = (game.hpArray?.sorted(by: {$0.playerNumber < $1.playerNumber}))!
             for healthPoint in game.hpArray!{
                 game.playerArray?.append(healthPoint.playerOwner!)
-            }
-            for index in 0..<game.hpArray!.count{
-                print("here")
-                print(game.hpArray?[index].hp)
-                print(game.hpArray?[index].playerOwner)
             }
             try! moc.save()
         }
@@ -77,7 +72,7 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
         try moc.fetch(NSFetchRequest(entityName: "GameData"))
     }
     catch {
-        print("rip")
+        print("game data load failed")
     }
     return fetchedData
 }
@@ -89,7 +84,7 @@ func loadHealthPointsOfGame(moc: NSManagedObjectContext)->Array<HealthPoint>{
         try moc.fetch(NSFetchRequest(entityName: "HealthPointData"))
     }
     catch {
-        print("rip")
+        print("game data load failed")
     }
     return fetchedData
     

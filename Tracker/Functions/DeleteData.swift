@@ -15,7 +15,7 @@ func deleteAllProfiles(moc: NSManagedObjectContext){
         try moc.fetch(NSFetchRequest(entityName: "ProfileData"))
     }
     catch{
-        print("bruh")
+        print("delete profiles failed")
     }
     for profile in profiles{
         moc.delete(profile)
@@ -29,7 +29,7 @@ func deleteAllGames(moc: NSManagedObjectContext){
         try moc.fetch(NSFetchRequest(entityName: "GameData"))
     }
     catch{
-        print("bruh")
+        print("deleting all games failed")
     }
   
     for profile in profiles{
@@ -44,7 +44,7 @@ func deleteAllHealthPoints(moc: NSManagedObjectContext){
         try moc.fetch(NSFetchRequest(entityName: "HealthPointData"))
     }
     catch{
-        print("bruh")
+        print("delete all healthpoints")
     }
 
     for profile in profiles{

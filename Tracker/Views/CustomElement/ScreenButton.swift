@@ -8,28 +8,29 @@
 import SwiftUI
 
 
-struct CounterButton: View {
+struct ScreenButton: View {
     @EnvironmentObject var modelData: ModelData
+    
     let rotation: Double
     let topColor: UIColor
     let bottomColor: UIColor
     let idealHeight: CGFloat?
-    let healthPoint: HealthPoint?
     
     @State var changeOfTopColors: CGFloat = 0
     @State var changeOfBottomColors: CGFloat = 0
     @State private var hp: Int
     
+    private var index: Int
     private var inGame : Bool
     let middleColor: UIColor
     
-    init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, localHp: Int?, healthPoint : HealthPoint? = nil, inGame : Bool? = false){
+    init(rotation: Double, topColor: UIColor, bottomColor: UIColor, idealHeight: CGFloat?, hp: Int, index : Int? = 0, inGame : Bool? = false){
         self.rotation = rotation
         self.topColor = topColor
         self.bottomColor = bottomColor
-        self.hp = localHp ?? Int(healthPoint?.hp ?? 10)
+        self.hp = hp
+        self.index = index!
         self.inGame = inGame!
-        self.healthPoint = healthPoint
         self.middleColor = averageColor(topColor: self.topColor, bottomColor: self.bottomColor)
         self.idealHeight = idealHeight
         
@@ -47,7 +48,7 @@ struct CounterButton: View {
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         ))
                         .onTapGesture{
-                            if(self.inGame){healthPoint?.hp += 1}
+                            if(self.inGame){modelData.currentGame?.hpArray![index].hp += 1}
                             self.hp += 1
                             flashTop()
                         }
@@ -59,7 +60,7 @@ struct CounterButton: View {
                             endPoint: UnitPoint(x: 0.5, y: 1)
                         ))
                         .onTapGesture{
-                            if(self.inGame){healthPoint?.hp -= 1}
+                            if(self.inGame){modelData.currentGame?.hpArray![index].hp -= 1}
                             self.hp -= 1
                             flashBottom()
                         }
@@ -73,18 +74,25 @@ struct CounterButton: View {
         .rotationEffect(.degrees(rotation))
         
     }
-    func flashTop(){
-        changeOfTopColors = 0.1
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
-            changeOfTopColors = 0
+        func flashTop(){
+            changeOfTopColors = 0.1
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                changeOfTopColors = 0
+            }
         }
-    }
         
-    func flashBottom(){
-        changeOfBottomColors = 0.1
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
-            changeOfBottomColors = 0
+        func flashBottom(){
+            changeOfBottomColors = 0.1
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                changeOfBottomColors = 0
+            }
         }
-    }
 }
     
+
+struct ScreenButton_Previews: PreviewProvider {
+    static var previews: some View {
+        ScreenButton(rotation: 0, topColor: UIColor.yellow, bottomColor: UIColor.black, idealHeight: nil, hp: 10, index: nil, inGame: false)
+    }
+}
+
