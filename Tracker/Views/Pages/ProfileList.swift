@@ -8,8 +8,7 @@
 import SwiftUI
 import CoreData
 
-//geometry reader here too
-//could do so that make new profile when making new here instead of in the other one so not so much difference between editing and creating but it's not super important
+
 struct ProfileList: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData

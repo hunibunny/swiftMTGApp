@@ -15,9 +15,6 @@ struct DiceView: View {
     @State private var twelveFaceDice = 12
     @State private var twentyFaceDice = 20
     @State private var round = 0
-    @State private var diceShapes = [Triangle(), Rectangle(), Triangle(), Kite(), Pentagon(), Triangle()]
-    @State private var diceNumbers = [4, 6, 8, 10, 12, 20]
-
 
     var body: some View {
         VStack{

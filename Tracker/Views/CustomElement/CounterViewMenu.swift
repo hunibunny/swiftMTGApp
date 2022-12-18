@@ -10,7 +10,7 @@ import SwiftUI
 struct CounterViewMenu: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
-    @State private var chosenRandomStarter = "Choose a random starter"
+    @State private var chosenRandomStarter = "Choose a random player"
     var body: some View {
         Rectangle()
             .foregroundColor(Color.black.opacity(0.5))

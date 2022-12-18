@@ -17,13 +17,8 @@ func deleteAllProfiles(moc: NSManagedObjectContext){
     catch{
         print("bruh")
     }
-    do{
-        for profile in profiles{
-            try moc.delete(profile)
-            }
-    }
-    catch{
-        print("bruh")
+    for profile in profiles{
+        moc.delete(profile)
     }
 }
 
@@ -36,13 +31,9 @@ func deleteAllGames(moc: NSManagedObjectContext){
     catch{
         print("bruh")
     }
-    do{
-        for profile in profiles{
-            try moc.delete(profile)
-            }
-    }
-    catch{
-        print("bruh")
+  
+    for profile in profiles{
+        moc.delete(profile)
     }
 }
 
@@ -55,13 +46,9 @@ func deleteAllHealthPoints(moc: NSManagedObjectContext){
     catch{
         print("bruh")
     }
-    do{
-        for profile in profiles{
-            try moc.delete(profile)
-            }
-    }
-    catch{
-        print("bruh")
+
+    for profile in profiles{
+        moc.delete(profile)
     }
 }
 

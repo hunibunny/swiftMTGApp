@@ -86,8 +86,3 @@ func loadHealthPointsOfGame(moc: NSManagedObjectContext)->Array<HealthPoint>{
     return fetchedData
     
 }
-
-func loadPlayersOfGame(gameToGetPlayersFrom: Game  , moc: NSManagedObjectContext)-> Array<Profile> {
-    let fetchedData: Array<Profile> = profileSetToArray(listToChange: gameToGetPlayersFrom.profilesPartOfGame as! Set<Profile>)
-    return fetchedData
-}

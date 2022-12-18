@@ -9,17 +9,6 @@ import SwiftUI
 import CoreData
 
 
-
-func profileSetToArray(listToChange: Set<Profile>)->Array<Profile>{
-    var returnArray: Array<Profile> = []
-    for player in listToChange{
-        returnArray.append(player)
-    }
-    return returnArray
-}
-
-
-
 @objc
 class Game: NSManagedObject{
     var playerArray: Array<Profile>? = []

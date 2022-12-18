@@ -15,13 +15,5 @@ extension Button{
         .dynamicTypeSize(.large)
         .foregroundColor(.white)
         .padding(.all, paddingAmmount)
-        //.padding(.leading, leadingPaddingAmmount)
-        //.padding(.trailing, trailingPaddingAmmount)
-        
-        
-        
-        // RoundedRectangle(cornerSize: CGSize(width:20, height:20))
-       // .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
-        
     }
 }

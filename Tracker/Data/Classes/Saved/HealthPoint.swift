@@ -9,14 +9,6 @@ import Foundation
 import CoreData
 
 
-func healthPointSetToArray(listToChange: Set<HealthPoint>)->Array<HealthPoint>{
-    var returnArray: Array<HealthPoint> = []
-    for hpData in listToChange{
-        returnArray.append(hpData)
-    }
-    return returnArray
-}
-
 @objc
 class HealthPoint: NSManagedObject{
     convenience init(hp: Double, player: Profile, playerNumber: Double, moc: NSManagedObjectContext){

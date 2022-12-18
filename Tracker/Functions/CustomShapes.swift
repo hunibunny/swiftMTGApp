@@ -37,7 +37,6 @@ struct Kite: Shape{
 }
 
 public struct Pentagon: Shape {
-    /// Creates a square bottomed pentagon.
     public init() {}
     
     var insetAmount: CGFloat = 0

@@ -13,26 +13,23 @@ struct ChosenProfile: View {
     @Binding var chosenPlayers: chosenProfiles
     @State var location: Int
     @State var currentPlayer: Profile?
-    @State private var buttonText = "Couldn't find the name"
+    @State private var buttonText = "Quest"
     @State var lastPlayer: Profile?
     var body: some View {
         Menu(buttonText){
             ForEach(modelData.profiles){profile in
                 if(profile.alwaysPermament && modelData.avaiablePlayers.contains(profile)){
                     Button(action: {
-                        //currentPlayer = modelData.profiles[index]
-                        buttonText = profile.name ?? "mleeeeee"
+                        buttonText = profile.name ?? "Unnamed Profile"
                         modelData.avaiablePlayers = chosenPlayers.addToChosenPlayers(toAdd: profile, avaiblePlayers: modelData.avaiablePlayers)
-                        //smodelData.objectWillChange.send()
                         if(lastPlayer != nil){
                             if(!modelData.avaiablePlayers.contains(lastPlayer!)){
                                 modelData.avaiablePlayers.append(lastPlayer!)
                             }
                         }
-                        //print(modelData.avaiablePlayers.count)
                         lastPlayer = profile
                     }, label: {
-                        Text(profile.name ?? "waaaaa")
+                        Text(profile.name ?? "Unnamed Profile")
                     })
                 }
             }

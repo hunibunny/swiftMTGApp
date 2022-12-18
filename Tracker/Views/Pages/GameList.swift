@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-//geometry reader here too
-
 struct GameList: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
@@ -28,25 +26,13 @@ struct GameList: View {
                             Text(game.gameName ?? "Unnamed Game").padding()
                             Spacer()
                             Button("Continue"){
-                                //print("continued")
                                 modelData.currentGame = game
-                                //print(modelData.currentGame, "here")
-                                //print(modelData.currentGame?.playerArray?.count)
-                                //print(modelData.currentGame?.ammountOfPlayers)
-                                //print("here")
-                                //print("contiuned")
-                                //print(modelData.currentGame)
-                                //print(healthPointSetToArray(listToChange: modelData.currentGame!.hpsPartOfGame as! Set<HealthPoint>).count)
-                                //print(profileSetToArray(listToChange: modelData.currentGame!.profilesPartOfGame as! Set<Profile>).count)
-                                //print(modelData.currentGame?.hpArray?.count)
                                 modelData.viewRouter.currentPage = .counterView
                             }
                             .defaultStyling()
                             .fixedSize(horizontal: true, vertical: true)
                             Button("Delete"){
-                                //print("pressed delete")
                                 showingAlert = true
-                                //itemNumberToDelete = index
                                 itemToDelete = modelData.savedGames[itemNumberToDelete]
                             }
                             .defaultStyling()
@@ -54,7 +40,6 @@ struct GameList: View {
                         
                             .alert("Do you want to delete this game?", isPresented: $showingAlert){
                                 Button("Yes", action:{print("pressed delete");
-                                    //crashes on button press without askingb to delete?
                                     moc.delete(itemToDelete!);
                                     try! moc.save();
                                     modelData.savedGames = loadGameData(moc: moc)})

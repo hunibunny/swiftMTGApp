@@ -34,7 +34,6 @@ struct ContentView: View {
         case .profileList:            
             ProfileList()
                 .onAppear{
-                    //deleteEverything(moc: moc)
                     modelData.profiles = loadProfileData(moc: moc)
                     modelData.profiles.sort{
                         $0.name?.localizedStandardCompare($1.name ?? "Unnamed Profile") == .orderedAscending;
@@ -43,9 +42,7 @@ struct ContentView: View {
         case .gameList:
             GameList()
                 .onAppear{
-                    //deleteAllProfiles(moc: moc)
                     modelData.savedGames = loadGameData(moc: moc)
-                    //loadHealthPointsOfGame(moc: moc)
                     modelData.savedGames.sort{
                         $0.gameName?.localizedStandardCompare($1.gameName ?? "Unnamed Game") == .orderedAscending;
                     }

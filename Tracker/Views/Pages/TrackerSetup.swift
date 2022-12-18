@@ -73,6 +73,7 @@ struct TrackerSetUp: View {
                 Button("40", action: {maxHp = 40})
             }
             Button("Start the game"){
+                gameName = (gameName == "" ? "Unnamed Game": gameName)
                 if(ammountOfPlayers > 0 && maxHp != 0){
                     chosenPlayers.fillToLength(fillTo: ammountOfPlayers, moc: moc)
                     modelData.currentGame = createNewGame(name: gameName!, maxHp: maxHp, moc: moc, playerArray: chosenPlayers.returnChosenPlayers(), format: format)

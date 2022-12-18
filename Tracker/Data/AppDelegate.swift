@@ -9,16 +9,15 @@ import Foundation
 import SwiftUI
 import CoreData
 
-//hello?
+//do i use this for somethign?
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        //print("Your code here")
         return true
     }
     
-    //Saving the context in the UIApplicationDelegate methods applicationDidEnterBackground: and applicationWillTerminate: has always been fine for me. I also save in special circumstances like a big data import or something similar.
+
 }
 

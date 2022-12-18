@@ -8,9 +8,9 @@
 import SwiftUI
 
 
-//redo this maube?
 struct ScreenButton: View {
     @EnvironmentObject var modelData: ModelData
+    
     let rotation: Double
     let topColor: UIColor
     let bottomColor: UIColor
@@ -18,8 +18,8 @@ struct ScreenButton: View {
     
     @State var changeOfTopColors: CGFloat = 0
     @State var changeOfBottomColors: CGFloat = 0
-    
     @State private var hp: Int
+    
     private var index: Int
     private var inGame : Bool
     let middleColor: UIColor
@@ -62,7 +62,6 @@ struct ScreenButton: View {
                         .onTapGesture{
                             if(self.inGame){modelData.currentGame?.hpArray![index].hp -= 1}
                             self.hp -= 1
-                            //modelData.currentGame?.hpArray![index].hp -= 1
                             flashBottom()
                         }
                 }

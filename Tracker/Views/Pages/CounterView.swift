@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-//find a way to loop this somehow if you have time :D
 struct CounterView: View {
     @EnvironmentObject var modelData: ModelData
     @State var height = 0.0
@@ -73,11 +71,6 @@ struct CounterView: View {
             
             Button("Menu", action:{showCounterViewMenu = !showCounterViewMenu; modelData.showDices = false}).defaultStyling()
                .frame(alignment: .center)
-               //.border(Color(.red))
-        }
-        .onAppear{
-            print(modelData.profiles.count)
-            print(modelData.currentGame?.playerArray?.count)
         }
     }
 }

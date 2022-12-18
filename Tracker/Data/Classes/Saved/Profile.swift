@@ -4,7 +4,8 @@
 //
 //  Created by Pirita Minkkinen on 10/3/22.
 //
-//Users/pirita/Documents/xCodes/MTGTracker/MTGTracker/Data/ProfileData.swift:    // let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.username)
+
+
 import SwiftUI
 import CoreData
 
