@@ -91,13 +91,3 @@ func loadPlayersOfGame(gameToGetPlayersFrom: Game  , moc: NSManagedObjectContext
     let fetchedData: Array<Profile> = profileSetToArray(listToChange: gameToGetPlayersFrom.profilesPartOfGame as! Set<Profile>)
     return fetchedData
 }
-
-/*
-extension Game{
-    public var players:[Profile]{
-        let set = gameToProfile as? Set<Profile> ?? []
-        return profileSetToArray(listToChange: set)
-        //set.sorted{$wrappedName < $1.wrappedName}
-    }
-}
- */

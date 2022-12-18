@@ -29,7 +29,7 @@ class Game: NSManagedObject{
         self.init(entity: NSEntityDescription.entity(forEntityName: "GameData", in: moc)!, insertInto: moc)
         self.gameName = name
         self.format = format ?? "No format"
-        self.ammountOfPlayers = ammountOfPlayers
+        self.ammountOfPlayers = Double(playerArray.count)
         self.playerArray = playerArray
         self.hpArray = hpArray
     }
