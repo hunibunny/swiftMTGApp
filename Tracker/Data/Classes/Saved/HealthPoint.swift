@@ -19,10 +19,11 @@ func healthPointSetToArray(listToChange: Set<HealthPoint>)->Array<HealthPoint>{
 
 @objc
 class HealthPoint: NSManagedObject{
-    convenience init(hp: Double, player: Profile, moc: NSManagedObjectContext){
+    convenience init(hp: Double, player: Profile, playerNumber: Double, moc: NSManagedObjectContext){
         self.init(entity: NSEntityDescription.entity(forEntityName: "HealthPointData", in: moc)!, insertInto: moc)
         self.hp = hp
         self.playerOwner = player
+        self.playerNumber = playerNumber
     }
 }
 

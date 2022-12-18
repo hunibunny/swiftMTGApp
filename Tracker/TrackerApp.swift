@@ -18,6 +18,8 @@ struct GameTrackerApp: App {
 
     var body: some Scene {
         
+    
+        //let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)

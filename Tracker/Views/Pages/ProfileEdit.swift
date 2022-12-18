@@ -16,12 +16,12 @@ struct ProfileEdit: View {
     @State var chosenBottomColor: Color
     @State private var bgColor = Color.red
     @State var idealHeight: CGFloat?
-    @State var name: String? = "New Profile"
+    @State var name: String?
     @State var editedProfile: Profile?
     @State var editingProfile: Bool
     var body: some View {
         VStack{
-            TextField("Enter name here", text: $name.toUnwrapped(defaultValue: "New Profile"))
+            TextField("New Profile", text: $name.toUnwrapped(defaultValue: ""))
                 .multilineTextAlignment(.center)
             HStack{
                 VStack{

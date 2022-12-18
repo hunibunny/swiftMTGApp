@@ -77,7 +77,7 @@ struct TrackerSetUp: View {
                     chosenPlayers.fillToLength(fillTo: ammountOfPlayers, moc: moc)
                     var hpArray : Array<HealthPoint> = []
                     for index in 0..<ammountOfPlayers{
-                        hpArray.append(HealthPoint(hp: maxHp, player: chosenPlayers.returnChosenPlayers()[index], moc: moc))
+                        hpArray.append(HealthPoint(hp: maxHp, player: chosenPlayers.returnChosenPlayers()[index], playerNumber: Double(index), moc: moc))
                     }
                     modelData.currentGame = createNewGame(name: gameName!, moc: moc, hp: maxHp, hpArray: hpArray, format: format)
                     modelData.viewRouter.currentPage = .counterView

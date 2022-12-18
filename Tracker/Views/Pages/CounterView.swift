@@ -77,7 +77,7 @@ struct CounterView: View {
         }
         .onAppear{
             print(modelData.profiles.count)
-            print(modelData.currentGame)
+            print(modelData.currentGame?.playerArray?.count)
         }
     }
 }

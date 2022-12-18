@@ -17,7 +17,7 @@ struct CounterViewMenu: View {
             .ignoresSafeArea()
         VStack{
             HStack(){
-                Button("Go back to menu", action: {saveGame(currentGame: modelData.currentGame!, moc: moc); print(modelData.savedGames.count);modelData.viewRouter.currentPage = .menuView})
+                Button("Go back to menu", action: {saveGame(currentGame: modelData.currentGame!, moc: moc);modelData.viewRouter.currentPage = .menuView})
                     .defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
                 Button(chosenRandomStarter, action:{chosenRandomStarter =  modelData.currentGame?.playerArray?.randomElement()?.name ?? "No players to choose from"})
@@ -37,7 +37,7 @@ struct CounterViewMenu: View {
                             .padding()
                     }
                 }
-                Button("Automatic save is on", action:{print("save the game"); try! moc.save()}).defaultStyling()
+                Button("Automatic save on", action:{print("save the game"); try! moc.save()}).defaultStyling()
                     .frame(maxWidth: UIScreen.screenWidth/2, maxHeight: UIScreen.screenHeight/2)
             }
         }

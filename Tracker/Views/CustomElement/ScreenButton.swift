@@ -68,6 +68,7 @@ struct ScreenButton: View {
                 }
                 Text(String(hp))
                     .foregroundColor(middleColor.components.red+middleColor.components.green+middleColor.components.blue/3 > 0.55 ? Color.black : Color.white)
+                    .scaleEffect(CGSize(width: 2.5, height: 2.5))
             }
             
         }

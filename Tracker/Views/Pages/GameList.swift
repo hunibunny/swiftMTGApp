@@ -23,18 +23,28 @@ struct GameList: View {
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width:20, height:20))
                             .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
+                            .frame(minHeight: 50)
                         HStack(spacing: 0){
                             Text(game.gameName ?? "Unnamed Game").padding()
                             Spacer()
                             Button("Continue"){
+                                //print("continued")
                                 modelData.currentGame = game
-                                print(modelData.currentGame, "here")
+                                //print(modelData.currentGame, "here")
+                                //print(modelData.currentGame?.playerArray?.count)
+                                //print(modelData.currentGame?.ammountOfPlayers)
+                                //print("here")
+                                //print("contiuned")
+                                //print(modelData.currentGame)
+                                //print(healthPointSetToArray(listToChange: modelData.currentGame!.hpsPartOfGame as! Set<HealthPoint>).count)
+                                //print(profileSetToArray(listToChange: modelData.currentGame!.profilesPartOfGame as! Set<Profile>).count)
+                                //print(modelData.currentGame?.hpArray?.count)
                                 modelData.viewRouter.currentPage = .counterView
                             }
                             .defaultStyling()
                             .fixedSize(horizontal: true, vertical: true)
                             Button("Delete"){
-                                print("pressed delete")
+                                //print("pressed delete")
                                 showingAlert = true
                                 //itemNumberToDelete = index
                                 itemToDelete = modelData.savedGames[itemNumberToDelete]
@@ -43,7 +53,11 @@ struct GameList: View {
                             .fixedSize(horizontal: true, vertical: true)
                         
                             .alert("Do you want to delete this game?", isPresented: $showingAlert){
-                                Button("Yes", action:{moc.delete(itemToDelete!);try! moc.save(); modelData.savedGames = loadGameData(moc: moc)})
+                                Button("Yes", action:{print("pressed delete");
+                                    //crashes on button press without askingb to delete?
+                                    moc.delete(itemToDelete!);
+                                    try! moc.save();
+                                    modelData.savedGames = loadGameData(moc: moc)})
                                     .defaultStyling()
                                 Button("No", role: .cancel){}
                                     .defaultStyling()
