@@ -8,10 +8,15 @@
 import Foundation
 import CoreData
 
-//onko tarpeellinen :D? ilmesesti joo
-func saveGame(currentGame: Game, moc: NSManagedObjectContext){
-    for player in currentGame.playerArray!{
+func saveGame(game: Game, moc: NSManagedObjectContext){
+    for player in game.playerArray!{
         player.permament = true
+    }
+    for hpToRemove in healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>){
+        game.removeFromHpsPartOfGame(hpToRemove)
+    }
+    for hp in game.hpArray!{
+        game.addToHpsPartOfGame(hp)
     }
     if moc.hasChanges{
         try! moc.save()

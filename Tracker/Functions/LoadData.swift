@@ -55,14 +55,19 @@ func loadGameData(moc: NSManagedObjectContext)->Array<Game>{
     for index in 0..<fetchedData.count{
         let game = fetchedData[index]
         if healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>).count > 0{
-            for healthPoint in healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>){
-                game.hpArray?.append(healthPoint)
-            }
-            game.hpArray! = (game.hpArray?.sorted(by: {$0.playerNumber < $1.playerNumber}))!
+            game.hpArray = healthPointSetToArray(listToChange: game.hpsPartOfGame as! Set<HealthPoint>)
+            game.hpArray = (game.hpArray?.sorted(by: {$0.playerNumber < $1.playerNumber}))!
             for healthPoint in game.hpArray!{
                 game.playerArray?.append(healthPoint.playerOwner!)
             }
             try! moc.save()
+            for index in 0..<game.hpArray!.count{
+                if game.hpArray?[index].playerOwner != game.playerArray![index]{
+                    print(game.hpArray)
+                    print(game.playerArray)
+                }
+            }
+            
         }
     }
    
