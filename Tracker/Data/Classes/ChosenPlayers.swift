@@ -43,7 +43,6 @@ class chosenProfiles{
     
     func fillToLength(fillTo: Int, moc: NSManagedObjectContext){
         let rounds = fillTo-chosenPlayers.count
-        //might go 1 round too much :0)
         if rounds > 0{
             for i in 1...rounds{
                 let newProfile = createNewProfile(name: "Guest \(i)", moc: moc, alwaysPermament: false)
