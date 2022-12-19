@@ -47,7 +47,7 @@ struct ProfileList: View {
                                         .defaultStyling()
                                 }
                             }
-                        }.frame(maxHeight: geometry.size.height/10)
+                        }.frame(minHeight:geometry.size.height/10, maxHeight: geometry.size.height/10)
                     }
                 }.frame(minHeight: geometry.size.height)
             }
