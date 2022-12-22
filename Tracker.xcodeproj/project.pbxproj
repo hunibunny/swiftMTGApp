@@ -40,6 +40,7 @@
 		5BAB835F294F63F50075D09F /* SetToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB835E294F63F50075D09F /* SetToArray.swift */; };
 		5BB48F3728EB4B4E00DBA454 /* HealthPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */; };
 		5BB48F3B28EB60FE00DBA454 /* tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76B28EB214C005DEBD4 /* tracker.xcdatamodeld */; };
+		5BC1DD7F295481B900278BB0 /* ScrollBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1DD7E295481B900278BB0 /* ScrollBlock.swift */; };
 		5BDEE115290AAE6000C4BBCA /* SaveGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE114290AAE6000C4BBCA /* SaveGame.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		5BAB835C294C98900075D09F /* DeleteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteData.swift; sourceTree = "<group>"; };
 		5BAB835E294F63F50075D09F /* SetToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetToArray.swift; sourceTree = "<group>"; };
 		5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPoint.swift; sourceTree = "<group>"; };
+		5BC1DD7E295481B900278BB0 /* ScrollBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBlock.swift; sourceTree = "<group>"; };
 		5BDEE114290AAE6000C4BBCA /* SaveGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 				5B65F7B128EB25BF005DEBD4 /* DiceView.swift */,
 				5B65F7B528EB25F1005DEBD4 /* CounterButton.swift */,
 				5B8717EF28EB2BE900833D8B /* CounterViewMenu.swift */,
+				5BC1DD7E295481B900278BB0 /* ScrollBlock.swift */,
 			);
 			path = CustomElement;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				5B8717F228EB307900833D8B /* ViewModel.swift in Sources */,
 				5B65F78528EB2387005DEBD4 /* Game.swift in Sources */,
 				5B65F76828EB214C005DEBD4 /* TrackerApp.swift in Sources */,
+				5BC1DD7F295481B900278BB0 /* ScrollBlock.swift in Sources */,
 				5B8717F028EB2BE900833D8B /* CounterViewMenu.swift in Sources */,
 				5B65F79028EB2401005DEBD4 /* Binding.swift in Sources */,
 				5B65F7B228EB25BF005DEBD4 /* DiceView.swift in Sources */,
