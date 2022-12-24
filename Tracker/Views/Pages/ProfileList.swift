@@ -22,7 +22,7 @@ struct ProfileList: View {
             ScrollView{
                 ForEach(modelData.profiles, id: \.self){profile in
                     if(profile.alwaysPermament){
-                        ScrollBlock(profile: profile, geometry: geometry)
+                        ProfileScrollBlock(profile: profile)
                         
                     }
                 }.frame(minHeight: geometry.size.height)

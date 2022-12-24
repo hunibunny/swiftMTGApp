@@ -18,38 +18,7 @@ struct GameList: View {
             GeometryReader{geometry in
             ScrollView{
                 ForEach(modelData.savedGames, id: \.self){game in
-                    ZStack{
-                        RoundedRectangle(cornerSize: CGSize(width:20, height:20))
-                            .foregroundColor(Color(red: 0.9, green: 0.9, blue: 0.9))
-                            .frame(minHeight: 50)
-                        HStack(spacing: 0){
-                            Text(game.gameName ?? "Unnamed Game").padding()
-                            Spacer()
-                            Button("Continue"){
-                                modelData.currentGame = game
-                                modelData.viewRouter.currentPage = .counterView
-                            }
-                            .defaultStyling()
-                            .fixedSize(horizontal: true, vertical: true)
-                            Button("Delete"){
-                                showingAlert = true
-                                itemToDelete = modelData.savedGames[itemNumberToDelete]
-                            }
-                            .defaultStyling()
-                            .fixedSize(horizontal: true, vertical: true)
-                        
-                            .alert("Do you want to delete this game?", isPresented: $showingAlert){
-                                Button("Yes", action:{
-                                    moc.delete(itemToDelete!);
-                                    try! moc.save();
-                                    modelData.savedGames = loadGameData(moc: moc)})
-                                    .defaultStyling()
-                                Button("No", role: .cancel){}
-                                    .defaultStyling()
-                            }
-                        }
-                    }.frame(maxHeight: geometry.size.height/10)
-                    
+                    GameScrollBlock(game: game)
                 }.frame(minHeight: geometry.size.height)
             }
             }

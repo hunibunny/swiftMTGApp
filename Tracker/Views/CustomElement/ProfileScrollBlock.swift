@@ -8,17 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct ScrollBlock: View {
+struct ProfileScrollBlock: View {
     @Environment(\.managedObjectContext) private var moc
     @EnvironmentObject var modelData: ModelData
     @State var profile: Profile
     @State var showingAlert = false
     @State var displaySelf = true
-    @State var displayingProfiles: Bool
     
-    init(profile: Profile, displayingProfiles: Bool) {
+    init(profile: Profile) {
         self.profile = profile
-        self.displayingProfiles = displayingProfiles
     }
     
     var body: some View{
