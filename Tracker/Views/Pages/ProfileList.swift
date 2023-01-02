@@ -19,12 +19,12 @@ struct ProfileList: View {
     var body: some View {
         VStack{
             GeometryReader{geometry in
-            ScrollView{
-                ForEach(modelData.profiles, id: \.self){profile in
-                    if(profile.alwaysPermament){
-                        ProfileScrollBlock(profile: profile)
+                ScrollView{
+                    ForEach(modelData.profiles, id: \.self){profile in
+                        if(profile.alwaysPermament){
+                            ProfileScrollBlock(profile: profile)
                         
-                    }
+                        }   
                 }.frame(minHeight: geometry.size.height)
             }
             }
