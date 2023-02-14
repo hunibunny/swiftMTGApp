@@ -15,9 +15,7 @@ struct MenuView: View {
         VStack{
             Button("Start a game", action: { modelData.viewRouter.currentPage = .trackerSetUp})
                 .defaultStyling()
-            Button("Profiles"){
-                modelData.viewRouter.currentPage = .profileList
-            }
+            Button("Profiles", action: { modelData.viewRouter.currentPage = .profileList })
             .defaultStyling()
             Button("Saved games", action:{modelData.viewRouter.currentPage = .gameList}).defaultStyling()
         }

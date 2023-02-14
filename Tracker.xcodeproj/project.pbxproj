@@ -11,7 +11,6 @@
 		5B65F76828EB214C005DEBD4 /* TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76728EB214C005DEBD4 /* TrackerApp.swift */; };
 		5B65F76A28EB214C005DEBD4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76928EB214C005DEBD4 /* Persistence.swift */; };
 		5B65F76F28EB214C005DEBD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76E28EB214C005DEBD4 /* ContentView.swift */; };
-		5B65F77128EB214D005DEBD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B65F77028EB214D005DEBD4 /* Assets.xcassets */; };
 		5B65F78328EB2366005DEBD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F78228EB2366005DEBD4 /* ViewController.swift */; };
 		5B65F78528EB2387005DEBD4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F78428EB2387005DEBD4 /* Game.swift */; };
 		5B65F78928EB23BC005DEBD4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F78828EB23BC005DEBD4 /* Profile.swift */; };
@@ -52,7 +51,6 @@
 		5B65F76928EB214C005DEBD4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5B65F76C28EB214C005DEBD4 /* tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tracker.xcdatamodel; sourceTree = "<group>"; };
 		5B65F76E28EB214C005DEBD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5B65F77028EB214D005DEBD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B65F77228EB214D005DEBD4 /* tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tracker.entitlements; sourceTree = "<group>"; };
 		5B65F78228EB2366005DEBD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B65F78428EB2387005DEBD4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -83,6 +81,7 @@
 		5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPoint.swift; sourceTree = "<group>"; };
 		5BC1DD7E295481B900278BB0 /* ProfileScrollBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScrollBlock.swift; sourceTree = "<group>"; };
 		5BC1DD80295747A300278BB0 /* GameScrollBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScrollBlock.swift; sourceTree = "<group>"; };
+		5BCB25F7299C113A0094D374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BDEE114290AAE6000C4BBCA /* SaveGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +99,7 @@
 		5B65F75B28EB214C005DEBD4 = {
 			isa = PBXGroup;
 			children = (
+				5BCB25F7299C113A0094D374 /* Assets.xcassets */,
 				5B65F76628EB214C005DEBD4 /* Tracker */,
 				5B65F76528EB214C005DEBD4 /* Products */,
 			);
@@ -117,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				5B65F76728EB214C005DEBD4 /* TrackerApp.swift */,
-				5B65F77028EB214D005DEBD4 /* Assets.xcassets */,
 				5B65F77B28EB2275005DEBD4 /* Data */,
 				5B65F77C28EB227C005DEBD4 /* Extensions */,
 				5B65F77D28EB228A005DEBD4 /* Functions */,
@@ -295,7 +294,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B65F77128EB214D005DEBD4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,12 +460,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tracker/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WJ98LV64RN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Game Tracker";
+				INFOPLIST_KEY_CFBundleDisplayName = "Life Tracker";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -477,6 +480,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
@@ -486,8 +490,10 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cardGameHealthTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = piritaminkkinen.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Profile1;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -504,12 +510,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tracker/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = WJ98LV64RN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Game Tracker";
+				INFOPLIST_KEY_CFBundleDisplayName = "Life Tracker";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -519,6 +530,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
@@ -528,8 +540,10 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cardGameHealthTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = piritaminkkinen.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Profile1;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
