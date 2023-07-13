@@ -10,7 +10,7 @@
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -59,6 +59,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5B65F76328EB214C005DEBD4"
+            BuildableName = "Tracker.app"
+            BlueprintName = "Tracker"
+            ReferencedContainer = "container:Tracker.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

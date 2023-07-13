@@ -16,16 +16,21 @@ struct GameList: View {
     var body: some View {
         VStack{
             GeometryReader{geometry in
-            ScrollView{
-                ForEach(modelData.savedGames, id: \.self){game in
-                    GameScrollBlock(game: game)
-                }.frame(minHeight: geometry.size.height)
-            }
+                ScrollView{
+                    ForEach(modelData.savedGames, id: \.self){game in
+                        GameScrollBlock(game: game)
+                    }.frame(minHeight: geometry.size.height)
+                }
+                
             }
             .frame(alignment: .center)
             .padding(.leading, nil)
             .padding(.trailing, nil)
-            Button("Back", action:{modelData.viewRouter.currentPage = .menuView}).defaultStyling()
+            GeometryReader{geometry in
+                Color.red
+                    .frame(width: geometry.frame(in: .global).width, height: geometry.frame(in: .global).height)
+                Button("Back", action:{modelData.viewRouter.currentPage = .menuView}).defaultStyling(viewSize: geometry.frame(in: .global).size)
+            }
         }
     }
 }

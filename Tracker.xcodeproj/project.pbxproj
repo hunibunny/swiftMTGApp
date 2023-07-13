@@ -37,6 +37,7 @@
 		5B8717F228EB307900833D8B /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8717F128EB307900833D8B /* ModelData.swift */; };
 		5BAB835D294C98900075D09F /* DeleteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB835C294C98900075D09F /* DeleteData.swift */; };
 		5BAB835F294F63F50075D09F /* SetToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB835E294F63F50075D09F /* SetToArray.swift */; };
+		5BB1133829C092AE0034E807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB25F7299C113A0094D374 /* Assets.xcassets */; };
 		5BB48F3728EB4B4E00DBA454 /* HealthPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */; };
 		5BB48F3B28EB60FE00DBA454 /* tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B65F76B28EB214C005DEBD4 /* tracker.xcdatamodeld */; };
 		5BC1DD7F295481B900278BB0 /* ProfileScrollBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC1DD7E295481B900278BB0 /* ProfileScrollBlock.swift */; };
@@ -81,7 +82,7 @@
 		5BB48F3628EB4B4E00DBA454 /* HealthPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPoint.swift; sourceTree = "<group>"; };
 		5BC1DD7E295481B900278BB0 /* ProfileScrollBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScrollBlock.swift; sourceTree = "<group>"; };
 		5BC1DD80295747A300278BB0 /* GameScrollBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScrollBlock.swift; sourceTree = "<group>"; };
-		5BCB25F7299C113A0094D374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BCB25F7299C113A0094D374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		5BDEE114290AAE6000C4BBCA /* SaveGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +100,6 @@
 		5B65F75B28EB214C005DEBD4 = {
 			isa = PBXGroup;
 			children = (
-				5BCB25F7299C113A0094D374 /* Assets.xcassets */,
 				5B65F76628EB214C005DEBD4 /* Tracker */,
 				5B65F76528EB214C005DEBD4 /* Products */,
 			);
@@ -116,6 +116,7 @@
 		5B65F76628EB214C005DEBD4 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				5BCB25F7299C113A0094D374 /* Assets.xcassets */,
 				5B65F76728EB214C005DEBD4 /* TrackerApp.swift */,
 				5B65F77B28EB2275005DEBD4 /* Data */,
 				5B65F77C28EB227C005DEBD4 /* Extensions */,
@@ -294,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB1133829C092AE0034E807 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -489,7 +492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = piritaminkkinen.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -509,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = tracker/tracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -539,7 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = piritaminkkinen.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
